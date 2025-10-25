@@ -109,6 +109,47 @@ function App() {
       })).sort((a, b) => (b.styleScore || 0) - (a.styleScore || 0))
     }
 
+    // 5. 의미 매칭
+    const meaningKeywords = {
+      wise: ['智', '賢', '睿', '敏', '慧'],
+      kind: ['恩', '善', '仁', '柔', '溫'],
+      strong: ['强', '健', '剛', '勇', '力'],
+      happy: ['喜', '樂', '歡', '明', '陽']
+    }
+
+    if (answers.meaning && meaningKeywords[answers.meaning]) {
+      const keywords = meaningKeywords[answers.meaning]
+      candidates = candidates.map(name => ({
+        ...name,
+        meaningScore: keywords.some(keyword => name.hanja && name.hanja.includes(keyword)) ? 5 : 0
+      })).sort((a, b) => (b.meaningScore || 0) - (a.meaningScore || 0))
+    }
+
+    // 6. 한자 선호도 필터링
+    if (answers.hanja === 'pure') {
+      // 순우리말 이름만 (한자가 '-'인 것)
+      candidates = candidates.filter(name => name.hanja === '-')
+    } else if (answers.hanja === 'required' || answers.hanja === 'preferred') {
+      // 한자 이름 우선 (한자가 있는 것)
+      candidates = candidates.filter(name => name.hanja && name.hanja !== '-')
+    }
+
+    // 7. 느낌 매칭
+    const feelingKeywords = {
+      elegant: ['雅', '媛', '瑞', '英', '賢'],
+      fresh: ['夏', '春', '新', '淸', '爽'],
+      calm: ['安', '靜', '穩', '泰', '和'],
+      bright: ['明', '陽', '光', '晴', '燦']
+    }
+
+    if (answers.feeling && feelingKeywords[answers.feeling]) {
+      const keywords = feelingKeywords[answers.feeling]
+      candidates = candidates.map(name => ({
+        ...name,
+        feelingScore: keywords.some(keyword => name.hanja && name.hanja.includes(keyword)) ? 3 : 0
+      })).sort((a, b) => (b.feelingScore || 0) - (a.feelingScore || 0))
+    }
+
     // 상위 5개 선택 (부족하면 조건을 완화해서 채우기)
     let topNames = candidates.slice(0, 5)
 
