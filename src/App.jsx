@@ -68,11 +68,14 @@ function App() {
 
     // 2. 인기도 필터링
     if (answers.popularity === 'popular') {
-      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 3)
+      // 매우 인기 있는 이름: 1-5위
+      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 5)
     } else if (answers.popularity === 'moderate') {
-      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 10)
+      // 적당히 인기 있는 이름: 6-20위
+      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] > 5 && name.ranks[2024] <= 20)
     } else if (answers.popularity === 'rare') {
-      candidates = candidates.filter(name => !name.ranks[2024] || name.ranks[2024] > 10)
+      // 희귀한 이름: 21위 이하 또는 순위권 밖
+      candidates = candidates.filter(name => !name.ranks[2024] || name.ranks[2024] > 20)
     }
 
     // 3. 발음 선호도 매칭 (간단한 규칙)
@@ -106,14 +109,34 @@ function App() {
       })).sort((a, b) => (b.styleScore || 0) - (a.styleScore || 0))
     }
 
-    // 상위 5개 선택 (부족하면 전체 목록에서 채우기)
+    // 상위 5개 선택 (부족하면 조건을 완화해서 채우기)
     let topNames = candidates.slice(0, 5)
 
-    // 5개 미만이면 전체 목록에서 추가
+    // 5개 미만이면 조건을 완화하여 추가
     if (topNames.length < 5) {
-      const remaining = nameStatistics[gender]
-        .filter(name => !topNames.find(t => t.name === name.name))
-        .slice(0, 5 - topNames.length)
+      // 인기도 조건만 제외하고 다시 필터링
+      let fallbackCandidates = [...nameStatistics[gender]]
+
+      // 글자 수 조건은 유지
+      if (answers.syllables === 'two') {
+        fallbackCandidates = fallbackCandidates.filter(name => name.name.length === 2)
+      } else if (answers.syllables === 'three') {
+        fallbackCandidates = fallbackCandidates.filter(name => name.name.length === 3)
+      }
+
+      // 이미 선택된 이름 제외
+      fallbackCandidates = fallbackCandidates.filter(name => !topNames.find(t => t.name === name.name))
+
+      // 인기도에 따라 다른 범위에서 선택
+      if (answers.popularity === 'popular') {
+        // 인기 있는 이름을 원했으면 6-15위에서 채우기
+        fallbackCandidates = fallbackCandidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 15)
+      } else if (answers.popularity === 'rare') {
+        // 희귀한 이름을 원했으면 뒤쪽 순위부터 채우기
+        fallbackCandidates = fallbackCandidates.filter(name => name.ranks[2024] && name.ranks[2024] >= 15)
+      }
+
+      const remaining = fallbackCandidates.slice(0, 5 - topNames.length)
       topNames = [...topNames, ...remaining]
     }
 
