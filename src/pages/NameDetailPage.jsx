@@ -343,7 +343,7 @@ function NameDetailPage({ onBack, initialNameData = null }) {
           .map(([year, rank]) => ({
             year: parseInt(year),
             rank,
-            count: statsData.count2024 // 실제로는 연도별 데이터가 필요
+            count: statsData.counts[year] || statsData.count2024
           }))
       } : null,
       compatibility: {
