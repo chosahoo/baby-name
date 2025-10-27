@@ -60,133 +60,289 @@ function App() {
     }, 1500)
   }
 
-  // Quiz 답변 기반 이름 추천 로직
+  // Quiz 답변 기반 이름 추천 로직 - 누적 점수 시스템
   const getRecommendedNames = (answers) => {
     // 성별에 따라 데이터 선택
     const gender = answers.gender === 'girl' || answers.gender === 'both' ? 'girl' :
                    answers.gender === 'boy' ? 'boy' : 'girl'
 
-    let candidates = [...nameStatistics[gender]]
+    // 누적 점수 시스템 초기화
+    let candidates = [...nameStatistics[gender]].map(name => ({
+      ...name,
+      totalScore: 0
+    }))
 
-    // 1. 글자 수 필터링
-    if (answers.syllables === 'two') {
-      candidates = candidates.filter(name => name.name.length === 2)
-    } else if (answers.syllables === 'three') {
-      candidates = candidates.filter(name => name.name.length === 3)
-    }
-
-    // 2. 인기도 필터링
-    if (answers.popularity === 'popular') {
-      // 매우 인기 있는 이름: 1-5위
-      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 5)
-    } else if (answers.popularity === 'moderate') {
-      // 적당히 인기 있는 이름: 6-20위
-      candidates = candidates.filter(name => name.ranks[2024] && name.ranks[2024] > 5 && name.ranks[2024] <= 20)
-    } else if (answers.popularity === 'rare') {
-      // 희귀한 이름: 21위 이하 또는 순위권 밖
-      candidates = candidates.filter(name => !name.ranks[2024] || name.ranks[2024] > 20)
-    }
-
-    // 3. 발음 선호도 매칭 (간단한 규칙)
-    if (answers.sound === 'soft') {
-      // 부드러운 발음: ㅇ, ㄴ, ㅁ 등이 들어간 이름 우선
-      candidates = candidates.map(name => ({
-        ...name,
-        score: (name.name.match(/[아은윤연유]/g) || []).length
-      })).sort((a, b) => b.score - a.score)
-    } else if (answers.sound === 'strong') {
-      // 또렷한 발음: ㅈ, ㅊ, ㅎ 등이 들어간 이름 우선
-      candidates = candidates.map(name => ({
-        ...name,
-        score: (name.name.match(/[준진현호]/g) || []).length
-      })).sort((a, b) => b.score - a.score)
-    }
-
-    // 4. 스타일 매칭
-    const styleKeywords = {
-      modern: ['서', '하', '지', '아'],
-      traditional: ['은', '정', '민', '수'],
-      unique: ['린', '유', '시', '도'],
-      simple: ['아', '윤', '준', '우']
-    }
-
-    if (answers.style && styleKeywords[answers.style]) {
-      const keywords = styleKeywords[answers.style]
-      candidates = candidates.map(name => ({
-        ...name,
-        styleScore: keywords.some(keyword => name.name.includes(keyword)) ? 10 : 0
-      })).sort((a, b) => (b.styleScore || 0) - (a.styleScore || 0))
-    }
-
-    // 5. 의미 매칭
-    const meaningKeywords = {
-      wise: ['智', '賢', '睿', '敏', '慧'],
-      kind: ['恩', '善', '仁', '柔', '溫'],
-      strong: ['强', '健', '剛', '勇', '力'],
-      happy: ['喜', '樂', '歡', '明', '陽']
-    }
-
-    if (answers.meaning && meaningKeywords[answers.meaning]) {
-      const keywords = meaningKeywords[answers.meaning]
-      candidates = candidates.map(name => ({
-        ...name,
-        meaningScore: keywords.some(keyword => name.hanja && name.hanja.includes(keyword)) ? 5 : 0
-      })).sort((a, b) => (b.meaningScore || 0) - (a.meaningScore || 0))
-    }
-
-    // 6. 한자 선호도 필터링
+    // 필수 하드 필터: 한자 선호도
     if (answers.hanja === 'pure') {
-      // 순우리말 이름만 (한자가 '-'인 것)
       candidates = candidates.filter(name => name.hanja === '-')
-    } else if (answers.hanja === 'required' || answers.hanja === 'preferred') {
-      // 한자 이름 우선 (한자가 있는 것)
+    } else if (answers.hanja === 'required') {
       candidates = candidates.filter(name => name.hanja && name.hanja !== '-')
     }
 
-    // 7. 느낌 매칭
-    const feelingKeywords = {
-      elegant: ['雅', '媛', '瑞', '英', '賢'],
-      fresh: ['夏', '春', '新', '淸', '爽'],
-      calm: ['安', '靜', '穩', '泰', '和'],
-      bright: ['明', '陽', '光', '晴', '燦']
+    // 1. 인기도 점수 (0-30점)
+    if (answers.popularity && answers.popularity !== 'any') {
+      candidates = candidates.map(name => {
+        const rank = name.ranks[2024]
+        let score = 0
+
+        if (answers.popularity === 'popular') {
+          if (rank && rank <= 10) score = 30
+          else if (rank && rank <= 20) score = 15
+        } else if (answers.popularity === 'moderate') {
+          if (rank && rank > 10 && rank <= 50) score = 30
+          else if (rank && rank > 5 && rank <= 70) score = 15
+        } else if (answers.popularity === 'rare') {
+          if (!rank || rank > 50) score = 30
+          else if (rank > 30) score = 15
+        }
+
+        return { ...name, totalScore: name.totalScore + score }
+      })
     }
 
-    if (answers.feeling && feelingKeywords[answers.feeling]) {
-      const keywords = feelingKeywords[answers.feeling]
-      candidates = candidates.map(name => ({
-        ...name,
-        feelingScore: keywords.some(keyword => name.hanja && name.hanja.includes(keyword)) ? 3 : 0
-      })).sort((a, b) => (b.feelingScore || 0) - (a.feelingScore || 0))
+    // 2. 스타일 점수 (0-25점)
+    if (answers.style && answers.style !== 'any') {
+      const styleKeywords = {
+        modern: ['서', '하', '지', '아', '민'],
+        traditional: ['은', '정', '민', '수', '영'],
+        unique: ['린', '유', '시', '도', '나'],
+        simple: ['아', '윤', '준', '우', '이']
+      }
+
+      const keywords = styleKeywords[answers.style] || []
+      candidates = candidates.map(name => {
+        const matchCount = keywords.filter(k => name.name.includes(k)).length
+        return { ...name, totalScore: name.totalScore + (matchCount * 8) }
+      })
     }
 
-    // 상위 5개 선택 (부족하면 조건을 완화해서 채우기)
+    // 3. 리듬감 점수 (0-20점)
+    if (answers.rhythm && answers.rhythm !== 'any') {
+      const rhythmPatterns = {
+        cheerful: ['아', '야', '유', '요', '이', '우'],
+        calm: ['은', '안', '온', '윤', '인', '연'],
+        balanced: ['서', '하', '지', '민', '수', '현']
+      }
+
+      const patterns = rhythmPatterns[answers.rhythm] || []
+      candidates = candidates.map(name => {
+        const matchCount = patterns.filter(p => name.name.includes(p)).length
+        return { ...name, totalScore: name.totalScore + (matchCount * 7) }
+      })
+    }
+
+    // 4. 발음 선호도 점수 (0-20점)
+    if (answers.sound && answers.sound !== 'any') {
+      const soundPatterns = {
+        soft: ['아', '은', '윤', '연', '유', '나', '라', '안'],
+        strong: ['준', '진', '현', '호', '건', '찬', '한', '석'],
+        balanced: ['서', '지', '민', '하', '수', '영', '우', '인']
+      }
+
+      const patterns = soundPatterns[answers.sound] || []
+      candidates = candidates.map(name => {
+        const matchCount = patterns.filter(p => name.name.includes(p)).length
+        return { ...name, totalScore: name.totalScore + (matchCount * 7) }
+      })
+    }
+
+    // 5. 의미 점수 (0-20점)
+    if (answers.meaning && answers.meaning !== 'any') {
+      const meaningKeywords = {
+        wise: ['智', '賢', '睿', '敏', '慧', '哲', '學'],
+        kind: ['恩', '善', '仁', '柔', '溫', '愛', '慈'],
+        strong: ['强', '健', '剛', '勇', '力', '武', '堅'],
+        bright: ['喜', '樂', '歡', '明', '陽', '晴', '煥']
+      }
+
+      const keywords = meaningKeywords[answers.meaning] || []
+      candidates = candidates.map(name => {
+        if (name.hanja && name.hanja !== '-') {
+          const hasMatch = keywords.some(k => name.hanja.includes(k))
+          return { ...name, totalScore: name.totalScore + (hasMatch ? 20 : 0) }
+        }
+        return name
+      })
+    }
+
+    // 6. 느낌 점수 (0-15점)
+    if (answers.feeling && answers.feeling !== 'any') {
+      const feelingKeywords = {
+        elegant: ['雅', '媛', '瑞', '英', '賢', '淑', '麗'],
+        fresh: ['夏', '春', '新', '淸', '爽', '晨', '露'],
+        calm: ['安', '靜', '穩', '泰', '和', '恬', '寧'],
+        bright: ['明', '陽', '光', '晴', '燦', '煥', '輝']
+      }
+
+      const keywords = feelingKeywords[answers.feeling] || []
+      candidates = candidates.map(name => {
+        if (name.hanja && name.hanja !== '-') {
+          const hasMatch = keywords.some(k => name.hanja.includes(k))
+          return { ...name, totalScore: name.totalScore + (hasMatch ? 15 : 0) }
+        }
+        return name
+      })
+    }
+
+    // 7. 첫소리 점수 (0-25점)
+    if (answers.firstSound && answers.firstSound !== 'any') {
+      const initialConsonants = {
+        'ㄱ': ['가', '고', '구', '기', '거', '게', '규', '경', '건', '겸'],
+        'ㄴ': ['나', '노', '누', '니', '너', '네', '나', '남'],
+        'ㄷ': ['다', '도', '두', '디', '더', '데', '동', '단'],
+        'ㄹ': ['라', '로', '루', '리', '러', '레', '란', '림'],
+        'ㅁ': ['마', '모', '무', '미', '머', '메', '민', '명'],
+        'ㅂ': ['바', '보', '부', '비', '버', '베', '범', '빈'],
+        'ㅅ': ['사', '소', '수', '시', '서', '세', '승', '선'],
+        'ㅇ': ['아', '오', '우', '이', '어', '에', '은', '영', '연', '윤'],
+        'ㅈ': ['자', '조', '주', '지', '저', '제', '준', '진', '정'],
+        'ㅎ': ['하', '호', '후', '히', '허', '혜', '현', '한']
+      }
+
+      const initials = initialConsonants[answers.firstSound] || []
+      candidates = candidates.map(name => {
+        const hasMatch = initials.some(init => name.name.startsWith(init))
+        return { ...name, totalScore: name.totalScore + (hasMatch ? 25 : 0) }
+      })
+    }
+
+    // 8. 끝소리 점수 (0-15점)
+    if (answers.lastSound && answers.lastSound !== 'any') {
+      candidates = candidates.map(name => {
+        const lastName = name.name[name.name.length - 1]
+        let score = 0
+
+        if (answers.lastSound === 'none') {
+          // 받침없는 글자: 아, 오, 우, 이, 에, 애, 여, 요, 유, 예, 야, 와, 워, 위, 의, 외
+          if (['아', '오', '우', '이', '에', '애', '여', '요', '유', '예', '야', '와', '워', '위', '의', '외'].includes(lastName)) {
+            score = 15
+          }
+        } else if (answers.lastSound === 'ㄴ') {
+          // ㄴ받침: 안, 은, 인, 연, 윤, 현, 선, 진, 민, 준, 건, 헌
+          if (['안', '은', '인', '연', '윤', '현', '선', '진', '민', '준', '건', '헌', '경', '영'].includes(lastName)) {
+            score = 15
+          }
+        } else if (answers.lastSound === 'ㅇ') {
+          // ㅇ받침: 강, 명, 영, 정, 성, 경, 형, 승, 웅
+          if (['강', '명', '영', '정', '성', '경', '형', '승', '웅', '창', '광'].includes(lastName)) {
+            score = 15
+          }
+        }
+
+        return { ...name, totalScore: name.totalScore + score }
+      })
+    }
+
+    // 9. 계절 느낌 점수 (0-12점)
+    if (answers.season && answers.season !== 'any') {
+      const seasonKeywords = {
+        spring: ['春', '花', '芽', '綠', '新', '柔', '봄', '하', '나', '꽃'],
+        summer: ['夏', '陽', '海', '明', '燦', '여름', '해', '빛', '찬'],
+        autumn: ['秋', '月', '淸', '靜', '가을', '달', '은', '서'],
+        winter: ['冬', '雪', '白', '淨', '겨울', '눈', '설', '하얀']
+      }
+
+      const keywords = seasonKeywords[answers.season] || []
+      candidates = candidates.map(name => {
+        const nameMatch = keywords.filter(k => k.length === 1 && name.name.includes(k)).length
+        const hanjaMatch = name.hanja && name.hanja !== '-' &&
+                          keywords.some(k => k.length > 1 && name.hanja.includes(k))
+        return { ...name, totalScore: name.totalScore + (nameMatch * 6) + (hanjaMatch ? 12 : 0) }
+      })
+    }
+
+    // 10. 자연 연상 점수 (0-12점)
+    if (answers.nature && answers.nature !== 'any') {
+      const natureKeywords = {
+        sky: ['天', '空', '雲', '星', '하늘', '구름', '별', '하', '하늘'],
+        sea: ['海', '水', '波', '洋', '바다', '물', '파도', '해', '수'],
+        mountain: ['山', '岳', '峰', '石', '산', '봉', '석', '산'],
+        flower: ['花', '蘭', '梅', '菊', '꽃', '란', '매', '국', '화']
+      }
+
+      const keywords = natureKeywords[answers.nature] || []
+      candidates = candidates.map(name => {
+        const nameMatch = keywords.filter(k => k.length === 1 && name.name.includes(k)).length
+        const hanjaMatch = name.hanja && name.hanja !== '-' &&
+                          keywords.some(k => k.length > 1 && name.hanja.includes(k))
+        return { ...name, totalScore: name.totalScore + (nameMatch * 6) + (hanjaMatch ? 12 : 0) }
+      })
+    }
+
+    // 11. 색감 점수 (0-10점)
+    if (answers.color && answers.color !== 'any') {
+      const colorKeywords = {
+        bright: ['白', '明', '淸', '晴', '光', '하얀', '밝은', '빛'],
+        dark: ['黑', '暗', '玄', '深', '검은', '어두운', '깊은'],
+        neutral: ['灰', '素', '淡', '和', '회색', '베이지', '중간']
+      }
+
+      const keywords = colorKeywords[answers.color] || []
+      candidates = candidates.map(name => {
+        const hanjaMatch = name.hanja && name.hanja !== '-' &&
+                          keywords.some(k => k.length > 1 && name.hanja.includes(k))
+        return { ...name, totalScore: name.totalScore + (hanjaMatch ? 10 : 0) }
+      })
+    }
+
+    // 12. 발음 우선도 점수 (0-15점)
+    if (answers.pronunciation && answers.pronunciation !== 'any') {
+      candidates = candidates.map(name => {
+        let score = 0
+
+        if (answers.pronunciation === 'easy') {
+          // 2글자 이름이거나 흔한 패턴
+          if (name.name.length === 2) score = 15
+          else if (['아', '우', '이', '서', '하', '지'].some(p => name.name.includes(p))) score = 8
+        } else if (answers.pronunciation === 'unique') {
+          // 3글자 이상이거나 특별한 조합
+          if (name.name.length >= 3) score = 15
+          else if (['린', '시', '도', '나'].some(p => name.name.includes(p))) score = 8
+        } else if (answers.pronunciation === 'standard') {
+          // 받침 있는 정확한 발음
+          const lastName = name.name[name.name.length - 1]
+          if (['은', '안', '인', '영', '정', '민'].includes(lastName)) score = 15
+        }
+
+        return { ...name, totalScore: name.totalScore + score }
+      })
+    }
+
+    // 13. 이미지 타입 점수 (0-18점)
+    if (answers.imageType && answers.imageType !== 'any') {
+      const imageKeywords = {
+        cute: ['아', '유', '나', '이', '요', '愛', '可', '童'],
+        cool: ['준', '한', '진', '혁', '剛', '强', '武', '冷'],
+        gentle: ['은', '서', '연', '온', '柔', '溫', '恬', '淑'],
+        energetic: ['찬', '빛', '하', '활', '活', '明', '煥', '陽']
+      }
+
+      const keywords = imageKeywords[answers.imageType] || []
+      candidates = candidates.map(name => {
+        const nameMatch = keywords.filter(k => k.length === 1 && name.name.includes(k)).length
+        const hanjaMatch = name.hanja && name.hanja !== '-' &&
+                          keywords.some(k => k.length > 1 && name.hanja.includes(k))
+        return { ...name, totalScore: name.totalScore + (nameMatch * 9) + (hanjaMatch ? 18 : 0) }
+      })
+    }
+
+    // 14. 한자 선호도 보너스 점수 (0-10점)
+    if (answers.hanja === 'preferred') {
+      candidates = candidates.map(name => {
+        const hasHanja = name.hanja && name.hanja !== '-'
+        return { ...name, totalScore: name.totalScore + (hasHanja ? 10 : 0) }
+      })
+    }
+
+    // 점수 순으로 정렬
+    candidates.sort((a, b) => b.totalScore - a.totalScore)
+
+    // 상위 5개 선택
     let topNames = candidates.slice(0, 5)
 
-    // 5개 미만이면 조건을 완화하여 추가
+    // 5개 미만이면 추가 선택 (점수 무시하고 데이터에서 랜덤)
     if (topNames.length < 5) {
-      // 인기도 조건만 제외하고 다시 필터링
-      let fallbackCandidates = [...nameStatistics[gender]]
-
-      // 글자 수 조건은 유지
-      if (answers.syllables === 'two') {
-        fallbackCandidates = fallbackCandidates.filter(name => name.name.length === 2)
-      } else if (answers.syllables === 'three') {
-        fallbackCandidates = fallbackCandidates.filter(name => name.name.length === 3)
-      }
-
-      // 이미 선택된 이름 제외
-      fallbackCandidates = fallbackCandidates.filter(name => !topNames.find(t => t.name === name.name))
-
-      // 인기도에 따라 다른 범위에서 선택
-      if (answers.popularity === 'popular') {
-        // 인기 있는 이름을 원했으면 6-15위에서 채우기
-        fallbackCandidates = fallbackCandidates.filter(name => name.ranks[2024] && name.ranks[2024] <= 15)
-      } else if (answers.popularity === 'rare') {
-        // 희귀한 이름을 원했으면 뒤쪽 순위부터 채우기
-        fallbackCandidates = fallbackCandidates.filter(name => name.ranks[2024] && name.ranks[2024] >= 15)
-      }
-
-      const remaining = fallbackCandidates.slice(0, 5 - topNames.length)
+      const remaining = candidates.slice(5, 5 + (5 - topNames.length))
       topNames = [...topNames, ...remaining]
     }
 
