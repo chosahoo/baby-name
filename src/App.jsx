@@ -47,6 +47,7 @@ function App() {
   }
 
   const completeQuiz = (answers) => {
+    console.log('Quiz completed with answers:', answers)
     setQuizAnswers(answers)
     setIsLoadingResults(true)
 
@@ -54,6 +55,7 @@ function App() {
     setTimeout(() => {
       // Quiz 답변을 기반으로 이름 추천
       const recommendedNames = getRecommendedNames(answers)
+      console.log('Recommended names:', recommendedNames)
       setSelectedNames(recommendedNames)
       setIsLoadingResults(false)
       setCurrentPage('result')
