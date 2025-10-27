@@ -18,13 +18,13 @@ function StatisticsPage({ onBack }) {
     return names
       .filter(name => name.ranks[selectedYear] !== null)
       .sort((a, b) => a.ranks[selectedYear] - b.ranks[selectedYear])
-      .slice(0, 10) // TOP 10만
+      .slice(0, 50) // TOP 50
   }
 
   const currentNames = getFilteredNames()
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         {/* 헤더 */}
         <div className="pt-4 pb-6">
@@ -81,7 +81,7 @@ function StatisticsPage({ onBack }) {
               onClick={() => setSelectedGender('girl')}
               className={`flex-1 py-2.5 rounded-xl font-medium transition-all active:scale-95 ${
                 selectedGender === 'girl'
-                  ? 'bg-[#FF6B9D] text-white shadow-md'
+                  ? 'bg-[#E8A87C] text-white shadow-md'
                   : 'bg-neutral-100 text-neutral-700'
               }`}
             >
@@ -130,13 +130,17 @@ function StatisticsPage({ onBack }) {
         {/* TOP 순위 */}
         <div className="mb-4">
           <h2 className="section-header">
-            {selectedYear === 'all' ? '2020-2024년 통합 TOP 50' : `${selectedYear}년 TOP 10`}
+            {selectedYear === 'all' ? '2020-2024년 통합 TOP 50' : `${selectedYear}년 TOP 50`}
           </h2>
           <div className="space-y-3">
             {currentNames.map((nameData, index) => {
               // 선택된 연도의 순위 및 인원수
               const displayRank = selectedYear === 'all' ? nameData.ranks[2024] : nameData.ranks[selectedYear]
-              const displayCount = selectedYear === 'all' ? nameData.count2024 : nameData.counts[selectedYear]
+
+              // 5년 통합일 때는 모든 연도의 count를 합산
+              const displayCount = selectedYear === 'all'
+                ? Object.values(nameData.counts).reduce((sum, count) => sum + (count || 0), 0)
+                : nameData.counts[selectedYear]
 
               return (
                 <div key={index} className="card fade-in">

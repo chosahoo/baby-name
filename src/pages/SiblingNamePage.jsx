@@ -119,7 +119,7 @@ function SiblingNamePage({ onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         <div className="pt-4 pb-6">
           <button
@@ -161,7 +161,7 @@ function SiblingNamePage({ onBack }) {
                       value={sibling.name}
                       onChange={(e) => updateSibling(sibling.id, e.target.value)}
                       placeholder="이름 입력"
-                      className="flex-1 px-4 py-2.5 border border-neutral-200 rounded-lg focus:border-[#FF6B9D] focus:outline-none bg-white"
+                      className="flex-1 px-4 py-2.5 border border-neutral-200 rounded-lg focus:border-[#E8A87C] focus:outline-none bg-white"
                     />
                     {siblings.length > 1 && (
                       <button
@@ -197,7 +197,7 @@ function SiblingNamePage({ onBack }) {
                     onClick={() => setNewBabyGender(option.value)}
                     className={`py-4 rounded-xl transition-all active:scale-95 ${
                       newBabyGender === option.value
-                        ? 'bg-[#FF6B9D] text-white shadow-md'
+                        ? 'bg-[#E8A87C] text-white shadow-md'
                         : 'bg-white border border-neutral-200 text-neutral-700'
                     }`}
                   >
@@ -213,7 +213,7 @@ function SiblingNamePage({ onBack }) {
             <button
               onClick={findSiblingNames}
               disabled={siblings.some(s => !s.name) || !newBabyGender}
-              className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#FF5A8C] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               형제자매 이름 추천받기 🎯
             </button>
@@ -282,7 +282,7 @@ function SiblingNamePage({ onBack }) {
               </button>
               <button
                 onClick={onBack}
-                className="flex-1 py-3 bg-[#FF6B9D] text-white rounded-xl font-bold hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                className="flex-1 py-3 bg-[#E8A87C] text-white rounded-xl font-bold hover:bg-[#D4956B] transition-colors active:scale-95"
               >
                 완료
               </button>

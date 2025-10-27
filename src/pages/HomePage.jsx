@@ -4,29 +4,55 @@ function HomePage({ onStartQuiz, onNavigate }) {
       {/* 헤더 */}
       <div className="mobile-container safe-top">
         <div className="text-center pt-8 pb-6">
-          <h1 className="text-4xl font-bold text-neutral-800 mb-2">
-            bebé name
+          <h1 className="text-4xl font-bold mb-2" style={{ color: '#E8A87C' }}>
+            bébé name
           </h1>
-          <p className="text-lg text-neutral-600">
-            우리 아기 이름 찾기 💕
+          <p className="text-lg" style={{ color: '#8B7355' }}>
+            우리 아기 이름 찾기 🍼
           </p>
         </div>
 
         {/* 메인 CTA */}
         <div className="card mb-6 fade-in">
           <h2 className="text-xl font-bold text-neutral-800 mb-2 text-center">
-            8가지 질문으로 완벽한 이름 찾기
+            AI 이름 추천
           </h2>
           <p className="text-neutral-600 text-center mb-4 text-sm">
-            간단한 질문에 답하시면 우리 아기에게<br/>
+            질문에 답하시면 우리 아기에게<br/>
             딱 맞는 이름 TOP 5를 추천해드려요
           </p>
-          <button
-            onClick={onStartQuiz}
-            className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] hover:bg-[#FF5A8C]"
-          >
-            이름 찾기 시작하기 🚀
-          </button>
+
+          <div className="space-y-3">
+            {/* 빠른 추천 */}
+            <button
+              onClick={() => onStartQuiz('simple')}
+              className="w-full py-4 text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98]"
+              style={{ backgroundColor: '#E8A87C' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#D4956B'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#E8A87C'}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span>⚡</span>
+                <span>빠른 추천</span>
+              </div>
+              <p className="text-xs mt-1 opacity-90">5가지 질문 · 3분 소요</p>
+            </button>
+
+            {/* 맞춤 추천 */}
+            <button
+              onClick={() => onStartQuiz('detailed')}
+              className="w-full py-4 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] text-white"
+              style={{ backgroundColor: '#C9A98E' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#B89880'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A98E'}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <span>✨</span>
+                <span>맞춤 추천</span>
+              </div>
+              <p className="text-xs mt-1 opacity-90">15가지 질문 · 10분 소요</p>
+            </button>
+          </div>
         </div>
 
         {/* 메인 기능 */}

@@ -1,9 +1,96 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ShareModal from '../components/ShareModal'
+import { useAuth } from '../contexts/AuthContext'
+import { db } from '../firebase'
+import {
+  collection,
+  addDoc,
+  deleteDoc,
+  getDocs,
+  query,
+  where,
+  doc
+} from 'firebase/firestore'
 
 function ResultPage({ names, onBack, onNavigate }) {
+  const { user } = useAuth()
   const [shareModalOpen, setShareModalOpen] = useState(false)
   const [selectedNameForShare, setSelectedNameForShare] = useState(null)
+  const [savedNames, setSavedNames] = useState([])
+
+  useEffect(() => {
+    loadSavedNames()
+  }, [user])
+
+  const loadSavedNames = async () => {
+    if (user) {
+      // Firestore에서 불러오기
+      try {
+        const q = query(
+          collection(db, 'savedNames'),
+          where('userId', '==', user.uid)
+        )
+        const querySnapshot = await getDocs(q)
+        const names = []
+        querySnapshot.forEach((doc) => {
+          names.push({ id: doc.id, ...doc.data() })
+        })
+        setSavedNames(names)
+      } catch (error) {
+        console.error('저장된 이름 불러오기 실패:', error)
+      }
+    } else {
+      // localStorage에서 불러오기
+      const saved = JSON.parse(localStorage.getItem('savedNames') || '[]')
+      setSavedNames(saved)
+    }
+  }
+
+  const toggleSave = async (name) => {
+    const isSaved = isNameSaved(name)
+
+    if (user) {
+      // Firestore 사용
+      if (isSaved) {
+        // 삭제
+        const savedName = savedNames.find(s => s.name === name.name)
+        if (savedName && savedName.id) {
+          try {
+            await deleteDoc(doc(db, 'savedNames', savedName.id))
+            await loadSavedNames()
+          } catch (error) {
+            console.error('삭제 실패:', error)
+          }
+        }
+      } else {
+        // 추가
+        try {
+          await addDoc(collection(db, 'savedNames'), {
+            userId: user.uid,
+            ...name,
+            createdAt: new Date()
+          })
+          await loadSavedNames()
+        } catch (error) {
+          console.error('저장 실패:', error)
+        }
+      }
+    } else {
+      // localStorage 사용
+      let updated
+      if (isSaved) {
+        updated = savedNames.filter(s => s.name !== name.name)
+      } else {
+        updated = [...savedNames, name]
+      }
+      setSavedNames(updated)
+      localStorage.setItem('savedNames', JSON.stringify(updated))
+    }
+  }
+
+  const isNameSaved = (name) => {
+    return savedNames.some(s => s.name === name.name)
+  }
 
   const handleShare = (nameData) => {
     setSelectedNameForShare(nameData)
@@ -11,7 +98,7 @@ function ResultPage({ names, onBack, onNavigate }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         {/* 헤더 */}
         <div className="pt-4 pb-6">
@@ -37,7 +124,11 @@ function ResultPage({ names, onBack, onNavigate }) {
         {/* 결과 리스트 */}
         <div className="space-y-4 mb-6">
           {names.map((name, index) => (
-            <div key={index} className="card fade-in">
+            <div
+              key={index}
+              className="card stagger-item"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="flex items-start gap-4 mb-4">
                 <div className="flex-shrink-0">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl ${
@@ -76,6 +167,16 @@ function ResultPage({ names, onBack, onNavigate }) {
 
               <div className="flex gap-2">
                 <button
+                  onClick={() => toggleSave(name)}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all active:scale-95 ${
+                    isNameSaved(name)
+                      ? 'bg-red-100 text-red-600'
+                      : 'bg-neutral-100 text-neutral-600'
+                  }`}
+                >
+                  {isNameSaved(name) ? '❤️' : '🤍'}
+                </button>
+                <button
                   onClick={() => onNavigate('name-detail', name)}
                   className="flex-1 py-2.5 bg-neutral-100 rounded-xl text-sm font-medium text-neutral-800 hover:bg-neutral-200 transition-colors active:scale-95"
                 >
@@ -83,9 +184,9 @@ function ResultPage({ names, onBack, onNavigate }) {
                 </button>
                 <button
                   onClick={() => handleShare(name)}
-                  className="flex-1 py-2.5 bg-[#FF6B9D] rounded-xl text-sm font-medium text-white hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                  className="flex-1 py-2.5 bg-[#E8A87C] rounded-xl text-sm font-medium text-white hover:bg-[#D4956B] transition-colors active:scale-95"
                 >
-                  공유하기
+                  공유
                 </button>
               </div>
             </div>

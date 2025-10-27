@@ -1,0 +1,3070 @@
+  {
+    name: '은준',
+    hanja: '恩峻',
+    meaning: '은준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '도빈',
+    hanja: '道彬',
+    meaning: '도빈의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '아인',
+    hanja: '雅人',
+    meaning: '아인의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '리온',
+    hanja: '-',
+    meaning: '용기있는',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '은재',
+    hanja: '恩在',
+    meaning: '은재의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '주한',
+    hanja: '周翰',
+    meaning: '주한의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 203 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 93 },
+    count2024: 93,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '준수',
+    hanja: '俊秀',
+    meaning: '준수의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 209 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 92 },
+    count2024: 92,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '다원',
+    hanja: '多源',
+    meaning: '다원의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 210 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 91 },
+    count2024: 91,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '승윤',
+    hanja: '承允',
+    meaning: '승윤의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 210 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 91 },
+    count2024: 91,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '선재',
+    hanja: '璿在',
+    meaning: '선재의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 210 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 91 },
+    count2024: 91,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '승민',
+    hanja: '承民',
+    meaning: '승민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 213 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 90 },
+    count2024: 90,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '세현',
+    hanja: '世賢',
+    meaning: '세현의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 214 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 89 },
+    count2024: 89,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '이건',
+    hanja: '理健',
+    meaning: '이건의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 215 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 88 },
+    count2024: 88,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '시하',
+    hanja: '時夏',
+    meaning: '시하의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 215 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 88 },
+    count2024: 88,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '동하',
+    hanja: '東夏',
+    meaning: '동하의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 217 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 87 },
+    count2024: 87,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '준혁',
+    hanja: '俊赫',
+    meaning: '준혁의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 218 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 85 },
+    count2024: 85,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '우찬',
+    hanja: '祐燦',
+    meaning: '우찬의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 218 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 85 },
+    count2024: 85,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '승원',
+    hanja: '承遠',
+    meaning: '승원의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 218 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 85 },
+    count2024: 85,
+    percentage: '0.07',
+    trend: 'stable'
+  },
+  {
+    name: '준후',
+    hanja: '俊候',
+    meaning: '준후의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 221 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 84 },
+    count2024: 84,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '지성',
+    hanja: '志聖',
+    meaning: '지성의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 221 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 84 },
+    count2024: 84,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '유호',
+    hanja: '有鎬',
+    meaning: '유호의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 223 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 83 },
+    count2024: 83,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '태현',
+    hanja: '泰賢',
+    meaning: '태현의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 223 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 83 },
+    count2024: 83,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '태온',
+    hanja: '泰溫',
+    meaning: '태온의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 223 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 83 },
+    count2024: 83,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '승호',
+    hanja: '承鎬',
+    meaning: '승호의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 226 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 81 },
+    count2024: 81,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '찬희',
+    hanja: '燦熙',
+    meaning: '찬희의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 226 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 81 },
+    count2024: 81,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '단',
+    hanja: '丹',
+    meaning: '단의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 226 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 81 },
+    count2024: 81,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '하윤',
+    hanja: '夏允',
+    meaning: '하윤의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 229 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 80 },
+    count2024: 80,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '호연',
+    hanja: '浩然',
+    meaning: '호연의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 230 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 79 },
+    count2024: 79,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '재민',
+    hanja: '在旼',
+    meaning: '재민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 230 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 79 },
+    count2024: 79,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '유성',
+    hanja: '有成',
+    meaning: '유성의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 230 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 79 },
+    count2024: 79,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '찬우',
+    hanja: '燦祐',
+    meaning: '찬우의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 230 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 79 },
+    count2024: 79,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '준영',
+    hanja: '俊英',
+    meaning: '준영의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 234 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 77 },
+    count2024: 77,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '해성',
+    hanja: '海成',
+    meaning: '해성의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 234 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 77 },
+    count2024: 77,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '채우',
+    hanja: '采祐',
+    meaning: '채우의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 234 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 77 },
+    count2024: 77,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '해온',
+    hanja: '海溫',
+    meaning: '해온의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 234 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 77 },
+    count2024: 77,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '한율',
+    hanja: '韓律',
+    meaning: '한율의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 238 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 76 },
+    count2024: 76,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '채민',
+    hanja: '采旼',
+    meaning: '채민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 238 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 76 },
+    count2024: 76,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '혜성',
+    hanja: '彗星',
+    meaning: '혜성의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 238 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 76 },
+    count2024: 76,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '여준',
+    hanja: '麗俊',
+    meaning: '여준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 241 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 75 },
+    count2024: 75,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '이솔',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 241 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 75 },
+    count2024: 75,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '도연',
+    hanja: '道延',
+    meaning: '도연의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 241 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 75 },
+    count2024: 75,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '성민',
+    hanja: '成旼',
+    meaning: '성민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 244 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 73 },
+    count2024: 73,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '건후',
+    hanja: '健候',
+    meaning: '건후의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 244 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 73 },
+    count2024: 73,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '찬율',
+    hanja: '燦律',
+    meaning: '찬율의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 244 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 73 },
+    count2024: 73,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '유한',
+    hanja: '有限',
+    meaning: '유한의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 244 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 73 },
+    count2024: 73,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '진서',
+    hanja: '珍瑞',
+    meaning: '진서의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 248 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 72 },
+    count2024: 72,
+    percentage: '0.06',
+    trend: 'stable'
+  },
+  {
+    name: '민건',
+    hanja: '敏健',
+    meaning: '민건의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 249 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 71 },
+    count2024: 71,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '강윤',
+    hanja: '康允',
+    meaning: '강윤의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 249 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 71 },
+    count2024: 71,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '찬영',
+    hanja: '燦英',
+    meaning: '찬영의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 249 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 71 },
+    count2024: 71,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '민규',
+    hanja: '敏奎',
+    meaning: '민규의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 252 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 70 },
+    count2024: 70,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '이서',
+    hanja: '理緖',
+    meaning: '이서의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 252 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 70 },
+    count2024: 70,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '범준',
+    hanja: '凡峻',
+    meaning: '범준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 252 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 70 },
+    count2024: 70,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '한울',
+    hanja: '-',
+    meaning: '하늘',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 255 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 69 },
+    count2024: 69,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '유겸',
+    hanja: '有謙',
+    meaning: '유겸의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 255 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 69 },
+    count2024: 69,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '시헌',
+    hanja: '時憲',
+    meaning: '시헌의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 257 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 68 },
+    count2024: 68,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '민혁',
+    hanja: '敏赫',
+    meaning: '민혁의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 257 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 68 },
+    count2024: 68,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '로윤',
+    hanja: '-',
+    meaning: '빛나는',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 257 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 68 },
+    count2024: 68,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '제이',
+    hanja: '-',
+    meaning: '기쁨',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 257 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 68 },
+    count2024: 68,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '승준',
+    hanja: '承峻',
+    meaning: '승준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 261 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 67 },
+    count2024: 67,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '바다',
+    hanja: '-',
+    meaning: '넓은 바다',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 261 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 67 },
+    count2024: 67,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '정현',
+    hanja: '正賢',
+    meaning: '정현의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 263 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 66 },
+    count2024: 66,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '채운',
+    hanja: '采雲',
+    meaning: '채운의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 263 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 66 },
+    count2024: 66,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '유빈',
+    hanja: '有彬',
+    meaning: '유빈의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 263 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 66 },
+    count2024: 66,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '한솔',
+    hanja: '-',
+    meaning: '큰 소나무',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 266 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 65 },
+    count2024: 65,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '이레',
+    hanja: '-',
+    meaning: '일곱',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 266 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 65 },
+    count2024: 65,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '이환',
+    hanja: '理煥',
+    meaning: '이환의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 266 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 65 },
+    count2024: 65,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '건호',
+    hanja: '健鎬',
+    meaning: '건호의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 266 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 65 },
+    count2024: 65,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '우림',
+    hanja: '祐林',
+    meaning: '우림의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 266 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 65 },
+    count2024: 65,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '하겸',
+    hanja: '夏謙',
+    meaning: '하겸의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 271 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 64 },
+    count2024: 64,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '승후',
+    hanja: '承候',
+    meaning: '승후의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 271 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 64 },
+    count2024: 64,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '윤슬',
+    hanja: '-',
+    meaning: '햇빛 반짝임',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 271 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 64 },
+    count2024: 64,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '리오',
+    hanja: '-',
+    meaning: '빛',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 271 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 64 },
+    count2024: 64,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '태경',
+    hanja: '泰京',
+    meaning: '태경의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 271 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 64 },
+    count2024: 64,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '도한',
+    hanja: '道翰',
+    meaning: '도한의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 276 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 63 },
+    count2024: 63,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '태겸',
+    hanja: '泰謙',
+    meaning: '태겸의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 276 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 63 },
+    count2024: 63,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '원준',
+    hanja: '原峻',
+    meaning: '원준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 276 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 63 },
+    count2024: 63,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '승유',
+    hanja: '承祐',
+    meaning: '승유의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 279 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 62 },
+    count2024: 62,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '민결',
+    hanja: '敏結',
+    meaning: '민결의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 279 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 62 },
+    count2024: 62,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '가람',
+    hanja: '-',
+    meaning: '강',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '한',
+    hanja: '韓',
+    meaning: '한의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '효준',
+    hanja: '孝峻',
+    meaning: '효준의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '담',
+    hanja: '淡',
+    meaning: '담의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '로빈',
+    hanja: '-',
+    meaning: '새',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '다겸',
+    hanja: '多謙',
+    meaning: '다겸의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '준범',
+    hanja: '俊凡',
+    meaning: '준범의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '이로',
+    hanja: '-',
+    meaning: '이로운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 281 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 61 },
+    count2024: 61,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '루이',
+    hanja: '-',
+    meaning: '유명한 전사',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 289 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 60 },
+    count2024: 60,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '온',
+    hanja: '溫',
+    meaning: '온의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 289 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 60 },
+    count2024: 60,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '민',
+    hanja: '旼',
+    meaning: '민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 289 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 60 },
+    count2024: 60,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '주완',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 292 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 59 },
+    count2024: 59,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '우성',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 292 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 59 },
+    count2024: 59,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '하담',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 292 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 59 },
+    count2024: 59,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '이루',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 292 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 59 },
+    count2024: 59,
+    percentage: '0.05',
+    trend: 'stable'
+  },
+  {
+    name: '윤준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 296 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 58 },
+    count2024: 58,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '예담',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 296 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 58 },
+    count2024: 58,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '준이',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 298 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 57 },
+    count2024: 57,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '우리',
+    hanja: '-',
+    meaning: '우리',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 298 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 57 },
+    count2024: 57,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '주영',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 298 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 57 },
+    count2024: 57,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '주환',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 298 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 57 },
+    count2024: 57,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '태건',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 298 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 57 },
+    count2024: 57,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '주혁',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '재우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '태영',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '채호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '윤서',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '희찬',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '연후',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 303 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 56 },
+    count2024: 56,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '현호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '주하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '든',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '은후',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '윤오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '성현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '테오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '도담',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 310 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 55 },
+    count2024: 55,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '시준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 318 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 54 },
+    count2024: 54,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '인호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 318 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 54 },
+    count2024: 54,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '한빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '서온',
+    hanja: '瑞溫',
+    meaning: '서온의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '민수',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '요한',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '아론',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '도',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '도유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '윤건',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 320 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 53 },
+    count2024: 53,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '영준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '우영',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '서윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '호준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '유신',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '도헌',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '이원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 328 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 52 },
+    count2024: 52,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '동윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 335 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 51 },
+    count2024: 51,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '이룬',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 335 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 51 },
+    count2024: 51,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '건하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 337 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 50 },
+    count2024: 50,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '루다',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 337 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 50 },
+    count2024: 50,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '이겸',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '이헌',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '강인',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '세진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '다율',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '민율',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '현진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '지웅',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 339 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 49 },
+    count2024: 49,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '은수',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 347 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 48 },
+    count2024: 48,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '예건',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 347 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 48 },
+    count2024: 48,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '성윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 349 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 47 },
+    count2024: 47,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '정훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 349 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 47 },
+    count2024: 47,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '호윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 349 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 47 },
+    count2024: 47,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '태우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 349 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 47 },
+    count2024: 47,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '정빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 349 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 47 },
+    count2024: 47,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '이강',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 354 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 46 },
+    count2024: 46,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '시운',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 354 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 46 },
+    count2024: 46,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '한서',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 354 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 46 },
+    count2024: 46,
+    percentage: '0.04',
+    trend: 'stable'
+  },
+  {
+    name: '태훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '승재',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '정윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '연재',
+    hanja: '蓮在',
+    meaning: '연재의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '다엘',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '강빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 357 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 45 },
+    count2024: 45,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '현민',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 363 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 44 },
+    count2024: 44,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '우혁',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 363 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 44 },
+    count2024: 44,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '준성',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 365 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 43 },
+    count2024: 43,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '정안',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 365 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 43 },
+    count2024: 43,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '서로',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 365 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 43 },
+    count2024: 43,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '시유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 365 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 43 },
+    count2024: 43,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '리환',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '재호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '겸',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '민서',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '재아',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '수민',
+    hanja: '秀敏',
+    meaning: '수민의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '정하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '레오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '다니엘',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '서훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이삭',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '은결',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '수안',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '하운',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 369 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 42 },
+    count2024: 42,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '시언',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 383 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 41 },
+    count2024: 41,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '찬빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 383 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 41 },
+    count2024: 41,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '찬유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 383 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 41 },
+    count2024: 41,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '로아',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 383 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 41 },
+    count2024: 41,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '한준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 383 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 41 },
+    count2024: 41,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '동준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '환',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '민후',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '유온',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '재훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '은오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '은유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '해담',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태서',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 388 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 40 },
+    count2024: 40,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '다올',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '동현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '희준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '희재',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '주현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '호진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '제하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '동우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '다민',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '상윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '규현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태성',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '지수',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '건희',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '승찬',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 398 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 39 },
+    count2024: 39,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 414 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 38 },
+    count2024: 38,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '우석',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 414 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 38 },
+    count2024: 38,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '해원',
+    hanja: '海原',
+    meaning: '해원의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 414 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 38 },
+    count2024: 38,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '우솔',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 414 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 38 },
+    count2024: 38,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '재영',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 414 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 38 },
+    count2024: 38,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '윤수',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태웅',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이엘',
+    hanja: '-',
+    meaning: '하나님은 나의 하나님',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이선',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '도이',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '유승',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 419 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 37 },
+    count2024: 37,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '혜준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '동훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '세윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '예온',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '로현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '태산',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '영우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '아진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '안',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '희성',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '세하',
+    hanja: '世夏',
+    meaning: '세하의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 425 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 36 },
+    count2024: 36,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '상우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '용준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '보현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '현성',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '진호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '수오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '모건',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '도아',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 437 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 35 },
+    count2024: 35,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '승훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '희우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '민석',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '성우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '도혁',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이랑',
+    hanja: '-',
+    meaning: '물결같이',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '휘',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '지현',
+    hanja: '智賢',
+    meaning: '지현의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '현승',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이산',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '이음',
+    hanja: '-',
+    meaning: '연결',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '하엘',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '현빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 445 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 34 },
+    count2024: 34,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '강훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '영웅',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '훈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '지유',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '주찬',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '도은',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '유원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '희도',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 458 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 33 },
+    count2024: 33,
+    percentage: '0.03',
+    trend: 'stable'
+  },
+  {
+    name: '재용',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '태강',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '준하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '찬솔',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '다호',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '태희',
+    hanja: '泰熙',
+    meaning: '태희의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '지윤',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '루하',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '선유',
+    hanja: '璿柔',
+    meaning: '선유의 뜻',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 466 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 32 },
+    count2024: 32,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '찬이',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '로원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '수빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '선후',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '강율',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '가을',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '여름',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '대한',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 475 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 31 },
+    count2024: 31,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '범',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '현재',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '선준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '규원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '태환',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '환희',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 483 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 30 },
+    count2024: 30,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '도우',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '해찬',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '윤제',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '준원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '도후',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '도형',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '서현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '호수',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '진혁',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '시진',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 489 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 29 },
+    count2024: 29,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '태원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '대현',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '경민',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '혁',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '준오',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '예한',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '리원',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '도휘',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '다준',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '윤빈',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  },
+  {
+    name: '도환',
+    hanja: '-',
+    meaning: '아름다운',
+    ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 499 },
+    counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: 28 },
+    count2024: 28,
+    percentage: '0.02',
+    trend: 'stable'
+  }

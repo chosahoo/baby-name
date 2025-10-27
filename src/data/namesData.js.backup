@@ -1,0 +1,1088 @@
+// 신생아 이름 통계 데이터
+//
+// [데이터 출처]
+// - 이름 및 인원수: 대법원 전자가족관계등록시스템 (https://efamily.scourt.go.kr/)
+//
+// [주의사항]
+// - 이름 순위와 인원수: 공공데이터 기반 (실제 데이터)
+// - 한자 표기: 가장 일반적으로 사용되는 대표 한자 (참고용, 실제와 다를 수 있음)
+// - 의미: 한자 뜻 기반 해석 (참고용)
+//
+// ※ 대법원에서는 한글 이름과 인원수만 제공하며, 한자 표기는 제공하지 않습니다.
+//    본 앱에서 제공하는 한자는 법무부 인명용 한자 중 해당 음가에 맞는 대표적인 한자입니다.
+
+// 통합 통계 데이터 (2020-2024)
+// ranks: 각 연도별 순위, counts: 각 연도별 출생 수
+export const nameStatistics = {
+  girl: [
+    {
+      name: '이서',
+      hanja: '李書',
+      meaning: '글을 쓰는 이씨',
+      ranks: { 2020: null, 2021: 3, 2022: 1, 2023: 2, 2024: 1 },
+      counts: { 2020: null, 2021: 1730, 2022: 2013, 2023: 1631, 2024: 1689 },
+      count2024: 1689,
+      percentage: 1.30,
+      trend: 'rising'
+    },
+    {
+      name: '서아',
+      hanja: '徐雅',
+      meaning: '천천히 우아함',
+      ranks: { 2020: 1, 2021: 1, 2022: 2, 2023: 1, 2024: 2 },
+      counts: { 2020: 1924, 2021: 2059, 2022: 2010, 2023: 1868, 2024: 1682 },
+      count2024: 1682,
+      percentage: 1.29,
+      trend: 'falling'
+    },
+    {
+      name: '하린',
+      hanja: '夏潾',
+      meaning: '여름처럼 맑음',
+      ranks: { 2020: 6, 2021: 8, 2022: 11, 2023: 9, 2024: 3 },
+      counts: { 2020: 1373, 2021: 1274, 2022: 1149, 2023: 1060, 2024: 1320 },
+      count2024: 1320,
+      percentage: 1.02,
+      trend: 'rising'
+    },
+    {
+      name: '지유',
+      hanja: '智柔',
+      meaning: '지혜롭고 부드러움',
+      ranks: { 2020: 12, 2021: 13, 2022: 12, 2023: 6, 2024: 4 },
+      counts: { 2020: 1196, 2021: 1036, 2022: 1127, 2023: 1163, 2024: 1238 },
+      count2024: 1238,
+      percentage: 0.95,
+      trend: 'rising'
+    },
+    {
+      name: '하윤',
+      hanja: '夏允',
+      meaning: '여름처럼 진실함',
+      ranks: { 2020: 2, 2021: 2, 2022: 3, 2023: 4, 2024: 5 },
+      counts: { 2020: 1738, 2021: 1794, 2022: 1504, 2023: 1302, 2024: 1224 },
+      count2024: 1224,
+      percentage: 0.94,
+      trend: 'falling'
+    },
+    {
+      name: '아윤',
+      hanja: '雅允',
+      meaning: '우아하고 진실함',
+      ranks: { 2020: 8, 2021: 9, 2022: 6, 2023: 3, 2024: 6 },
+      counts: { 2020: 1332, 2021: 1267, 2022: 1376, 2023: 1346, 2024: 1224 },
+      count2024: 1224,
+      percentage: 0.94,
+      trend: 'falling'
+    },
+    {
+      name: '지안',
+      hanja: '智安',
+      meaning: '지혜롭고 편안함',
+      ranks: { 2020: 3, 2021: 5, 2022: 5, 2023: null, 2024: 7 },
+      counts: { 2020: 1641, 2021: 1434, 2022: 1396, 2023: null, 2024: 1194 },
+      count2024: 1194,
+      percentage: 0.92,
+      trend: 'falling'
+    },
+    {
+      name: '지아',
+      hanja: '智雅',
+      meaning: '지혜롭고 우아함',
+      ranks: { 2020: 13, 2021: 4, 2022: 4, 2023: 5, 2024: 8 },
+      counts: { 2020: 1181, 2021: 1449, 2022: 1465, 2023: 1257, 2024: 1133 },
+      count2024: 1133,
+      percentage: 0.87,
+      trend: 'falling'
+    },
+    {
+      name: '서윤',
+      hanja: '瑞允',
+      meaning: '상서롭고 진실함',
+      ranks: { 2020: 4, 2021: 6, 2022: 8, 2023: 7, 2024: 9 },
+      counts: { 2020: 1442, 2021: 1329, 2022: 1219, 2023: 1124, 2024: 1121 },
+      count2024: 1121,
+      percentage: 0.86,
+      trend: 'stable'
+    },
+    {
+      name: '아린',
+      hanja: '雅潾',
+      meaning: '우아하고 맑음',
+      ranks: { 2020: 7, 2021: 7, 2022: 9, 2023: 8, 2024: 10 },
+      counts: { 2020: 1359, 2021: 1297, 2022: 1203, 2023: 1110, 2024: 1116 },
+      count2024: 1116,
+      percentage: 0.86,
+      trend: 'stable'
+    },
+    {
+      name: '시아',
+      hanja: '詩雅',
+      meaning: '시처럼 우아함',
+      ranks: { 2020: 14, 2021: 12, 2022: 7, 2023: 10, 2024: null },
+      counts: { 2020: 1176, 2021: 1126, 2022: 1277, 2023: 1058, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '지우',
+      hanja: '智祐',
+      meaning: '지혜롭고 도움',
+      ranks: { 2020: 9, 2021: 11, 2022: 10, 2023: null, 2024: null },
+      counts: { 2020: 1238, 2021: 1126, 2022: 1152, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '하은',
+      hanja: '夏恩',
+      meaning: '여름 은혜',
+      ranks: { 2020: 5, 2021: 10, 2022: 13, 2023: null, 2024: null },
+      counts: { 2020: 1396, 2021: 1201, 2022: 958, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '수아',
+      hanja: '秀雅',
+      meaning: '빼어나고 우아함',
+      ranks: { 2020: 9, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 1238, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '나은',
+      hanja: '나恩',
+      meaning: '더 나은 은혜',
+      ranks: { 2020: 11, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 1223, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '서연',
+      hanja: '瑞妍',
+      meaning: '상서롭고 아름다움',
+      ranks: { 2020: 15, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 1055, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '서우',
+      hanja: '瑞祐',
+      meaning: '상서롭고 도움',
+      ranks: { 2020: 16, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 971, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '다은',
+      hanja: '多恩',
+      meaning: '은혜가 많음',
+      ranks: { 2020: 17, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 959, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '예나',
+      hanja: '藝娜',
+      meaning: '재능 있고 아름다움',
+      ranks: { 2020: 18, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 954, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '유나',
+      hanja: '柔娜',
+      meaning: '부드럽고 아름다움',
+      ranks: { 2020: 19, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 947, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '유주',
+      hanja: '柔珠',
+      meaning: '부드러운 구슬',
+      ranks: { 2020: 20, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 909, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '민서',
+      hanja: '敏書',
+      meaning: '민첩하고 학문적',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '수빈',
+      hanja: '秀彬',
+      meaning: '빼어나고 문채있음',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '윤서',
+      hanja: '允書',
+      meaning: '진실하고 학문적',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '채원',
+      hanja: '采園',
+      meaning: '채색이 가득한 동산',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '소율',
+      hanja: '素律',
+      meaning: '순수하고 올바름',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '예린',
+      hanja: '禮潾',
+      meaning: '예의바르고 맑음',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '지민',
+      hanja: '智敏',
+      meaning: '지혜롭고 민첩함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '시은',
+      hanja: '時恩',
+      meaning: '때에 맞는 은혜',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '은서',
+      hanja: '恩書',
+      meaning: '은혜롭고 학문적',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '채은',
+      hanja: '采恩',
+      meaning: '채색과 은혜',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '예은',
+      hanja: '藝恩',
+      meaning: '재능과 은혜',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '세아',
+      hanja: '世雅',
+      meaning: '세상을 우아하게',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '지원',
+      hanja: '智媛',
+      meaning: '지혜로운 미인',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '이안',
+      hanja: '李安',
+      meaning: '이씨로 편안함',
+      ranks: { 2020: null, 2021: 97, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: 258, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    }
+  ],
+  boy: [
+    {
+      name: '이준',
+      hanja: '李俊',
+      meaning: '준수한 이씨',
+      ranks: { 2020: 6, 2021: 1, 2022: 1, 2023: 1, 2024: 1 },
+      counts: { 2020: 1512, 2021: 2299, 2022: 2220, 2023: 1754, 2024: 1593 },
+      count2024: 1593,
+      percentage: 1.14,
+      trend: 'stable'
+    },
+    {
+      name: '하준',
+      hanja: '夏俊',
+      meaning: '여름처럼 준수함',
+      ranks: { 2020: 3, 2021: 4, 2022: 3, 2023: 3, 2024: 2 },
+      counts: { 2020: 1763, 2021: 1834, 2022: 1664, 2023: 1606, 2024: 1512 },
+      count2024: 1512,
+      percentage: 1.08,
+      trend: 'rising'
+    },
+    {
+      name: '도윤',
+      hanja: '道允',
+      meaning: '도리에 진실함',
+      ranks: { 2020: 1, 2021: 3, 2022: 6, 2023: 2, 2024: 3 },
+      counts: { 2020: 2132, 2021: 1848, 2022: 1466, 2023: 1646, 2024: 1492 },
+      count2024: 1492,
+      percentage: 1.07,
+      trend: 'falling'
+    },
+    {
+      name: '은우',
+      hanja: '恩祐',
+      meaning: '은혜로 도움',
+      ranks: { 2020: 4, 2021: 5, 2022: 5, 2023: 4, 2024: 4 },
+      counts: { 2020: 1688, 2021: 1582, 2022: 1482, 2023: 1506, 2024: 1353 },
+      count2024: 1353,
+      percentage: 0.97,
+      trend: 'stable'
+    },
+    {
+      name: '시우',
+      hanja: '時祐',
+      meaning: '때에 맞는 도움',
+      ranks: { 2020: 5, 2021: 6, 2022: 4, 2023: 6, 2024: 5 },
+      counts: { 2020: 1650, 2021: 1516, 2022: 1627, 2023: 1287, 2024: 1351 },
+      count2024: 1351,
+      percentage: 0.97,
+      trend: 'falling'
+    },
+    {
+      name: '서준',
+      hanja: '瑞俊',
+      meaning: '상서롭고 준수함',
+      ranks: { 2020: 2, 2021: 2, 2022: 2, 2023: 5, 2024: 6 },
+      counts: { 2020: 2066, 2021: 2005, 2022: 1667, 2023: 1445, 2024: 1324 },
+      count2024: 1324,
+      percentage: 0.95,
+      trend: 'falling'
+    },
+    {
+      name: '선우',
+      hanja: '善祐',
+      meaning: '착하고 도움',
+      ranks: { 2020: null, 2021: 11, 2022: 8, 2023: 10, 2024: 7 },
+      counts: { 2020: null, 2021: 1100, 2022: 1173, 2023: 1097, 2024: 1218 },
+      count2024: 1218,
+      percentage: 0.87,
+      trend: 'rising'
+    },
+    {
+      name: '유준',
+      hanja: '裕俊',
+      meaning: '풍족하고 준수함',
+      ranks: { 2020: 9, 2021: 10, 2022: 10, 2023: 7, 2024: 8 },
+      counts: { 2020: 1210, 2021: 1108, 2022: 1114, 2023: 1216, 2024: 1204 },
+      count2024: 1204,
+      percentage: 0.86,
+      trend: 'rising'
+    },
+    {
+      name: '수호',
+      hanja: '守護',
+      meaning: '지키고 보호함',
+      ranks: { 2020: null, 2021: 9, 2022: null, 2023: null, 2024: 9 },
+      counts: { 2020: null, 2021: 1118, 2022: null, 2023: null, 2024: 1156 },
+      count2024: 1156,
+      percentage: 0.83,
+      trend: 'stable'
+    },
+    {
+      name: '도현',
+      hanja: '道賢',
+      meaning: '도리로 어질음',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: 9, 2024: 10 },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: 1142, 2024: 1135 },
+      count2024: 1135,
+      percentage: 0.81,
+      trend: 'stable'
+    },
+    {
+      name: '지호',
+      hanja: '智浩',
+      meaning: '지혜롭고 넓음',
+      ranks: { 2020: 7, 2021: 7, 2022: 7, 2023: 8, 2024: null },
+      counts: { 2020: 1402, 2021: 1308, 2022: 1369, 2023: 1176, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '예준',
+      hanja: '睿俊',
+      meaning: '슬기롭고 준수함',
+      ranks: { 2020: 8, 2021: 8, 2022: 11, 2023: null, 2024: null },
+      counts: { 2020: 1279, 2021: 1253, 2022: 1114, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '건우',
+      hanja: '健祐',
+      meaning: '건강하고 도움',
+      ranks: { 2020: 10, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: 1117, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '이안',
+      hanja: '李安',
+      meaning: '이씨로 편안함',
+      ranks: { 2020: null, 2021: 14, 2022: 9, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: 985, 2022: 1171, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'rising'
+    },
+    {
+      name: '민준',
+      hanja: '敏俊',
+      meaning: '민첩하고 준수함',
+      ranks: { 2020: null, 2021: 13, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: 1024, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '로운',
+      hanja: '露雲',
+      meaning: '이슬과 구름',
+      ranks: { 2020: null, 2021: 12, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: 1094, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'falling'
+    },
+    {
+      name: '윤우',
+      hanja: '允祐',
+      meaning: '진실하고 도움',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '지우',
+      hanja: '智祐',
+      meaning: '지혜롭고 도움',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '지훈',
+      hanja: '智勳',
+      meaning: '지혜로운 공훈',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '준서',
+      hanja: '俊書',
+      meaning: '준수하고 학문적',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '민재',
+      hanja: '敏才',
+      meaning: '민첩하고 재능',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '태윤',
+      hanja: '泰允',
+      meaning: '태평하고 진실함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '현우',
+      hanja: '賢祐',
+      meaning: '어질고 도움',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '주원',
+      hanja: '柱元',
+      meaning: '기둥이 되는 근원',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '강민',
+      hanja: '康敏',
+      meaning: '건강하고 민첩함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '승민',
+      hanja: '承敏',
+      meaning: '이어받고 민첩함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '태민',
+      hanja: '泰敏',
+      meaning: '태평하고 민첩함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '재윤',
+      hanja: '才允',
+      meaning: '재능있고 진실함',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '민호',
+      hanja: '敏昊',
+      meaning: '민첩하고 넓음',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    },
+    {
+      name: '승우',
+      hanja: '承祐',
+      meaning: '이어받고 도움',
+      ranks: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      counts: { 2020: null, 2021: null, 2022: null, 2023: null, 2024: null },
+      count2024: null,
+      percentage: null,
+      trend: 'stable'
+    }
+  ]
+}
+
+export const hanjaDatabase = {
+  '李': {
+    reading: '이',
+    meaning: '오얏 (배나무)',
+    detailMeaning: '배나무를 상징하며 풍요와 번영을 의미합니다.',
+    strokes: 7,
+    element: '목(木)',
+    radicals: '木(나무 목)',
+    popularity: 98
+  },
+  '瑞': {
+    reading: '서',
+    meaning: '상서로움, 길조',
+    detailMeaning: '옥처럼 귀한 상서로운 기운을 의미합니다.',
+    strokes: 13,
+    element: '금(金)',
+    radicals: '玉(옥 옥)',
+    popularity: 96
+  },
+  '雅': {
+    reading: '아',
+    meaning: '우아하다',
+    detailMeaning: '고상하고 품위있는 모습을 나타냅니다.',
+    strokes: 12,
+    element: '목(木)',
+    radicals: '隹(새 추)',
+    popularity: 94
+  },
+  '夏': {
+    reading: '하',
+    meaning: '여름',
+    detailMeaning: '밝고 활기찬 여름을 상징합니다.',
+    strokes: 10,
+    element: '화(Fire)',
+    radicals: '夊(천천히걸을쇠)',
+    popularity: 92
+  },
+  '璘': {
+    reading: '린',
+    meaning: '아름다운 옥',
+    detailMeaning: '빛나고 아름다운 옥을 의미합니다.',
+    strokes: 17,
+    element: '금(金)',
+    radicals: '玉(옥 옥)',
+    popularity: 88
+  },
+  '智': {
+    reading: '지',
+    meaning: '지혜',
+    detailMeaning: '슬기롭고 지혜로운 마음을 뜻합니다.',
+    strokes: 12,
+    element: '화(火)',
+    radicals: '日(날 일)',
+    popularity: 93
+  },
+  '悠': {
+    reading: '유',
+    meaning: '유유하다, 멀다',
+    detailMeaning: '여유롭고 느긋한 모습을 의미합니다.',
+    strokes: 11,
+    element: '수(水)',
+    radicals: '心(마음 심)',
+    popularity: 90
+  },
+  '允': {
+    reading: '윤',
+    meaning: '허락하다, 진실하다',
+    detailMeaning: '진실되고 믿음직한 마음을 의미합니다.',
+    strokes: 4,
+    element: '토(土)',
+    radicals: '儿(어진사람 인)',
+    popularity: 91
+  },
+  '安': {
+    reading: '안',
+    meaning: '편안하다',
+    detailMeaning: '평온하고 안정된 상태를 나타냅니다.',
+    strokes: 6,
+    element: '토(土)',
+    radicals: '宀(집 면)',
+    popularity: 89
+  },
+  '俊': {
+    reading: '준',
+    meaning: '준수하다',
+    detailMeaning: '뛰어나고 빼어난 인물을 의미합니다.',
+    strokes: 9,
+    element: '금(金)',
+    radicals: '人(사람 인)',
+    popularity: 97
+  },
+  '道': {
+    reading: '도',
+    meaning: '길, 도리',
+    detailMeaning: '바른 길과 도리를 의미합니다.',
+    strokes: 12,
+    element: '수(水)',
+    radicals: '辶(쉬엄쉬엄갈 착)',
+    popularity: 87
+  },
+  '恩': {
+    reading: '은',
+    meaning: '은혜',
+    detailMeaning: '베풀어주는 고마운 마음과 덕을 뜻합니다.',
+    strokes: 10,
+    element: '수(水)',
+    radicals: '心(마음 심)',
+    popularity: 90
+  },
+  '祐': {
+    reading: '우',
+    meaning: '돕다, 보우하다',
+    detailMeaning: '하늘이 돕고 보살핌을 의미합니다.',
+    strokes: 9,
+    element: '토(土)',
+    radicals: '示(보일 시)',
+    popularity: 92
+  },
+  '時': {
+    reading: '시',
+    meaning: '때, 시간',
+    detailMeaning: '적절한 때와 시기를 뜻합니다.',
+    strokes: 10,
+    element: '화(火)',
+    radicals: '日(날 일)',
+    popularity: 85
+  },
+  '善': {
+    reading: '선',
+    meaning: '착하다, 좋다',
+    detailMeaning: '착하고 선량한 마음을 나타냅니다.',
+    strokes: 12,
+    element: '금(金)',
+    radicals: '口(입 구)',
+    popularity: 86
+  },
+  '浩': {
+    reading: '호',
+    meaning: '넓고 크다',
+    detailMeaning: '광활하고 드넓은 기상을 뜻합니다.',
+    strokes: 10,
+    element: '수(Water)',
+    radicals: '水(물 수)',
+    popularity: 84
+  },
+  '守': {
+    reading: '수',
+    meaning: '지키다',
+    detailMeaning: '소중한 것을 지키고 보호함을 의미합니다.',
+    strokes: 6,
+    element: '금(金)',
+    radicals: '宀(집 면)',
+    popularity: 83
+  },
+  '護': {
+    reading: '호',
+    meaning: '보호하다',
+    detailMeaning: '막아서 보호하고 지킴을 뜻합니다.',
+    strokes: 20,
+    element: '수(Water)',
+    radicals: '言(말씀 언)',
+    popularity: 82
+  },
+  '珍': {
+    reading: '진',
+    meaning: '귀하다, 보배',
+    detailMeaning: '귀중하고 소중한 보물을 의미합니다.',
+    strokes: 9,
+    element: '금(金)',
+    radicals: '玉(옥 옥)',
+    popularity: 89
+  },
+  '言': {
+    reading: '언',
+    meaning: '말씀',
+    detailMeaning: '말과 언어, 약속을 의미합니다.',
+    strokes: 7,
+    element: '금(金)',
+    radicals: '言(말씀 언)',
+    popularity: 75
+  },
+  '書': {
+    reading: '서',
+    meaning: '글, 책',
+    detailMeaning: '글을 쓰고 학문을 닦음을 뜻합니다.',
+    strokes: 10,
+    element: '금(金)',
+    radicals: '聿(붓 율)',
+    popularity: 92
+  },
+  '徐': {
+    reading: '서',
+    meaning: '천천히',
+    detailMeaning: '천천히 나아가며 침착함을 의미합니다.',
+    strokes: 10,
+    element: '금(金)',
+    radicals: '彳(조금걸을 척)',
+    popularity: 88
+  },
+  '妍': {
+    reading: '연',
+    meaning: '아름답다',
+    detailMeaning: '여성의 아름다움과 고운 자태를 나타냅니다.',
+    strokes: 7,
+    element: '토(土)',
+    radicals: '女(여자 녀)',
+    popularity: 90
+  },
+  '潤': {
+    reading: '윤',
+    meaning: '윤택하다',
+    detailMeaning: '촉촉하고 윤기있게 빛남을 뜻합니다.',
+    strokes: 15,
+    element: '수(Water)',
+    radicals: '水(물 수)',
+    popularity: 89
+  },
+  '柔': {
+    reading: '유',
+    meaning: '부드럽다',
+    detailMeaning: '부드럽고 온화한 성품을 의미합니다.',
+    strokes: 9,
+    element: '목(木)',
+    radicals: '木(나무 목)',
+    popularity: 87
+  },
+  '河': {
+    reading: '하',
+    meaning: '강',
+    detailMeaning: '큰 강처럼 넓고 깊은 기상을 뜻합니다.',
+    strokes: 8,
+    element: '수(Water)',
+    radicals: '水(물 수)',
+    popularity: 90
+  },
+  '凜': {
+    reading: '린',
+    meaning: '맑다, 차다',
+    detailMeaning: '맑고 깨끗하며 씩씩함을 의미합니다.',
+    strokes: 15,
+    element: '수(Water)',
+    radicals: '冫(얼음 빙)',
+    popularity: 86
+  },
+  '潾': {
+    reading: '린',
+    meaning: '물결',
+    detailMeaning: '맑은 물결처럼 깨끗함을 의미합니다.',
+    strokes: 15,
+    element: '수(Water)',
+    radicals: '水(물 수)',
+    popularity: 85
+  },
+  '詩': {
+    reading: '시',
+    meaning: '시',
+    detailMeaning: '아름다운 시와 문학을 뜻합니다.',
+    strokes: 13,
+    element: '금(金)',
+    radicals: '言(말씀 언)',
+    popularity: 88
+  },
+  '昊': {
+    reading: '호',
+    meaning: '넓고 크다',
+    detailMeaning: '하늘처럼 넓고 큰 마음을 의미합니다.',
+    strokes: 8,
+    element: '화(Fire)',
+    radicals: '日(날 일)',
+    popularity: 85
+  },
+  '賢': {
+    reading: '현',
+    meaning: '어질다',
+    detailMeaning: '어질고 지혜로운 사람을 의미합니다.',
+    strokes: 15,
+    element: '목(木)',
+    radicals: '貝(조개 패)',
+    popularity: 88
+  },
+  '睿': {
+    reading: '예',
+    meaning: '슬기롭다',
+    detailMeaning: '통찰력이 있고 슬기로움을 뜻합니다.',
+    strokes: 14,
+    element: '금(金)',
+    radicals: '目(눈 목)',
+    popularity: 86
+  },
+  '敏': {
+    reading: '민',
+    meaning: '민첩하다',
+    detailMeaning: '빠르고 총명함을 의미합니다.',
+    strokes: 11,
+    element: '수(Water)',
+    radicals: '攴(칠 복)',
+    popularity: 87
+  },
+  '露': {
+    reading: '로',
+    meaning: '이슬',
+    detailMeaning: '맑고 순수한 이슬을 의미합니다.',
+    strokes: 21,
+    element: '수(Water)',
+    radicals: '雨(비 우)',
+    popularity: 75
+  },
+  '雲': {
+    reading: '운',
+    meaning: '구름',
+    detailMeaning: '높이 떠있는 구름을 뜻합니다.',
+    strokes: 12,
+    element: '수(Water)',
+    radicals: '雨(비 우)',
+    popularity: 80
+  },
+  '裕': {
+    reading: '유',
+    meaning: '풍족하다',
+    detailMeaning: '넉넉하고 여유로움을 의미합니다.',
+    strokes: 12,
+    element: '금(金)',
+    radicals: '衣(옷 의)',
+    popularity: 85
+  }
+}
+
+// 성명학 획수 길흉 (81수리)
+export const strokeFortune = {
+  1: { fortune: '대길', fortuneMeaning: '만사형통하여 번영을 누림' },
+  3: { fortune: '대길', fortuneMeaning: '성취와 발전이 있음' },
+  5: { fortune: '대길', fortuneMeaning: '화합하여 번성함' },
+  6: { fortune: '대길', fortuneMeaning: '덕망과 재복을 누림' },
+  7: { fortune: '길', fortuneMeaning: '독립하여 완성함' },
+  8: { fortune: '대길', fortuneMeaning: '의지를 관철함' },
+  11: { fortune: '대길', fortuneMeaning: '만사가 형통함' },
+  13: { fortune: '대길', fortuneMeaning: '재능이 개화함' },
+  15: { fortune: '대길', fortuneMeaning: '장수하며 안녕함' },
+  16: { fortune: '대길', fortuneMeaning: '존귀하게 성공함' },
+  17: { fortune: '길', fortuneMeaning: '견고하게 실행함' },
+  18: { fortune: '대길', fortuneMeaning: '덕이 있고 유망함' },
+  21: { fortune: '대길', fortuneMeaning: '중심 인물이 됨' },
+  23: { fortune: '대길', fortuneMeaning: '왕성하게 발전함' },
+  24: { fortune: '대길', fortuneMeaning: '재력이 풍부함' },
+  25: { fortune: '길', fortuneMeaning: '영민한 재능이 있음' },
+  29: { fortune: '길', fortuneMeaning: '지혜가 충만함' },
+  31: { fortune: '대길', fortuneMeaning: '지도력과 덕망이 있음' },
+  32: { fortune: '대길', fortuneMeaning: '행운이 다복함' },
+  33: { fortune: '대길', fortuneMeaning: '용기와 재능이 있음' },
+  35: { fortune: '길', fortuneMeaning: '온화하고 평안함' },
+  37: { fortune: '대길', fortuneMeaning: '권위가 융성함' },
+  38: { fortune: '길', fortuneMeaning: '예술로 성공함' },
+  39: { fortune: '길', fortuneMeaning: '부귀영화를 누림' },
+  41: { fortune: '대길', fortuneMeaning: '덕량이 풍부함' },
+  45: { fortune: '길', fortuneMeaning: '발전하여 성취함' },
+  47: { fortune: '대길', fortuneMeaning: '권위가 개화함' },
+  48: { fortune: '대길', fortuneMeaning: '모사가 성공함' },
+  52: { fortune: '길', fortuneMeaning: '선견지명이 있음' },
+  // 흉수
+  4: { fortune: '흉', fortuneMeaning: '파괴와 고난이 있음' },
+  9: { fortune: '흉', fortuneMeaning: '고생과 역경이 많음' },
+  10: { fortune: '흉', fortuneMeaning: '공허하고 쇠퇴함' },
+  12: { fortune: '흉', fortuneMeaning: '의지가 약함' },
+  14: { fortune: '흉', fortuneMeaning: '가족과 이별함' },
+  19: { fortune: '흉', fortuneMeaning: '재난과 질병이 있음' },
+  20: { fortune: '흉', fortuneMeaning: '공허하고 실패함' },
+  22: { fortune: '흉', fortuneMeaning: '박약하고 고독함' }
+}
+
+// 데이터 메타 정보
+export const dataMetadata = {
+  source: '대법원 전자가족관계등록시스템',
+  description: '2020-2024년 전국 출생신고 통계 (실제 데이터)',
+  lastUpdated: '2024-12-31',
+  dataRange: '2020년 ~ 2024년',
+  officialSources: [
+    {
+      name: '대법원 전자가족관계등록시스템',
+      url: 'https://efamily.scourt.go.kr/',
+      description: '출생신고 기반 신생아 이름 통계'
+    },
+    {
+      name: '공공데이터포털',
+      url: 'https://www.data.go.kr/',
+      description: '행정안전부 주민등록 통계 데이터'
+    },
+    {
+      name: '행정안전부',
+      url: 'https://www.mois.go.kr/',
+      description: '주민등록 인구 및 세대 현황 통계'
+    }
+  ],
+  notes: [
+    '본 데이터는 대법원 전자가족관계등록시스템의 실제 통계입니다',
+    '2020년부터 2024년까지의 출생신고 데이터를 기준으로 합니다',
+    '한자 표기는 일반적으로 사용되는 대표 한자이며 참고용입니다'
+  ]
+}
+
+// API 연동을 위한 헬퍼 함수
+export const fetchNameStatistics = async (year = 2024, gender = 'all') => {
+  // 현재는 로컬 데이터 반환
+  return {
+    girl: nameStatistics.girl,
+    boy: nameStatistics.boy,
+    metadata: dataMetadata
+  }
+}
+
+export const searchNameByKeyword = (keyword) => {
+  const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
+  return allNames.filter(nameData =>
+    nameData.name.includes(keyword) ||
+    nameData.meaning.includes(keyword)
+  )
+}

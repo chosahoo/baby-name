@@ -1,88 +1,177 @@
 import { useState } from 'react'
 
-const questions = [
-  {
-    id: 'gender',
-    question: '아기의 성별은?',
-    options: [
-      { value: 'girl', label: '여아', emoji: '👧' },
-      { value: 'boy', label: '남아', emoji: '👦' },
-      { value: 'neutral', label: '중성 이름', emoji: '👶' },
-      { value: 'both', label: '아직 모름', emoji: '🤷‍♀️' }
-    ]
-  },
-  {
-    id: 'style',
-    question: '어떤 스타일의 이름을 원하시나요?',
-    options: [
-      { value: 'modern', label: '현대적이고 세련된', emoji: '✨' },
-      { value: 'traditional', label: '전통적이고 고전적인', emoji: '📜' },
-      { value: 'unique', label: '독특하고 개성있는', emoji: '🎨' },
-      { value: 'simple', label: '쉽고 부르기 편한', emoji: '💫' }
-    ]
-  },
-  {
-    id: 'meaning',
-    question: '이름에 담고 싶은 의미는?',
-    options: [
-      { value: 'wise', label: '지혜롭고 똑똑한', emoji: '🧠' },
-      { value: 'kind', label: '착하고 따뜻한', emoji: '💝' },
-      { value: 'strong', label: '강하고 당당한', emoji: '💪' },
-      { value: 'happy', label: '밝고 즐거운', emoji: '😊' }
-    ]
-  },
-  {
-    id: 'popularity',
-    question: '이름의 인기도는?',
-    options: [
-      { value: 'popular', label: '인기 많은 이름', emoji: '⭐', desc: 'TOP 10' },
-      { value: 'moderate', label: '적당히 흔한 이름', emoji: '🌟', desc: 'TOP 50' },
-      { value: 'rare', label: '희귀한 이름', emoji: '💎', desc: '남들과 다르게' },
-      { value: 'any', label: '상관없음', emoji: '🎲', desc: '무관' }
-    ]
-  },
-  {
-    id: 'syllables',
-    question: '이름의 글자 수는?',
-    options: [
-      { value: 'two', label: '2글자', emoji: '✌️', desc: '간결하고 현대적' },
-      { value: 'three', label: '3글자', emoji: '👌', desc: '전통적이고 안정적' },
-      { value: 'any', label: '상관없음', emoji: '🤝', desc: '무관' }
-    ]
-  },
-  {
-    id: 'sound',
-    question: '선호하는 발음은?',
-    options: [
-      { value: 'soft', label: '부드러운 발음', emoji: '🌸', desc: '아, 윤, 서 등' },
-      { value: 'strong', label: '또렷한 발음', emoji: '⚡', desc: '준, 현, 진 등' },
-      { value: 'balanced', label: '조화로운 발음', emoji: '🎵', desc: '혼합형' },
-      { value: 'any', label: '상관없음', emoji: '🎼', desc: '무관' }
-    ]
-  },
-  {
-    id: 'hanja',
-    question: '한자 이름 선호도는?',
-    options: [
-      { value: 'required', label: '한자 필수', emoji: '📚', desc: '한자 의미 중요' },
-      { value: 'preferred', label: '한자 선호', emoji: '📖', desc: '있으면 좋음' },
-      { value: 'pure', label: '순우리말', emoji: '🌿', desc: '한자 없이' },
-      { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
-    ]
-  },
-  {
-    id: 'feeling',
-    question: '이름에서 느껴지길 바라는 느낌은?',
-    options: [
-      { value: 'elegant', label: '우아하고 품위있는', emoji: '👑' },
-      { value: 'fresh', label: '신선하고 발랄한', emoji: '🌱' },
-      { value: 'calm', label: '차분하고 안정적인', emoji: '🌊' },
-      { value: 'bright', label: '밝고 희망찬', emoji: '☀️' }
-    ]
-  }
-]
+const getQuestions = (mode) => {
+  const simpleQuestions = [
+    {
+      id: 'gender',
+      question: '아기의 성별은?',
+      options: [
+        { value: 'girl', label: '여아', emoji: '👧' },
+        { value: 'boy', label: '남아', emoji: '👦' },
+        { value: 'neutral', label: '중성 이름', emoji: '👶' },
+        { value: 'both', label: '아직 모름', emoji: '🤷‍♀️' }
+      ]
+    },
+    {
+      id: 'style',
+      question: '어떤 스타일의 이름을 원하시나요?',
+      options: [
+        { value: 'modern', label: '현대적', emoji: '✨', desc: '세련되고 모던한' },
+        { value: 'traditional', label: '전통적', emoji: '📜', desc: '고전적인' },
+        { value: 'unique', label: '독특', emoji: '🎨', desc: '개성있는' },
+        { value: 'simple', label: '간단', emoji: '💫', desc: '부르기 편한' }
+      ]
+    },
+    {
+      id: 'rhythm',
+      question: '이름의 리듬감은?',
+      options: [
+        { value: 'cheerful', label: '경쾌한', emoji: '🎵', desc: '발랄하고 귀여운' },
+        { value: 'calm', label: '차분한', emoji: '🎹', desc: '안정적이고 편안한' },
+        { value: 'balanced', label: '조화로운', emoji: '🎼', desc: '균형잡힌' },
+        { value: 'any', label: '상관없음', emoji: '🤝', desc: '무관' }
+      ]
+    },
+    {
+      id: 'popularity',
+      question: '이름의 인기도는?',
+      options: [
+        { value: 'popular', label: '인기 많은 이름', emoji: '⭐', desc: 'TOP 10' },
+        { value: 'moderate', label: '적당히 흔한 이름', emoji: '🌟', desc: 'TOP 50' },
+        { value: 'rare', label: '희귀한 이름', emoji: '💎', desc: '남들과 다르게' },
+        { value: 'any', label: '상관없음', emoji: '🎲', desc: '무관' }
+      ]
+    },
+    {
+      id: 'sound',
+      question: '선호하는 발음은?',
+      options: [
+        { value: 'soft', label: '부드러운 발음', emoji: '🌸', desc: '아, 윤, 서 등' },
+        { value: 'strong', label: '또렷한 발음', emoji: '⚡', desc: '준, 현, 진 등' },
+        { value: 'balanced', label: '조화로운 발음', emoji: '🎵', desc: '혼합형' },
+        { value: 'any', label: '상관없음', emoji: '🎼', desc: '무관' }
+      ]
+    }
+  ]
 
-function QuizPage({ onComplete, onBack }) {
+  const detailedQuestions = [
+    ...simpleQuestions,
+    {
+      id: 'meaning',
+      question: '이름에 담고 싶은 의미는?',
+      options: [
+        { value: 'wise', label: '지혜', emoji: '🧠', desc: '지혜롭고 똑똑한' },
+        { value: 'kind', label: '착함', emoji: '💝', desc: '착하고 따뜻한' },
+        { value: 'strong', label: '강함', emoji: '💪', desc: '강하고 당당한' },
+        { value: 'bright', label: '밝음', emoji: '😊', desc: '밝고 즐거운' }
+      ]
+    },
+    {
+      id: 'feeling',
+      question: '이름에서 느껴지길 바라는 느낌은?',
+      options: [
+        { value: 'elegant', label: '우아', emoji: '👑', desc: '우아하고 품위있는' },
+        { value: 'fresh', label: '신선', emoji: '🌱', desc: '신선하고 발랄한' },
+        { value: 'calm', label: '차분', emoji: '🌊', desc: '차분하고 안정적인' },
+        { value: 'bright', label: '밝음', emoji: '☀️', desc: '밝고 희망찬' }
+      ]
+    },
+    {
+      id: 'hanja',
+      question: '한자 이름 선호도는?',
+      options: [
+        { value: 'required', label: '한자 필수', emoji: '📚', desc: '한자 의미 중요' },
+        { value: 'preferred', label: '한자 선호', emoji: '📖', desc: '있으면 좋음' },
+        { value: 'pure', label: '순우리말', emoji: '🌿', desc: '한자 없이' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'firstSound',
+      question: '첫소리 선호는?',
+      options: [
+        { value: 'ㄱ', label: 'ㄱ', emoji: '🅰️', desc: '가, 고, 구 등' },
+        { value: 'ㄴ', label: 'ㄴ', emoji: '🅱️', desc: '나, 노, 누 등' },
+        { value: 'ㄷ', label: 'ㄷ', emoji: '🅲', desc: '다, 도, 두 등' },
+        { value: 'ㄹ', label: 'ㄹ', emoji: '🅳', desc: '라, 로, 루 등' },
+        { value: 'ㅁ', label: 'ㅁ', emoji: '🅴', desc: '마, 모, 무 등' },
+        { value: 'ㅂ', label: 'ㅂ', emoji: '🅵', desc: '바, 보, 부 등' },
+        { value: 'ㅅ', label: 'ㅅ', emoji: '🅶', desc: '사, 소, 수 등' },
+        { value: 'ㅇ', label: 'ㅇ', emoji: '🅷', desc: '아, 오, 우 등' },
+        { value: 'ㅈ', label: 'ㅈ', emoji: '🅸', desc: '자, 조, 주 등' },
+        { value: 'ㅎ', label: 'ㅎ', emoji: '🅹', desc: '하, 호, 후 등' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'lastSound',
+      question: '끝소리 선호는?',
+      options: [
+        { value: 'none', label: '받침없음', emoji: '🎈', desc: '아, 우, 이 등' },
+        { value: 'ㄴ', label: 'ㄴ받침', emoji: '🎀', desc: '안, 은, 인 등' },
+        { value: 'ㅇ', label: 'ㅇ받침', emoji: '🎁', desc: '강, 명, 영 등' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'season',
+      question: '연상되는 계절 느낌은?',
+      options: [
+        { value: 'spring', label: '봄', emoji: '🌸', desc: '따뜻하고 생기있는' },
+        { value: 'summer', label: '여름', emoji: '🌞', desc: '밝고 활기찬' },
+        { value: 'autumn', label: '가을', emoji: '🍂', desc: '차분하고 성숙한' },
+        { value: 'winter', label: '겨울', emoji: '❄️', desc: '맑고 깨끗한' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'nature',
+      question: '자연에서 연상되는 것은?',
+      options: [
+        { value: 'sky', label: '하늘', emoji: '☁️', desc: '넓고 높은' },
+        { value: 'sea', label: '바다', emoji: '🌊', desc: '깊고 넓은' },
+        { value: 'mountain', label: '산', emoji: '⛰️', desc: '웅장하고 든든한' },
+        { value: 'flower', label: '꽃', emoji: '🌺', desc: '아름답고 향기로운' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'color',
+      question: '연상되는 색감은?',
+      options: [
+        { value: 'bright', label: '밝은색', emoji: '🌟', desc: '하얀, 노란 등' },
+        { value: 'dark', label: '어두운색', emoji: '🌑', desc: '검정, 남색 등' },
+        { value: 'neutral', label: '중성색', emoji: '🤍', desc: '회색, 베이지 등' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'pronunciation',
+      question: '발음의 중요도는?',
+      options: [
+        { value: 'easy', label: '발음 쉬운게 중요', emoji: '👄', desc: '누구나 쉽게' },
+        { value: 'unique', label: '독특한 발음', emoji: '🎤', desc: '특별하게' },
+        { value: 'standard', label: '표준 발음', emoji: '📣', desc: '정확하게' },
+        { value: 'any', label: '상관없음', emoji: '🎯', desc: '무관' }
+      ]
+    },
+    {
+      id: 'imageType',
+      question: '이름에서 받고 싶은 이미지는?',
+      options: [
+        { value: 'cute', label: '귀여운', emoji: '🐰', desc: '사랑스러운' },
+        { value: 'cool', label: '멋진', emoji: '😎', desc: '시크하고 당당한' },
+        { value: 'gentle', label: '부드러운', emoji: '🦢', desc: '온화하고 따뜻한' },
+        { value: 'energetic', label: '활기찬', emoji: '⚡', desc: '생동감있는' }
+      ]
+    }
+  ]
+
+  return mode === 'simple' ? simpleQuestions : detailedQuestions
+}
+
+function QuizPage({ mode = 'simple', onComplete, onBack }) {
+  const questions = getQuestions(mode)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState({})
   const [isAnalyzing, setIsAnalyzing] = useState(false)
@@ -109,7 +198,7 @@ function QuizPage({ onComplete, onBack }) {
   // 분석 중 화면
   if (isAnalyzing) {
     return (
-      <div className="min-h-screen bg-cream-100 flex items-center justify-center">
+      <div className="min-h-screen bg-cream-200 flex items-center justify-center">
         <div className="mobile-container text-center px-4">
           <div className="mb-8">
             <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary-100 mb-6 animate-pulse">
@@ -119,7 +208,7 @@ function QuizPage({ onComplete, onBack }) {
               완벽한 이름을 찾는 중...
             </h2>
             <p className="text-neutral-600 mb-6">
-              8가지 답변을 바탕으로<br/>
+              {mode === 'simple' ? '5가지' : '15가지'} 답변을 바탕으로<br/>
               최적의 이름을 분석하고 있어요
             </p>
           </div>
@@ -155,7 +244,7 @@ function QuizPage({ onComplete, onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top">
         {/* 헤더 */}
         <div className="pt-4 pb-6">
@@ -174,10 +263,13 @@ function QuizPage({ onComplete, onBack }) {
           </div>
 
           {/* 프로그레스 바 */}
-          <div className="w-full h-2 bg-neutral-200 rounded-full overflow-hidden">
+          <div className="w-full h-3 rounded-full overflow-hidden" style={{ backgroundColor: '#E8D5C4' }}>
             <div
-              className="h-full bg-primary-500 transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
+              className="h-full transition-all duration-500 ease-out"
+              style={{
+                width: `${progress}%`,
+                background: 'linear-gradient(to right, #E8A87C, #D4956B)'
+              }}
             />
           </div>
         </div>

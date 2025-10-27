@@ -67,7 +67,7 @@ function HanjaRecommendPage({ onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         <div className="pt-4 pb-6">
           <button
@@ -108,7 +108,7 @@ function HanjaRecommendPage({ onBack }) {
                         onClick={() => setSurname(s)}
                         className={`py-2 rounded-lg text-sm font-medium transition-all active:scale-95 ${
                           surname === s
-                            ? 'bg-[#FF6B9D] text-white shadow-md'
+                            ? 'bg-[#E8A87C] text-white shadow-md'
                             : 'bg-white border border-neutral-200 text-neutral-700'
                         }`}
                       >
@@ -126,7 +126,7 @@ function HanjaRecommendPage({ onBack }) {
                     onChange={(e) => setKoreanName(e.target.value)}
                     placeholder="예: 서연"
                     maxLength={3}
-                    className="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:border-[#FF6B9D] focus:outline-none bg-white"
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:border-[#E8A87C] focus:outline-none bg-white"
                   />
                   <p className="text-xs text-neutral-500 mt-1">
                     한글 이름 2~3글자를 입력하세요
@@ -160,7 +160,7 @@ function HanjaRecommendPage({ onBack }) {
             <button
               onClick={findHanjaCombinations}
               disabled={!koreanName || !surname}
-              className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#FF5A8C] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               한자 조합 추천받기 🎯
             </button>
@@ -289,7 +289,7 @@ function HanjaRecommendPage({ onBack }) {
               </button>
               <button
                 onClick={onBack}
-                className="flex-1 py-3 bg-[#FF6B9D] text-white rounded-xl font-bold hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                className="flex-1 py-3 bg-[#E8A87C] text-white rounded-xl font-bold hover:bg-[#D4956B] transition-colors active:scale-95"
               >
                 완료
               </button>

@@ -238,7 +238,7 @@ function FamilyHarmonyPage({ onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         <div className="pt-4 pb-6">
           <button
@@ -272,7 +272,7 @@ function FamilyHarmonyPage({ onBack }) {
                 value={babyName}
                 onChange={(e) => setBabyName(e.target.value)}
                 placeholder="예: 서연"
-                className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#FF6B9D] focus:outline-none bg-white"
+                className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#E8A87C] focus:outline-none bg-white"
               />
             </div>
 
@@ -296,7 +296,7 @@ function FamilyHarmonyPage({ onBack }) {
                       value={member.name}
                       onChange={(e) => updateMemberName(member.id, e.target.value)}
                       placeholder="이름 입력"
-                      className="flex-1 px-4 py-2.5 border border-neutral-200 rounded-lg focus:border-[#FF6B9D] focus:outline-none bg-white"
+                      className="flex-1 px-4 py-2.5 border border-neutral-200 rounded-lg focus:border-[#E8A87C] focus:outline-none bg-white"
                     />
                     {familyMembers.length > 2 && (
                       <button
@@ -335,7 +335,7 @@ function FamilyHarmonyPage({ onBack }) {
             <button
               onClick={analyzeHarmony}
               disabled={!babyName || familyMembers.some(m => !m.name)}
-              className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#FF5A8C] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               조화도 분석하기 🔍
             </button>
@@ -348,7 +348,7 @@ function FamilyHarmonyPage({ onBack }) {
                 <h2 className="font-semibold text-neutral-800 mb-2">
                   종합 조화도
                 </h2>
-                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B9D] to-purple-500 mb-3">
+                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-purple-500 mb-3">
                   {result.scores.overall}점
                 </div>
                 <p className="text-neutral-700">
@@ -382,7 +382,7 @@ function FamilyHarmonyPage({ onBack }) {
                         </div>
                         <div className="w-full bg-neutral-200 rounded-full h-2">
                           <div
-                            className="bg-gradient-to-r from-[#FF6B9D] to-purple-400 h-2 rounded-full transition-all duration-500"
+                            className="bg-gradient-to-r from-[#E8A87C] to-purple-400 h-2 rounded-full transition-all duration-500"
                             style={{ width: `${item.score}%` }}
                           ></div>
                         </div>
@@ -422,7 +422,7 @@ function FamilyHarmonyPage({ onBack }) {
                     </div>
                     <div className="w-full bg-white rounded-full h-2 mb-3">
                       <div
-                        className="bg-[#FF6B9D] h-2 rounded-full transition-all duration-500"
+                        className="bg-[#E8A87C] h-2 rounded-full transition-all duration-500"
                         style={{ width: `${member.harmony}%` }}
                       ></div>
                     </div>
@@ -448,7 +448,7 @@ function FamilyHarmonyPage({ onBack }) {
               </button>
               <button
                 onClick={onBack}
-                className="flex-1 py-3 bg-[#FF6B9D] text-white rounded-xl font-bold hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                className="flex-1 py-3 bg-[#E8A87C] text-white rounded-xl font-bold hover:bg-[#D4956B] transition-colors active:scale-95"
               >
                 완료
               </button>

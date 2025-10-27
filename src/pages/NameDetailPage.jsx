@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { hanjaDatabase, strokeFortune, nameStatistics } from '../data/namesData'
+import ShareModal from '../components/ShareModal'
 
-function NameDetailPage({ onBack, initialNameData = null }) {
+function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
   const [searchName, setSearchName] = useState(initialNameData?.name || '')
   const [result, setResult] = useState(null)
+  const [shareModalOpen, setShareModalOpen] = useState(false)
 
   // initialNameData가 있으면 자동으로 분석
   useEffect(() => {
@@ -283,10 +285,22 @@ function NameDetailPage({ onBack, initialNameData = null }) {
       for (let i = 0; i < name.length; i++) {
         const decomp = decomposeHangul(name[i])
         if (decomp) {
-          result += romanizationMap[decomp.cho] || decomp.cho
+          // 초성: ㅇ은 빈 문자열이므로 hasOwnProperty로 확인
+          const choRoman = romanizationMap.hasOwnProperty(decomp.cho)
+            ? romanizationMap[decomp.cho]
+            : decomp.cho
+          result += choRoman
+
+          // 중성
           result += romanizationMap[decomp.jung] || decomp.jung
+
+          // 종성
           if (decomp.jong) {
-            result += romanizationMap[decomp.jong + '_'] || decomp.jong
+            const jongKey = decomp.jong + '_'
+            const jongRoman = romanizationMap.hasOwnProperty(jongKey)
+              ? romanizationMap[jongKey]
+              : decomp.jong
+            result += jongRoman
           }
         }
       }
@@ -365,7 +379,7 @@ function NameDetailPage({ onBack, initialNameData = null }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         <div className="pt-4 pb-6">
           <button
@@ -398,7 +412,7 @@ function NameDetailPage({ onBack, initialNameData = null }) {
                 value={searchName}
                 onChange={(e) => setSearchName(e.target.value)}
                 placeholder="예: 서연"
-                className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#FF6B9D] focus:outline-none bg-white"
+                className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#E8A87C] focus:outline-none bg-white"
               />
             </div>
 
@@ -417,7 +431,7 @@ function NameDetailPage({ onBack, initialNameData = null }) {
             <button
               onClick={() => analyzeName()}
               disabled={!searchName}
-              className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#FF5A8C] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               상세 분석하기 🔎
             </button>
@@ -426,13 +440,20 @@ function NameDetailPage({ onBack, initialNameData = null }) {
           <div className="space-y-4">
             {/* 기본 정보 */}
             <div className="card bg-gradient-to-br from-primary-50 to-purple-50">
-              <div className="text-center">
+              <div className="text-center mb-4">
                 <h2 className="text-4xl font-bold text-neutral-800 mb-2">
                   {result.name}
                 </h2>
                 <p className="text-2xl text-neutral-600 mb-2">{result.hanja}</p>
                 <p className="text-lg text-neutral-700">{result.meaning.overall}</p>
               </div>
+
+              <button
+                onClick={() => setShareModalOpen(true)}
+                className="w-full py-3 bg-[#E8A87C] text-white rounded-xl font-medium shadow-sm hover:shadow-md transition-all active:scale-95"
+              >
+                이 이름 공유하기 📤
+              </button>
             </div>
 
             {/* 한자 상세 */}
@@ -569,18 +590,20 @@ function NameDetailPage({ onBack, initialNameData = null }) {
                       {result.statistics.history.map((item) => (
                         <div key={item.year} className="flex items-center gap-2">
                           <span className="text-xs text-neutral-600 w-10">{item.year}</span>
-                          <div className="flex-1 bg-white rounded-full h-5 relative overflow-hidden">
+                          <div className="flex-1 bg-white rounded-full h-6 relative">
                             <div
-                              className="bg-gradient-to-r from-[#FF6B9D] to-purple-400 h-5 rounded-full flex items-center justify-end pr-2"
+                              className="bg-gradient-to-r from-[#E8A87C] to-purple-400 h-6 rounded-full"
                               style={{ width: `${Math.min((item.count / 2000) * 100, 100)}%` }}
+                            />
+                            <span
+                              className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-800"
+                              style={{ textShadow: '1px 1px 2px rgba(255,255,255,0.8), -1px -1px 2px rgba(255,255,255,0.8)' }}
                             >
-                              <span className="text-white text-xs font-semibold">
-                                {item.rank}위
-                              </span>
-                            </div>
+                              {item.rank}위
+                            </span>
                           </div>
                           <span className="text-xs text-neutral-600 w-16 text-right">
-                            {item.count.toLocaleString()}
+                            {item.count.toLocaleString()}명
                           </span>
                         </div>
                       ))}
@@ -696,7 +719,7 @@ function NameDetailPage({ onBack, initialNameData = null }) {
               </button>
               <button
                 onClick={onBack}
-                className="flex-1 py-3 bg-[#FF6B9D] text-white rounded-xl font-bold hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                className="flex-1 py-3 bg-[#E8A87C] text-white rounded-xl font-bold hover:bg-[#D4956B] transition-colors active:scale-95"
               >
                 완료
               </button>
@@ -704,6 +727,28 @@ function NameDetailPage({ onBack, initialNameData = null }) {
           </div>
         )}
       </div>
+
+      <ShareModal
+        isOpen={shareModalOpen}
+        onClose={() => setShareModalOpen(false)}
+        nameData={result ? {
+          name: result.name,
+          hanja: result.hanja,
+          meaning: result.meaning?.overall || result.meaning,
+          detailedInfo: result.saju ? {
+            characters: result.meaning.characters,
+            totalStrokes: result.saju.totalStrokes,
+            fortune: {
+              description: result.saju.fortuneMeaning
+            },
+            compatibleSurnames: result.compatibility.goodSurnames.map(surname => ({ surname })),
+            statistics: result.statistics ? {
+              rank2024: result.statistics.rank2024,
+              count: result.statistics.count2024
+            } : null
+          } : null
+        } : null}
+      />
     </div>
   )
 }

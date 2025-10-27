@@ -446,7 +446,7 @@ function NameChecklistPage({ onBack }) {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100">
+    <div className="min-h-screen bg-cream-200">
       <div className="mobile-container safe-top pb-20">
         <div className="pt-4 pb-6">
           <button
@@ -480,7 +480,7 @@ function NameChecklistPage({ onBack }) {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="성"
-                  className="w-20 px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#FF6B9D] focus:outline-none bg-white text-center"
+                  className="w-20 px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#E8A87C] focus:outline-none bg-white text-center"
                   maxLength="2"
                 />
                 <input
@@ -488,7 +488,7 @@ function NameChecklistPage({ onBack }) {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="이름"
-                  className="flex-1 px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#FF6B9D] focus:outline-none bg-white"
+                  className="flex-1 px-4 py-3 border border-neutral-200 rounded-xl focus:border-[#E8A87C] focus:outline-none bg-white"
                 />
               </div>
               {lastName && firstName && (
@@ -526,7 +526,7 @@ function NameChecklistPage({ onBack }) {
             <button
               onClick={checkName}
               disabled={!lastName || !firstName}
-              className="w-full py-4 bg-[#FF6B9D] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#FF5A8C] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               이름 검사 시작하기 🔍
             </button>
@@ -539,7 +539,7 @@ function NameChecklistPage({ onBack }) {
                 <h2 className="font-semibold text-neutral-800 mb-2">
                   {lastName}{firstName}
                 </h2>
-                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B9D] to-purple-500 mb-2">
+                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E8A87C] to-purple-500 mb-2">
                   {Math.round((result.pronunciation.score + result.initials.score + result.teasing.score + result.special.score) / 4)}점
                 </div>
                 <p className="text-sm text-neutral-700">종합 안전도</p>
@@ -589,7 +589,7 @@ function NameChecklistPage({ onBack }) {
               </button>
               <button
                 onClick={onBack}
-                className="flex-1 py-3 bg-[#FF6B9D] text-white rounded-xl font-bold hover:bg-[#FF5A8C] transition-colors active:scale-95"
+                className="flex-1 py-3 bg-[#E8A87C] text-white rounded-xl font-bold hover:bg-[#D4956B] transition-colors active:scale-95"
               >
                 완료
               </button>
