@@ -26,10 +26,7 @@ function HomePage({ onStartQuiz, onNavigate }) {
             {/* 빠른 추천 */}
             <button
               onClick={() => onStartQuiz('simple')}
-              className="w-full py-4 text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98]"
-              style={{ backgroundColor: '#E8A87C' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#D4956B'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#E8A87C'}
+              className="w-full py-4 text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] bg-[#E8A87C] hover:bg-[#D4956B]"
             >
               <div className="flex items-center justify-center gap-2">
                 <span>⚡</span>
@@ -41,10 +38,7 @@ function HomePage({ onStartQuiz, onNavigate }) {
             {/* 맞춤 추천 */}
             <button
               onClick={() => onStartQuiz('detailed')}
-              className="w-full py-4 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] text-white"
-              style={{ backgroundColor: '#C9A98E' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#B89880'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A98E'}
+              className="w-full py-4 rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] text-white bg-[#C9A98E] hover:bg-[#B89880]"
             >
               <div className="flex items-center justify-center gap-2">
                 <span>✨</span>

@@ -14,9 +14,12 @@ import { nameStatistics } from './data/namesData'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
+  const [pageHistory, setPageHistory] = useState([])
+  const [quizMode, setQuizMode] = useState('simple') // 'simple' or 'detailed'
   const [quizAnswers, setQuizAnswers] = useState({})
   const [selectedNames, setSelectedNames] = useState([])
   const [selectedNameDetail, setSelectedNameDetail] = useState(null)
+  const [isLoadingResults, setIsLoadingResults] = useState(false)
 
   // URL 파라미터에서 이름을 읽어서 상세 페이지로 이동
   useEffect(() => {
@@ -37,18 +40,24 @@ function App() {
     }
   }, [])
 
-  const startQuiz = () => {
+  const startQuiz = (mode = 'simple') => {
+    setQuizMode(mode)
     setCurrentPage('quiz')
     setQuizAnswers({})
   }
 
   const completeQuiz = (answers) => {
     setQuizAnswers(answers)
+    setIsLoadingResults(true)
 
-    // Quiz 답변을 기반으로 이름 추천
-    const recommendedNames = getRecommendedNames(answers)
-    setSelectedNames(recommendedNames)
-    setCurrentPage('result')
+    // 로딩 애니메이션을 보여주기 위한 약간의 지연
+    setTimeout(() => {
+      // Quiz 답변을 기반으로 이름 추천
+      const recommendedNames = getRecommendedNames(answers)
+      setSelectedNames(recommendedNames)
+      setIsLoadingResults(false)
+      setCurrentPage('result')
+    }, 1500)
   }
 
   // Quiz 답변 기반 이름 추천 로직
@@ -207,8 +216,36 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      {isLoadingResults && (
+        <div className="fixed inset-0 flex items-center justify-center z-50" style={{ background: 'linear-gradient(to bottom right, #FEF5EF, #FAF3E8, #F5E6D3)' }}>
+          <div className="text-center px-8">
+            {/* 애니메이션 아이콘 */}
+            <div className="mb-8 relative">
+              <div className="w-24 h-24 mx-auto relative">
+                {/* 회전하는 원들 */}
+                <div className="absolute inset-0 border-4 rounded-full animate-spin" style={{ borderColor: '#FDEADF', borderTopColor: '#E8A87C' }} />
+                <div className="absolute inset-2 border-4 rounded-full" style={{ borderColor: '#F9C09F', borderTopColor: '#D4956B', animation: 'spin 3s linear infinite reverse' }} />
+
+                {/* 중앙 아이콘 */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-4xl animate-bounce">🍼</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 로딩 텍스트 */}
+            <h2 className="text-2xl font-bold text-neutral-800 mb-3 animate-pulse">
+              완벽한 이름을 찾고 있어요
+            </h2>
+            <p className="text-neutral-600 mb-8">
+              잠시만 기다려주세요...
+            </p>
+          </div>
+        </div>
+      )}
+
       {currentPage === 'home' && <HomePage onStartQuiz={startQuiz} onNavigate={navigateTo} />}
-      {currentPage === 'quiz' && <QuizPage onComplete={completeQuiz} onBack={goHome} />}
+      {currentPage === 'quiz' && <QuizPage mode={quizMode} onComplete={completeQuiz} onBack={goHome} />}
       {currentPage === 'result' && <ResultPage names={selectedNames} onBack={goHome} onNavigate={navigateTo} />}
       {currentPage === 'family-harmony' && <FamilyHarmonyPage onBack={goHome} />}
       {currentPage === 'sibling-name' && <SiblingNamePage onBack={goHome} />}
