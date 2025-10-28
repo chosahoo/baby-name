@@ -584,11 +584,8 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                           </span>
                         </div>
                         <p className="font-semibold mb-2 text-neutral-800">{char.meaning}</p>
-                        <p className="text-sm text-neutral-600 mb-2">
+                        <p className="text-sm text-neutral-600">
                           {char.detailMeaning}
-                        </p>
-                        <p className="text-xs text-neutral-500">
-                          부수: {char.radicals}
                         </p>
                       </div>
                     </div>
@@ -598,7 +595,7 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
 
               {/* 다른 한자 보기 안내 */}
               <button
-                onClick={() => onNavigate('hanja')}
+                onClick={() => onNavigate('hanja-recommend')}
                 className="mt-4 w-full p-3 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 hover:border-blue-300 transition-all active:scale-[0.98]"
               >
                 <p className="text-sm text-blue-800 text-center">
