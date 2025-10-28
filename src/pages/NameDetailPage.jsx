@@ -582,10 +582,8 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 최근 5년 통계</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 발음 분석</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 조화로운 성씨</div>
+                <div className="bg-blue-50 rounded-lg p-3 text-neutral-700">✓ 또래 겹칠 확률</div>
               </div>
-              <p className="text-xs text-neutral-500 mt-2">
-                * 통계 순위권 이름은 또래 겹칠 확률도 제공됩니다
-              </p>
             </div>
 
             <button
@@ -788,80 +786,105 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
             )}
 
             {/* 또래 친구들과 겹칠 확률 */}
-            {result.statistics && result.statistics.percentage && (
-              <div className="card bg-gradient-to-br from-blue-50 to-indigo-50">
-                <h3 className="font-semibold text-neutral-800 mb-3">
-                  👥 또래 친구들과 겹칠 확률
-                </h3>
-                <p className="text-sm text-neutral-600 mb-4">
-                  같은 반에 동명이인이 있을 가능성을 계산했어요
-                </p>
+            <div className="card bg-gradient-to-br from-blue-50 to-indigo-50">
+              <h3 className="font-semibold text-neutral-800 mb-3">
+                👥 또래 친구들과 겹칠 확률
+              </h3>
+              <p className="text-sm text-neutral-600 mb-4">
+                같은 반에 동명이인이 있을 가능성을 계산했어요
+              </p>
 
-                {(() => {
-                  const percentage = parseFloat(result.statistics.percentage);
-                  const prob = percentage / 100;
+              {result.statistics && result.statistics.percentage ? (
+                <>
+                  {(() => {
+                    const percentage = parseFloat(result.statistics.percentage);
+                    const prob = percentage / 100;
 
-                  // 확률 계산: 1 - (1-p)^n
-                  const calc = (classSize) => {
-                    const probability = (1 - Math.pow(1 - prob, classSize)) * 100;
-                    return probability;
-                  };
+                    // 확률 계산: 1 - (1-p)^n
+                    const calc = (classSize) => {
+                      const probability = (1 - Math.pow(1 - prob, classSize)) * 100;
+                      return probability;
+                    };
 
-                  const scenarios = [
-                    { size: 20, name: '소규모 반 (20명)', emoji: '🏫' },
-                    { size: 25, name: '보통 반 (25명)', emoji: '🎒' },
-                    { size: 30, name: '대규모 반 (30명)', emoji: '👨‍🎓' }
-                  ];
+                    const scenarios = [
+                      { size: 20, name: '소규모 반 (20명)', emoji: '🏫' },
+                      { size: 25, name: '보통 반 (25명)', emoji: '🎒' },
+                      { size: 30, name: '대규모 반 (30명)', emoji: '👨‍🎓' }
+                    ];
 
-                  return (
-                    <div className="space-y-3">
-                      {scenarios.map((scenario) => {
-                        const prob = calc(scenario.size);
-                        const displayProb = prob < 0.1 ? '<0.1' : prob.toFixed(1);
-                        const barWidth = Math.min(prob, 100);
+                    return (
+                      <div className="space-y-3">
+                        {scenarios.map((scenario) => {
+                          const prob = calc(scenario.size);
+                          const displayProb = prob < 0.1 ? '<0.1' : prob.toFixed(1);
+                          const barWidth = Math.min(prob, 100);
 
-                        return (
-                          <div key={scenario.size} className="bg-white rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
-                              <span className="text-sm font-medium text-neutral-700">
-                                {scenario.emoji} {scenario.name}
-                              </span>
-                              <span className="text-lg font-bold text-indigo-600">
-                                {displayProb}%
-                              </span>
+                          return (
+                            <div key={scenario.size} className="bg-white rounded-xl p-4">
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-sm font-medium text-neutral-700">
+                                  {scenario.emoji} {scenario.name}
+                                </span>
+                                <span className="text-lg font-bold text-indigo-600">
+                                  {displayProb}%
+                                </span>
+                              </div>
+                              <div className="w-full bg-neutral-200 rounded-full h-3 overflow-hidden">
+                                <div
+                                  className="bg-gradient-to-r from-blue-400 to-indigo-500 h-3 rounded-full transition-all duration-500"
+                                  style={{ width: `${barWidth}%` }}
+                                />
+                              </div>
+                              <p className="text-xs text-neutral-500 mt-2">
+                                {prob < 1
+                                  ? `거의 겹치지 않아요`
+                                  : prob < 10
+                                  ? `약 ${Math.round(100/prob)}반에 1명꼴`
+                                  : prob < 30
+                                  ? `가끔 겹칠 수 있어요`
+                                  : prob < 50
+                                  ? `꽤 자주 겹칠 수 있어요`
+                                  : `같은 반에 동명이인이 있을 가능성이 높아요`
+                                }
+                              </p>
                             </div>
-                            <div className="w-full bg-neutral-200 rounded-full h-3 overflow-hidden">
-                              <div
-                                className="bg-gradient-to-r from-blue-400 to-indigo-500 h-3 rounded-full transition-all duration-500"
-                                style={{ width: `${barWidth}%` }}
-                              />
-                            </div>
-                            <p className="text-xs text-neutral-500 mt-2">
-                              {prob < 1
-                                ? `거의 겹치지 않아요`
-                                : prob < 10
-                                ? `약 ${Math.round(100/prob)}반에 1명꼴`
-                                : prob < 30
-                                ? `가끔 겹칠 수 있어요`
-                                : prob < 50
-                                ? `꽤 자주 겹칠 수 있어요`
-                                : `같은 반에 동명이인이 있을 가능성이 높아요`
-                              }
-                            </p>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  );
-                })()}
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
 
-                <div className="mt-4 bg-white/50 rounded-lg p-3">
-                  <p className="text-xs text-neutral-600">
-                    💡 <span className="font-semibold">계산 방법:</span> 2024년 신생아 중 이 이름을 가진 비율({result.statistics.percentage}%)을 기준으로, 같은 학년의 다른 반에 동명이인이 있을 확률을 계산했어요.
+                  <div className="mt-4 bg-white/50 rounded-lg p-3">
+                    <p className="text-xs text-neutral-600">
+                      💡 <span className="font-semibold">계산 방법:</span> 2024년 신생아 중 이 이름을 가진 비율({result.statistics.percentage}%)을 기준으로, 같은 학년의 다른 반에 동명이인이 있을 확률을 계산했어요.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 text-center">
+                  <div className="text-6xl mb-4">✨</div>
+                  <h4 className="text-xl font-bold text-green-700 mb-2">
+                    희귀하고 특별한 이름이에요!
+                  </h4>
+                  <p className="text-green-600 mb-4">
+                    2024년 통계 순위권 밖의 이름으로,<br/>
+                    또래 친구들과 겹칠 가능성이 <span className="font-bold text-xl">거의 0%</span>에 가까워요
                   </p>
+                  <div className="space-y-2">
+                    {[
+                      { emoji: '🏫', text: '유치원/학교에서 거의 겹치지 않아요' },
+                      { emoji: '⭐', text: '독특하고 개성있는 이름이에요' },
+                      { emoji: '💎', text: '희소성이 높은 특별한 이름이에요' }
+                    ].map((item, idx) => (
+                      <div key={idx} className="bg-white/70 rounded-lg p-3 flex items-center gap-3">
+                        <span className="text-2xl">{item.emoji}</span>
+                        <span className="text-sm text-neutral-700">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
             {/* 발음 분석 */}
             <div className="card">
