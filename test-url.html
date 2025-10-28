@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Test</title>
+</head>
+<body>
+    <h1>URL Test</h1>
+    <div id="output"></div>
+    <script>
+        const output = document.getElementById('output');
+        output.innerHTML = `
+            <p>Current URL: ${window.location.href}</p>
+            <p>Hash: ${window.location.hash}</p>
+            <p>Search: ${window.location.search}</p>
+        `;
+        
+        // Hash 테스트
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#name=')) {
+            const name = decodeURIComponent(hash.replace('#name=', ''));
+            output.innerHTML += `<p style="color: green;">Found name from hash: ${name}</p>`;
+        }
+    </script>
+</body>
+</html>

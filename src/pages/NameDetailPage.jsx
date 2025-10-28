@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react'
 import { hanjaDatabase, strokeFortune, nameStatistics } from '../data/namesData'
 import ShareModal from '../components/ShareModal'
 
+// 전체 한자 데이터 캐시
+let fullHanjaCache = null
+
 function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
   const [searchName, setSearchName] = useState(initialNameData?.name || '')
   const [result, setResult] = useState(null)
   const [shareModalOpen, setShareModalOpen] = useState(false)
+  const [isLoadingFullHanja, setIsLoadingFullHanja] = useState(false)
 
   // initialNameData가 있으면 자동으로 분석
   useEffect(() => {
@@ -13,6 +17,49 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       analyzeName(initialNameData.name)
     }
   }, [initialNameData])
+
+  // 전체 한자 데이터 로드 함수
+  const loadFullHanjaData = async () => {
+    if (fullHanjaCache) return fullHanjaCache
+
+    setIsLoadingFullHanja(true)
+    try {
+      const response = await fetch('/hanja-full.json')
+      const govData = await response.json()
+
+      // 법무부 데이터를 한자 맵으로 변환
+      const hanjaMap = {}
+      govData.forEach(item => {
+        if (!item.cd || !item.ineum) return
+
+        const codePoint = parseInt(item.cd, 16)
+        const hanja = String.fromCodePoint(codePoint)
+        const reading = item.ineum.trim()
+
+        let meaning = ''
+        if (item.in) {
+          const match = item.in.match(/:\s*([^(]+)\(/)
+          if (match) meaning = match[1].trim()
+        }
+
+        hanjaMap[hanja] = {
+          reading: reading,
+          meaning: meaning || '의미 없음',
+          detailMeaning: item.in || '',
+          strokes: item.totstroke || 10,
+          element: '목(木)'
+        }
+      })
+
+      fullHanjaCache = hanjaMap
+      return hanjaMap
+    } catch (error) {
+      console.error('전체 한자 데이터 로드 실패:', error)
+      return {}
+    } finally {
+      setIsLoadingFullHanja(false)
+    }
+  }
 
   // 어울리는 성씨 계산 함수
   const calculateCompatibleSurnames = (hanjaChars, totalStrokes, elements) => {
@@ -143,19 +190,44 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
     return badSurnames.slice(0, 3)
   }
 
-  const analyzeName = (nameToAnalyze = searchName) => {
+  const analyzeName = async (nameToAnalyze = searchName) => {
     if (!nameToAnalyze || nameToAnalyze.length === 0) return
 
     // 통계에서 실제 데이터 찾기
     const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
     const statsData = allNames.find(n => n.name === nameToAnalyze)
 
+    // 전체 한자 데이터 로드
+    const fullHanjaData = await loadFullHanjaData()
+
     // 이름을 음절로 분리
     const syllables = nameToAnalyze.split('')
 
-    // 한자 데이터베이스에서 각 음절의 한자 찾기
-    const hanjaChars = syllables.map(syllable => {
-      // 한자 데이터베이스에서 해당 음절(reading)을 가진 한자 찾기
+    // 통계 데이터에서 한자 가져오기
+    let actualHanjaChars = []
+    if (statsData && statsData.hanja && statsData.hanja !== '-') {
+      actualHanjaChars = statsData.hanja.split('')
+    }
+
+    // 한자 데이터베이스에서 각 음절의 한자 찾기 (4-tier lookup)
+    const hanjaChars = syllables.map((syllable, index) => {
+      const actualHanja = actualHanjaChars[index]
+
+      // 1. 통계 데이터에 실제 한자가 있으면 그 한자로 전체 DB 검색
+      if (actualHanja && fullHanjaData[actualHanja]) {
+        const data = fullHanjaData[actualHanja]
+        return {
+          char: actualHanja,
+          reading: data.reading || syllable,
+          meaning: data.meaning || '좋은 의미',
+          detailMeaning: data.detailMeaning || data.meaning || '좋은 의미의 한자입니다',
+          strokes: data.strokes || 10,
+          element: data.element || '목(木)',
+          radicals: ''
+        }
+      }
+
+      // 2. 기본 한자 DB에서 검색 (자주 쓰는 552개)
       const hanjaEntry = Object.entries(hanjaDatabase).find(([char, data]) =>
         data.reading === syllable
       )
@@ -173,20 +245,40 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
         }
       }
 
-      // 데이터베이스에 없는 경우 기본값 반환
+      // 3. 전체 DB에서 음절로 검색
+      const fullHanjaEntry = Object.entries(fullHanjaData).find(([char, data]) =>
+        data.reading === syllable
+      )
+
+      if (fullHanjaEntry) {
+        const [char, data] = fullHanjaEntry
+        return {
+          char,
+          reading: data.reading,
+          meaning: data.meaning,
+          detailMeaning: data.detailMeaning,
+          strokes: data.strokes,
+          element: data.element,
+          radicals: ''
+        }
+      }
+
+      // 4. 완전히 없는 경우
       return {
-        char: '未',
+        char: syllable,
         reading: syllable,
-        meaning: '정보 없음',
-        detailMeaning: '해당 한자 정보가 데이터베이스에 없습니다.',
-        strokes: 5,
+        meaning: '한자 정보 없음',
+        detailMeaning: '해당 한자의 상세 정보가 데이터베이스에 없습니다.',
+        strokes: 10,
         element: '목(木)',
-        radicals: '木(나무 목)'
+        radicals: ''
       }
     })
 
     // 통계 데이터가 있으면 해당 한자 사용, 없으면 찾은 한자 사용
-    const hanjaString = statsData ? statsData.hanja : hanjaChars.map(h => h.char).join('')
+    const hanjaString = statsData?.hanja && statsData.hanja !== '-'
+      ? statsData.hanja
+      : hanjaChars.map(h => h.char).join('')
 
     // 총 획수 계산
     const totalStrokes = hanjaChars.reduce((sum, h) => sum + h.strokes, 0)
@@ -430,10 +522,17 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
 
             <button
               onClick={() => analyzeName()}
-              disabled={!searchName}
+              disabled={!searchName || isLoadingFullHanja}
               className="w-full py-4 bg-[#E8A87C] text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] hover:bg-[#D4956B] disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              상세 분석하기 🔎
+              {isLoadingFullHanja ? (
+                <span className="flex items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  한자 데이터 로딩 중...
+                </span>
+              ) : (
+                '상세 분석하기 🔎'
+              )}
             </button>
           </div>
         ) : (
