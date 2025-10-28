@@ -551,7 +551,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 한자 의미 및 유래</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 성명학 (획수, 오행)</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 최근 5년 통계</div>
-                <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 유명인 동명이인</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 발음 분석</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 조화로운 성씨</div>
               </div>
