@@ -228,20 +228,21 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       }
 
       // 2. 기본 한자 DB에서 검색 (자주 쓰는 552개)
-      const hanjaEntry = Object.entries(hanjaDatabase).find(([char, data]) =>
-        data.reading === syllable
+      const hanjaEntry = Object.entries(hanjaDatabase).find(([reading, hanjaArray]) =>
+        reading === syllable && Array.isArray(hanjaArray) && hanjaArray.length > 0
       )
 
       if (hanjaEntry) {
-        const [char, data] = hanjaEntry
+        const [, hanjaArray] = hanjaEntry
+        const firstHanja = hanjaArray[0]
         return {
-          char,
-          reading: data.reading,
-          meaning: data.meaning,
-          detailMeaning: data.detailMeaning,
-          strokes: data.strokes,
-          element: data.element,
-          radicals: data.radicals
+          char: firstHanja.hanja,
+          reading: syllable,
+          meaning: firstHanja.meaning,
+          detailMeaning: firstHanja.meaning,
+          strokes: firstHanja.strokes,
+          element: firstHanja.element,
+          radicals: ''
         }
       }
 
