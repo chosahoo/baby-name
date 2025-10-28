@@ -215,21 +215,39 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       const actualHanja = actualHanjaChars[index]
       let selectedChar = null
 
-      // 1. 통계 데이터에 실제 한자가 있으면 그 한자로 전체 DB 검색
-      if (actualHanja && fullHanjaData[actualHanja]) {
-        const data = fullHanjaData[actualHanja]
-        selectedChar = {
-          char: actualHanja,
-          reading: data.reading || syllable,
-          meaning: data.meaning || '좋은 의미',
-          detailMeaning: data.detailMeaning || data.meaning || '좋은 의미의 한자입니다',
-          strokes: data.strokes || 10,
-          element: data.element || '목(木)',
-          radicals: ''
+      // 1. 통계 데이터에 실제 한자가 있으면 그 한자로 기본 DB 먼저 검색 (획수 정확도 위해)
+      if (actualHanja) {
+        // 1-1. 기본 한자 DB에서 찾기 (획수가 정확함)
+        const basicHanjaList = Object.values(hanjaByReading).flat()
+        const basicMatch = basicHanjaList.find(h => h.hanja === actualHanja)
+
+        if (basicMatch) {
+          selectedChar = {
+            char: actualHanja,
+            reading: syllable,
+            meaning: basicMatch.meaning,
+            detailMeaning: basicMatch.meaning,
+            strokes: basicMatch.strokes,
+            element: basicMatch.element,
+            radicals: ''
+          }
+        }
+        // 1-2. 전체 DB에서 찾기 (획수는 없지만 의미는 있음)
+        else if (fullHanjaData[actualHanja]) {
+          const data = fullHanjaData[actualHanja]
+          selectedChar = {
+            char: actualHanja,
+            reading: data.reading || syllable,
+            meaning: data.meaning || '좋은 의미',
+            detailMeaning: data.detailMeaning || data.meaning || '좋은 의미의 한자입니다',
+            strokes: 10, // 정부 데이터에는 획수 정보 없음
+            element: '목(木)',
+            radicals: ''
+          }
         }
       }
       // 2. 기본 한자 DB에서 검색 (자주 쓰는 552개)
-      else if (hanjaByReading[syllable] && Array.isArray(hanjaByReading[syllable]) && hanjaByReading[syllable].length > 0) {
+      if (!selectedChar && hanjaByReading[syllable] && Array.isArray(hanjaByReading[syllable]) && hanjaByReading[syllable].length > 0) {
         const firstHanja = hanjaByReading[syllable][0]
         selectedChar = {
           char: firstHanja.hanja,
