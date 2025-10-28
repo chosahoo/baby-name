@@ -27,7 +27,35 @@
     <title>bebé name - 우리 아기 이름 찾기</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- JavaScript 로드 전 표시되는 로딩 화면 -->
+      <div style="position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(to bottom right, #FEF5EF, #FAF3E8, #F5E6D3); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        <div style="text-align: center; padding: 2rem;">
+          <!-- 로딩 스피너 -->
+          <div style="width: 80px; height: 80px; margin: 0 auto 2rem; position: relative;">
+            <div style="position: absolute; inset: 0; border: 4px solid #FDEADF; border-top-color: #E8A87C; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <div style="position: absolute; inset: 8px; border: 4px solid #F9C09F; border-top-color: #D4956B; border-radius: 50%; animation: spin 2s linear infinite reverse;"></div>
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🍼</div>
+          </div>
+
+          <!-- 로딩 텍스트 -->
+          <h2 style="font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 0.5rem;">bebé name</h2>
+          <p style="color: #666; font-size: 0.875rem;">로딩 중...</p>
+
+          <!-- 인스타그램 안내 -->
+          <div style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.8); border-radius: 0.5rem; max-width: 300px;">
+            <p style="font-size: 0.75rem; color: #f97316; font-weight: 600; margin-bottom: 0.25rem;">⚠️ 인스타그램에서 접속하셨나요?</p>
+            <p style="font-size: 0.75rem; color: #666;">Safari나 Chrome에서 열면 더 빠르고 안정적이에요</p>
+          </div>
+        </div>
+
+        <style>
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        </style>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
