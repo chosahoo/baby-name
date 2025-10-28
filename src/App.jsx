@@ -24,6 +24,17 @@ function App() {
   const [selectedNames, setSelectedNames] = useState([])
   const [selectedNameDetail, setSelectedNameDetail] = useState(null)
   const [isLoadingResults, setIsLoadingResults] = useState(false)
+  const [showInAppBrowserWarning, setShowInAppBrowserWarning] = useState(false)
+
+  // 인스타그램/페이스북 인앱 브라우저 감지
+  useEffect(() => {
+    const ua = navigator.userAgent || navigator.vendor || window.opera
+    const isInAppBrowser = /Instagram|FBAN|FBAV/i.test(ua)
+
+    if (isInAppBrowser) {
+      setShowInAppBrowserWarning(true)
+    }
+  }, [])
 
   // URL에서 이름을 읽어서 상세 페이지로 이동 (query & hash 둘 다 지원)
   useEffect(() => {
@@ -450,6 +461,39 @@ function App() {
             <p className="text-neutral-600 mb-8">
               잠시만 기다려주세요...
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* 인스타그램/페이스북 인앱 브라우저 경고 */}
+      {showInAppBrowserWarning && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 shadow-lg">
+          <div className="max-w-md mx-auto">
+            <div className="flex items-start gap-3">
+              <div className="text-2xl">⚠️</div>
+              <div className="flex-1">
+                <p className="font-bold mb-1">인스타그램 브라우저에서는 일부 기능이 제한돼요</p>
+                <p className="text-sm mb-2">Safari나 Chrome에서 열어주세요</p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setShowInAppBrowserWarning(false)}
+                    className="text-xs bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 rounded transition-all"
+                  >
+                    닫기
+                  </button>
+                  <button
+                    onClick={() => {
+                      // URL을 클립보드에 복사
+                      navigator.clipboard?.writeText(window.location.href)
+                      alert('링크가 복사되었어요! Safari나 Chrome에 붙여넣기 해주세요')
+                    }}
+                    className="text-xs bg-white text-orange-600 font-medium px-3 py-1 rounded hover:bg-opacity-90 transition-all"
+                  >
+                    링크 복사
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
