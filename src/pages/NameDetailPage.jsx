@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { hanjaDatabase, strokeFortune, nameStatistics } from '../data/namesData'
+import { hanjaByReading } from '../data/hanjaData'
 import ShareModal from '../components/ShareModal'
 
 // 전체 한자 데이터 캐시
@@ -214,8 +215,8 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       const alternatives = []
 
       // 기본 한자 DB에서 찾기
-      if (hanjaDatabase[syllable] && Array.isArray(hanjaDatabase[syllable])) {
-        hanjaDatabase[syllable].forEach(h => {
+      if (hanjaByReading[syllable] && Array.isArray(hanjaByReading[syllable])) {
+        hanjaByReading[syllable].forEach(h => {
           if (h.hanja !== currentHanja) {
             alternatives.push({
               char: h.hanja,
@@ -264,8 +265,8 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
         }
       }
       // 2. 기본 한자 DB에서 검색 (자주 쓰는 552개)
-      else if (hanjaDatabase[syllable] && Array.isArray(hanjaDatabase[syllable]) && hanjaDatabase[syllable].length > 0) {
-        const firstHanja = hanjaDatabase[syllable][0]
+      else if (hanjaByReading[syllable] && Array.isArray(hanjaByReading[syllable]) && hanjaByReading[syllable].length > 0) {
+        const firstHanja = hanjaByReading[syllable][0]
         selectedChar = {
           char: firstHanja.hanja,
           reading: syllable,
