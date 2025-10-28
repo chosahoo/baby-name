@@ -3,11 +3,12 @@ import { dreamCategories, getNamesByDream } from '../data/dreamData'
 import { nameStatistics } from '../data/namesData'
 
 function DreamNamePage({ onBack }) {
-  const [step, setStep] = useState(1) // 1: 카테고리 선택, 2: 태몽 선택, 3: 결과
+  const [step, setStep] = useState(1) // 1: 카테고리 선택, 2: 태몽 선택, 3: 로딩, 4: 결과
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [selectedDream, setSelectedDream] = useState(null)
   const [selectedGender, setSelectedGender] = useState('girl')
   const [results, setResults] = useState([])
+  const [isThinking, setIsThinking] = useState(false)
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category)
@@ -16,10 +17,17 @@ function DreamNamePage({ onBack }) {
 
   const handleDreamSelect = (dream) => {
     setSelectedDream(dream)
-    // 이름 검색
-    const matchedNames = getNamesByDream(dream.id, selectedGender, nameStatistics)
-    setResults(matchedNames)
+    setIsThinking(true)
     setStep(3)
+
+    // 고민하는 애니메이션 시간
+    setTimeout(() => {
+      // 이름 검색
+      const matchedNames = getNamesByDream(dream.id, selectedGender, nameStatistics)
+      setResults(matchedNames)
+      setIsThinking(false)
+      setStep(4)
+    }, 2000)
   }
 
   const handleReset = () => {
@@ -27,6 +35,7 @@ function DreamNamePage({ onBack }) {
     setSelectedCategory(null)
     setSelectedDream(null)
     setResults([])
+    setIsThinking(false)
   }
 
   return (
@@ -50,7 +59,8 @@ function DreamNamePage({ onBack }) {
             <p className="text-neutral-600 text-sm">
               {step === 1 && '어떤 태몽을 꾸셨나요?'}
               {step === 2 && '구체적으로 어떤 꿈이었나요?'}
-              {step === 3 && '태몽에 어울리는 이름을 추천해드려요'}
+              {step === 3 && '이름을 찾고 있어요...'}
+              {step === 4 && '태몽에 어울리는 이름을 추천해드려요'}
             </p>
           </div>
 
@@ -152,8 +162,37 @@ function DreamNamePage({ onBack }) {
           </div>
         )}
 
-        {/* Step 3: 추천 결과 */}
-        {step === 3 && selectedDream && (
+        {/* Step 3: 고민하는 중 */}
+        {step === 3 && isThinking && selectedDream && (
+          <div className="fixed inset-0 flex items-center justify-center z-50" style={{ background: 'linear-gradient(to bottom right, #FEF5EF, #FAF3E8, #F5E6D3)' }}>
+            <div className="text-center px-8">
+              {/* 애니메이션 아이콘 */}
+              <div className="mb-8 relative">
+                <div className="w-32 h-32 mx-auto relative">
+                  {/* 회전하는 원들 */}
+                  <div className="absolute inset-0 border-4 rounded-full animate-spin" style={{ borderColor: '#FDEADF', borderTopColor: '#E8A87C' }} />
+                  <div className="absolute inset-2 border-4 rounded-full" style={{ borderColor: '#F9C09F', borderTopColor: '#D4956B', animation: 'spin 2s linear infinite reverse' }} />
+
+                  {/* 중앙 아이콘 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-6xl animate-bounce">{selectedDream.emoji}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 로딩 텍스트 */}
+              <h2 className="text-2xl font-bold text-neutral-800 mb-3 animate-pulse">
+                {selectedDream.name} 태몽에 어울리는<br/>이름을 찾고 있어요 🤔
+              </h2>
+              <p className="text-neutral-600 mb-8">
+                잠시만 기다려주세요...
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Step 4: 추천 결과 */}
+        {step === 4 && selectedDream && (
           <div>
             {/* 선택한 태몽 요약 */}
             <div className="card mb-4 bg-gradient-to-br from-purple-50 to-pink-50">

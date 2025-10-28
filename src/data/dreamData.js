@@ -114,7 +114,6 @@ export const dreamCategories = [
     name: '재물/복',
     emoji: '💰',
     dreams: [
-      { id: 'poop', name: '똥/대변', emoji: '💩', hanja: ['福', '恩', '祐', '榮'], meaning: '재물과 복이 가득한' },
       { id: 'money', name: '돈/동전', emoji: '💰', hanja: ['福', '恩', '榮', '祐'], meaning: '재물운이 좋은' },
       { id: 'rice', name: '쌀/곡식', emoji: '🌾', hanja: ['豊', '實', '恩', '祐'], meaning: '풍요롭고 넉넉한' },
       { id: 'fruit_harvest', name: '과일/열매', emoji: '🍎', hanja: ['實', '榮', '恩', '祐'], meaning: '결실이 풍성한' },
