@@ -234,7 +234,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
             disabled={!fatherName.trim() || !motherName.trim()}
             className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
               fatherName.trim() && motherName.trim()
-                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg active:scale-95'
+                ? 'bg-[#E8A87C] hover:bg-[#D4956B] text-white shadow-lg active:scale-95'
                 : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
             }`}
           >
@@ -244,7 +244,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
         {/* 로딩 애니메이션 */}
         {isLoading && (
-          <div className="card bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 text-center py-12">
+          <div className="card bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-center py-12">
             <div className="mb-6">
               <div className="inline-block animate-bounce">
                 <div className="text-6xl mb-4">🤔</div>
@@ -263,9 +263,9 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
             {/* 점 애니메이션 */}
             <div className="flex justify-center gap-2 mt-6">
-              <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-              <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+              <div className="w-3 h-3 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-3 h-3 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
             </div>
           </div>
         )}
@@ -274,7 +274,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
         {showResults && recommendedNames.length > 0 && (
           <>
             {/* 가족 트리 시각화 */}
-            <div className="card bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 mb-4">
+            <div className="card bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 mb-4">
               <h2 className="font-bold text-neutral-800 mb-4 text-center">가족의 연결</h2>
 
               <div className="flex items-center justify-center gap-4 mb-6">
@@ -294,7 +294,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
                 {/* 엄마 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-2xl mb-2 shadow-md">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-2xl mb-2 shadow-md">
                     👩
                   </div>
                   <p className="text-xs font-medium text-neutral-600">엄마</p>
@@ -304,7 +304,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
               {/* 화살표 */}
               <div className="flex justify-center mb-4">
-                <svg className="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
@@ -315,7 +315,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
                   👶
                 </div>
                 <p className="text-sm font-medium text-neutral-600">부모의 사랑이 담긴</p>
-                <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
                   우리 아기
                 </p>
               </div>
@@ -367,12 +367,12 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
                       {/* 부모 이름 연결 */}
                       {name.fromParent.length > 0 && (
-                        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-3 mb-2">
-                          <p className="text-xs font-medium text-purple-900 mb-1">
+                        <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg p-3 mb-2">
+                          <p className="text-xs font-medium text-amber-900 mb-1">
                             💝 부모님 이름과의 연결
                           </p>
                           <p className="text-sm text-neutral-700">
-                            <span className="font-bold text-purple-700">'{name.fromParent.join(', ')}'</span> 글자를 공유해요
+                            <span className="font-bold text-amber-700">'{name.fromParent.join(', ')}'</span> 글자를 공유해요
                           </p>
                         </div>
                       )}
