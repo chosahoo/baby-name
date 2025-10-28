@@ -10,6 +10,10 @@ import CompareNamesPage from './pages/CompareNamesPage'
 import StatisticsPage from './pages/StatisticsPage'
 import NameDetailPage from './pages/NameDetailPage'
 import HanjaRecommendPage from './pages/HanjaRecommendPage'
+import DreamNamePage from './pages/DreamNamePage'
+import TrendAnalysisPage from './pages/TrendAnalysisPage'
+import SurnameTrendPage from './pages/SurnameTrendPage'
+import FamilyNamePage from './pages/FamilyNamePage'
 import { nameStatistics } from './data/namesData'
 
 function App() {
@@ -21,22 +25,70 @@ function App() {
   const [selectedNameDetail, setSelectedNameDetail] = useState(null)
   const [isLoadingResults, setIsLoadingResults] = useState(false)
 
-  // URL 파라미터에서 이름을 읽어서 상세 페이지로 이동
+  // URL에서 이름을 읽어서 상세 페이지로 이동 (query & hash 둘 다 지원)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const sharedName = params.get('name')
+    const checkForSharedName = () => {
+      let sharedName = null
 
-    if (sharedName) {
-      // 모든 이름 데이터에서 검색
-      const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
-      const foundName = allNames.find(n => n.name === sharedName)
+      // 1. Hash에서 시도 (예: #name=진언)
+      const hash = window.location.hash
+      console.log('Checking URL - hash:', hash, 'search:', window.location.search, 'href:', window.location.href)
 
-      if (foundName) {
-        setSelectedNameDetail(foundName)
-        setCurrentPage('name-detail')
-        // URL에서 파라미터 제거 (히스토리 오염 방지)
-        window.history.replaceState({}, '', window.location.pathname)
+      if (hash && hash.includes('name=')) {
+        const match = hash.match(/name=([^&]+)/)
+        if (match) {
+          sharedName = decodeURIComponent(match[1])
+          console.log('Found name from hash:', sharedName)
+        }
       }
+
+      // 2. Query parameter에서 시도 (예: ?name=진언)
+      if (!sharedName) {
+        const params = new URLSearchParams(window.location.search)
+        sharedName = params.get('name')
+        if (sharedName) {
+          console.log('Found name from query:', sharedName)
+        }
+      }
+
+      // 3. 전체 URL에서 직접 파싱 시도
+      if (!sharedName) {
+        const url = window.location.href
+        const nameMatch = url.match(/[?#&]name=([^&]+)/)
+        if (nameMatch) {
+          sharedName = decodeURIComponent(nameMatch[1])
+          console.log('Found name from direct parsing:', sharedName)
+        }
+      }
+
+      if (sharedName) {
+        // 모든 이름 데이터에서 검색
+        const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
+        const foundName = allNames.find(n => n.name === sharedName)
+
+        console.log('Search result:', foundName ? 'Found!' : 'Not found', sharedName)
+
+        if (foundName) {
+          setSelectedNameDetail(foundName)
+          setCurrentPage('name-detail')
+          // URL 정리
+          window.history.replaceState({}, '', window.location.pathname)
+        } else {
+          console.error('Name not found in database:', sharedName)
+        }
+      } else {
+        console.log('No shared name found in URL')
+      }
+    }
+
+    // 초기 실행
+    checkForSharedName()
+
+    // Hash 변경 감지
+    window.addEventListener('hashchange', checkForSharedName)
+
+    return () => {
+      window.removeEventListener('hashchange', checkForSharedName)
     }
   }, [])
 
@@ -411,8 +463,12 @@ function App() {
       {currentPage === 'foreign-name' && <ForeignNamePage onBack={goHome} />}
       {currentPage === 'compare-names' && <CompareNamesPage onBack={goHome} />}
       {currentPage === 'statistics' && <StatisticsPage onBack={goHome} />}
-      {currentPage === 'name-detail' && <NameDetailPage onBack={goHome} initialNameData={selectedNameDetail} />}
+      {currentPage === 'trend-analysis' && <TrendAnalysisPage onBack={goHome} onNavigate={navigateTo} />}
+      {currentPage === 'surname-trend' && <SurnameTrendPage onBack={goHome} onNavigate={navigateTo} />}
+      {currentPage === 'family-name' && <FamilyNamePage onBack={goHome} onNavigate={navigateTo} />}
+      {currentPage === 'name-detail' && <NameDetailPage onBack={goHome} initialNameData={selectedNameDetail} onNavigate={navigateTo} />}
       {currentPage === 'hanja-recommend' && <HanjaRecommendPage onBack={goHome} />}
+      {currentPage === 'dream-name' && <DreamNamePage onBack={goHome} />}
     </div>
   )
 }

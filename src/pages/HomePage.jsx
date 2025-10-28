@@ -54,6 +54,24 @@ function HomePage({ onStartQuiz, onNavigate }) {
           <h3 className="section-header">메인 기능</h3>
           <div className="space-y-3">
             <button
+              onClick={() => onNavigate('dream-name')}
+              className="card-hover w-full text-left"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-2xl flex-shrink-0">
+                  🌙
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-neutral-800">태몽 기반 이름 추천</h4>
+                  <p className="text-sm text-neutral-600 truncate">꿈에 나온 상징으로 의미있는 이름</p>
+                </div>
+                <svg className="w-5 h-5 text-neutral-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </button>
+
+            <button
               onClick={() => onNavigate('hanja-recommend')}
               className="card-hover w-full text-left"
             >
@@ -72,11 +90,29 @@ function HomePage({ onStartQuiz, onNavigate }) {
             </button>
 
             <button
+              onClick={() => onNavigate('family-name')}
+              className="card-hover w-full text-left"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-2xl flex-shrink-0">
+                  💝
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-neutral-800">가족 이름 조합</h4>
+                  <p className="text-sm text-neutral-600 truncate">부모님 이름으로 특별한 이름 만들기</p>
+                </div>
+                <svg className="w-5 h-5 text-neutral-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </button>
+
+            <button
               onClick={() => onNavigate('sibling-name')}
               className="card-hover w-full text-left"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-2xl flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-lg flex-shrink-0">
                   👧👦
                 </div>
                 <div className="flex-1 min-w-0">
@@ -128,7 +164,25 @@ function HomePage({ onStartQuiz, onNavigate }) {
             >
               <div className="text-3xl mb-2">📈</div>
               <h4 className="font-semibold text-neutral-800 text-sm mb-1">5년 통계</h4>
-              <p className="text-xs text-neutral-600 line-clamp-2">2020-2024 트렌드</p>
+              <p className="text-xs text-neutral-600 line-clamp-2">2020-2024 순위</p>
+            </button>
+
+            <button
+              onClick={() => onNavigate('trend-analysis')}
+              className="card-hover text-left"
+            >
+              <div className="text-3xl mb-2">🔥</div>
+              <h4 className="font-semibold text-neutral-800 text-sm mb-1">트렌드 분석</h4>
+              <p className="text-xs text-neutral-600 line-clamp-2">급상승/급하락 이름</p>
+            </button>
+
+            <button
+              onClick={() => onNavigate('surname-trend')}
+              className="card-hover text-left"
+            >
+              <div className="text-3xl mb-2">👪</div>
+              <h4 className="font-semibold text-neutral-800 text-sm mb-1">성씨별 TOP 10</h4>
+              <p className="text-xs text-neutral-600 line-clamp-2">우리 성씨 인기 이름</p>
             </button>
 
             <button
