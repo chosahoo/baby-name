@@ -68,7 +68,7 @@ function ShareCardModal({ isOpen, onClose, nameData }) {
       ctx.fillText(nameData.name || '', 400, 360)
 
       // 한자 표기
-      if (nameData.hanja) {
+      if (nameData.hanja && nameData.hanja !== '-') {
         ctx.fillStyle = '#8B7355'
         ctx.font = '40px sans-serif'
         ctx.fillText(nameData.hanja, 400, 440)
@@ -160,9 +160,10 @@ function ShareCardModal({ isOpen, onClose, nameData }) {
         const file = new File([blob], `${nameData.name}_이름카드.png`, { type: 'image/png' })
 
         if (navigator.share && navigator.canShare({ files: [file] })) {
+          const hanjaText = nameData.hanja && nameData.hanja !== '-' ? ` (${nameData.hanja})` : ''
           await navigator.share({
             title: `${nameData.name} 이름 카드`,
-            text: `${nameData.name} (${nameData.hanja}) - ${nameData.meaning}`,
+            text: `${nameData.name}${hanjaText} - ${nameData.meaning}`,
             files: [file]
           })
         } else {

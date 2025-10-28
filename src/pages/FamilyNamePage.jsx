@@ -355,7 +355,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
                         <h3 className="text-2xl font-bold text-neutral-800">
                           {name.name}
                         </h3>
-                        {name.hanja !== '-' && (
+                        {name.hanja && name.hanja !== '-' && (
                           <span className="text-sm text-neutral-500">{name.hanja}</span>
                         )}
                       </div>
