@@ -12,6 +12,7 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
   const [result, setResult] = useState(null)
   const [shareModalOpen, setShareModalOpen] = useState(false)
   const [isLoadingFullHanja, setIsLoadingFullHanja] = useState(false)
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
 
   // initialNameData가 있으면 자동으로 분석
   useEffect(() => {
@@ -194,6 +195,13 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
 
   const analyzeName = async (nameToAnalyze = searchName) => {
     if (!nameToAnalyze || nameToAnalyze.length === 0) return
+
+    // 로딩 애니메이션 시작
+    setIsAnalyzing(true)
+    setResult(null)
+
+    // 2초 대기 후 분석 시작
+    await new Promise(resolve => setTimeout(resolve, 2000))
 
     // 통계에서 실제 데이터 찾기
     const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
@@ -496,6 +504,9 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       },
       celebrities: [] // 실제 API 연동 필요
     })
+
+    // 로딩 애니메이션 종료
+    setIsAnalyzing(false)
   }
 
   const getElementColor = (element) => {
@@ -530,7 +541,25 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           </div>
         </div>
 
-        {!result ? (
+        {isAnalyzing ? (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-cream-200">
+            <div className="text-center px-8">
+              <div className="w-32 h-32 mx-auto mb-6 relative">
+                <div className="absolute inset-0 border-4 border-[#E8A87C] border-t-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-4 border-4 border-[#D4956B] border-b-transparent rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1s' }}></div>
+                <div className="absolute inset-0 flex items-center justify-center text-6xl animate-bounce">
+                  🤔
+                </div>
+              </div>
+              <h2 className="text-2xl font-bold text-neutral-800 mb-2 animate-pulse">
+                {searchName} 이름을<br/>깊이 분석하고 있어요
+              </h2>
+              <p className="text-neutral-600">
+                한자, 성명학, 통계를 종합 분석 중...
+              </p>
+            </div>
+          </div>
+        ) : !result ? (
           <div className="space-y-4">
             <div className="card">
               <h2 className="font-semibold text-neutral-800 mb-3">
@@ -553,8 +582,10 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 최근 5년 통계</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 발음 분석</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 조화로운 성씨</div>
-                <div className="bg-blue-50 rounded-lg p-3 text-neutral-700">✓ 또래 겹칠 확률</div>
               </div>
+              <p className="text-xs text-neutral-500 mt-2">
+                * 통계 순위권 이름은 또래 겹칠 확률도 제공됩니다
+              </p>
             </div>
 
             <button
