@@ -302,7 +302,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
                   className="card cursor-pointer hover:shadow-lg transition-all"
                   onClick={() => onNavigate('name-detail', name)}
                 >
-                  {/* 순위 & 점수 */}
+                  {/* 순위 */}
                   <div className="flex items-start gap-3 mb-3">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0 ${
                       index === 0 ? 'bg-yellow-100 text-yellow-700 shadow-md' :
@@ -371,14 +371,6 @@ function FamilyNamePage({ onBack, onNavigate }) {
                           )}
                         </div>
                       )}
-                    </div>
-
-                    {/* 점수 */}
-                    <div className="text-right flex-shrink-0">
-                      <div className="text-2xl font-bold text-primary-600">
-                        {name.score}
-                      </div>
-                      <p className="text-xs text-neutral-500">점</p>
                     </div>
                   </div>
 
