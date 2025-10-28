@@ -9,56 +9,20 @@ function ShareModal({ isOpen, onClose, nameData }) {
   const baseUrl = window.location.origin
   const shareUrl = `${baseUrl}/?name=${encodeURIComponent(nameData?.name || '')}`
 
-  // 상세 정보 포함 여부 확인
-  const hasDetailedInfo = nameData?.detailedInfo
+  console.log('ShareModal - nameData:', nameData)
+  console.log('ShareModal - shareUrl:', shareUrl)
+  console.log('ShareModal - encoded name:', encodeURIComponent(nameData?.name || ''))
 
-  // 기본 공유 텍스트
-  let shareText = `✨ 우리 아기 이름 후보: ${nameData?.name} (${nameData?.hanja})\n\n📝 의미: ${nameData?.meaning}\n\n`
+  // 기본 공유 텍스트 (간단하게만)
+  const hanjaText = nameData?.hanja && nameData?.hanja !== '-' ? ` (${nameData?.hanja})` : ''
+  let shareText = `✨ 우리 아기 이름 후보: ${nameData?.name}${hanjaText}\n\n📝 의미: ${nameData?.meaning}\n\n`
 
-  // 상세 정보가 있으면 추가
-  if (hasDetailedInfo) {
-    const info = nameData.detailedInfo
-
-    // 한자 각 글자 의미
-    if (info.characters && info.characters.length > 0) {
-      shareText += `📚 한자 상세:\n`
-      info.characters.forEach(char => {
-        shareText += `  • ${char.char}(${char.reading}): ${char.meaning}\n`
-      })
-      shareText += `\n`
-    }
-
-    // 총 획수와 성명학
-    if (info.totalStrokes) {
-      shareText += `🔮 성명학:\n`
-      shareText += `  • 총 획수: ${info.totalStrokes}획\n`
-      if (info.fortune) {
-        shareText += `  • 운세: ${info.fortune.description}\n`
-      }
-      shareText += `\n`
-    }
-
-    // 어울리는 성씨
-    if (info.compatibleSurnames && info.compatibleSurnames.length > 0) {
-      const topSurnames = info.compatibleSurnames.slice(0, 5).map(s => s.surname).join(', ')
-      shareText += `👨‍👩‍👧‍👦 어울리는 성씨: ${topSurnames}\n\n`
-    }
-
-    // 통계 정보
-    if (info.statistics) {
-      const stats = info.statistics
-      if (stats.rank2024) {
-        shareText += `📊 2024년 통계:\n`
-        shareText += `  • 순위: ${stats.rank2024}위\n`
-        if (stats.count) {
-          shareText += `  • 사용 인원: ${stats.count}명\n`
-        }
-        shareText += `\n`
-      }
-    }
+  // 순위 정보가 있으면 추가
+  if (nameData?.rank2024) {
+    shareText += `📊 2024년 ${nameData.rank2024}위\n\n`
   }
 
-  shareText += `👉 자세히 보기: `
+  shareText += `💡 한자 상세, 성명학, 통계 등 자세한 정보는 링크를 눌러주세요!`
 
   const shareTitle = `${nameData?.name} - bébé name`
 
@@ -119,7 +83,9 @@ function ShareModal({ isOpen, onClose, nameData }) {
             <h3 className="text-3xl font-bold text-gray-800 mb-1">
               {nameData.name}
             </h3>
-            <p className="text-xl text-gray-600 mb-2">{nameData.hanja}</p>
+            {nameData.hanja && nameData.hanja !== '-' && (
+              <p className="text-xl text-gray-600 mb-2">{nameData.hanja}</p>
+            )}
             <p className="text-sm text-gray-700">{nameData.meaning}</p>
           </div>
         )}

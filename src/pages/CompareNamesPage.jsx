@@ -249,7 +249,9 @@ function CompareNamesPage({ onBack }) {
                   <h3 className="text-3xl font-bold text-gray-800 mb-1">
                     {nameData.name}
                   </h3>
-                  <p className="text-gray-600 mb-2">{nameData.hanja}</p>
+                  {nameData.hanja && nameData.hanja !== '-' && (
+                    <p className="text-gray-600 mb-2">{nameData.hanja}</p>
+                  )}
                   <p className="text-sm text-gray-700">{nameData.meaning}</p>
                 </div>
 

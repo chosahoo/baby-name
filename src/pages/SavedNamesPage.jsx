@@ -15,6 +15,7 @@ function SavedNamesPage({ onBack, onNavigate }) {
   const { user, signInWithGoogle, signInWithApple, signOut } = useAuth()
   const [savedNames, setSavedNames] = useState([])
   const [loading, setLoading] = useState(false)
+  const [viewMode, setViewMode] = useState('list') // 'list' or 'compare'
 
   useEffect(() => {
     if (user) {
@@ -219,50 +220,175 @@ function SavedNamesPage({ onBack, onNavigate }) {
             </button>
           </div>
         ) : (
-          <div className="space-y-4">
-            {savedNames.map((nameData, index) => (
-              <div
-                key={index}
-                className="card stagger-item cursor-pointer"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div
-                    className="flex-1"
-                    onClick={() => handleNameClick(nameData)}
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-xl font-bold text-neutral-800">
-                        {nameData.name}
-                      </h3>
-                      <span className="text-sm text-neutral-500">
-                        {nameData.hanja}
-                      </span>
-                    </div>
-                    <p className="text-sm text-neutral-600">
-                      {nameData.meaning}
-                    </p>
-                    {nameData.rank2024 && (
-                      <p className="text-xs text-neutral-500 mt-2">
-                        2024년 {nameData.rank2024}위
-                      </p>
-                    )}
-                  </div>
+          <>
+            {/* 보기 모드 전환 */}
+            {savedNames.length >= 2 && (
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-sm text-neutral-600">
+                  {savedNames.length}개의 이름 저장됨
+                </p>
+                <div className="flex gap-2 bg-neutral-100 p-1 rounded-lg">
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      removeName(nameData.name)
-                    }}
-                    className="touch-target text-neutral-400 hover:text-red-500 transition-colors"
+                    onClick={() => setViewMode('list')}
+                    className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                      viewMode === 'list'
+                        ? 'bg-white text-neutral-800 shadow-sm'
+                        : 'text-neutral-600'
+                    }`}
                   >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
+                    📋 목록
+                  </button>
+                  <button
+                    onClick={() => setViewMode('compare')}
+                    className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                      viewMode === 'compare'
+                        ? 'bg-white text-neutral-800 shadow-sm'
+                        : 'text-neutral-600'
+                    }`}
+                  >
+                    📊 비교
                   </button>
                 </div>
               </div>
-            ))}
-          </div>
+            )}
+
+            {/* 목록 보기 */}
+            {viewMode === 'list' && (
+              <div className="space-y-4">
+                {savedNames.map((nameData, index) => (
+                  <div
+                    key={index}
+                    className="card stagger-item cursor-pointer"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div
+                        className="flex-1"
+                        onClick={() => handleNameClick(nameData)}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-xl font-bold text-neutral-800">
+                            {nameData.name}
+                          </h3>
+                          {nameData.hanja && nameData.hanja !== '-' && (
+                            <span className="text-sm text-neutral-500">
+                              {nameData.hanja}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-neutral-600">
+                          {nameData.meaning}
+                        </p>
+                        {nameData.rank2024 && (
+                          <p className="text-xs text-neutral-500 mt-2">
+                            2024년 {nameData.rank2024}위
+                          </p>
+                        )}
+                      </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          removeName(nameData)
+                        }}
+                        className="touch-target text-neutral-400 hover:text-red-500 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* 비교 테이블 보기 */}
+            {viewMode === 'compare' && (
+              <div className="card overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-neutral-200">
+                      <th className="text-left py-3 px-2 font-semibold text-neutral-700 sticky left-0 bg-white">항목</th>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <th key={idx} className="text-center py-3 px-2 font-semibold text-neutral-800 min-w-[100px]">
+                          {nameData.name}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-neutral-100">
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-white">한자</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2 text-neutral-700">
+                          {nameData.hanja || '-'}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr className="border-b border-neutral-100">
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-white">의미</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2 text-neutral-700 text-xs">
+                          {nameData.meaning ? (nameData.meaning.length > 15 ? nameData.meaning.slice(0, 15) + '...' : nameData.meaning) : '-'}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr className="border-b border-neutral-100 bg-yellow-50">
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-yellow-50">2024년 순위</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2">
+                          {nameData.rank2024 ? (
+                            <span className={`font-bold ${
+                              nameData.rank2024 <= 10 ? 'text-yellow-600' :
+                              nameData.rank2024 <= 50 ? 'text-orange-600' :
+                              'text-neutral-700'
+                            }`}>
+                              {nameData.rank2024}위
+                            </span>
+                          ) : '-'}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr className="border-b border-neutral-100">
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-white">인원수</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2 text-neutral-700 text-xs">
+                          {nameData.count2024 ? `${nameData.count2024.toLocaleString()}명` :
+                           nameData.counts && nameData.counts['2024'] ? `${nameData.counts['2024'].toLocaleString()}명` : '-'}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr className="border-b border-neutral-100">
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-white">인기도</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2 text-neutral-700 text-xs">
+                          {nameData.percentage ? `${nameData.percentage}%` : '-'}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td className="py-3 px-2 font-medium text-neutral-600 sticky left-0 bg-white">삭제</td>
+                      {savedNames.slice(0, 5).map((nameData, idx) => (
+                        <td key={idx} className="text-center py-3 px-2">
+                          <button
+                            onClick={() => removeName(nameData)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            ✕
+                          </button>
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
+                {savedNames.length > 5 && (
+                  <p className="text-xs text-neutral-500 mt-3 text-center">
+                    최대 5개까지 비교됩니다 (총 {savedNames.length}개 저장됨)
+                  </p>
+                )}
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

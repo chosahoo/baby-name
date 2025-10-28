@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ShareModal from '../components/ShareModal'
+import ShareCardModal from '../components/ShareCardModal'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from '../firebase'
 import {
@@ -15,6 +16,7 @@ import {
 function ResultPage({ names, onBack, onNavigate }) {
   const { user } = useAuth()
   const [shareModalOpen, setShareModalOpen] = useState(false)
+  const [shareCardModalOpen, setShareCardModalOpen] = useState(false)
   const [selectedNameForShare, setSelectedNameForShare] = useState(null)
   const [savedNames, setSavedNames] = useState([])
 
@@ -121,6 +123,22 @@ function ResultPage({ names, onBack, onNavigate }) {
           </div>
         </div>
 
+        {/* 순위 설명 */}
+        <div className="card bg-blue-50 border border-blue-200 mb-4">
+          <div className="flex items-start gap-2">
+            <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div className="flex-1">
+              <p className="text-xs font-semibold text-blue-800 mb-1">순위 안내</p>
+              <p className="text-xs text-blue-700">
+                <span className="font-semibold">2024년 순위</span>는 대법원 전자가족관계등록시스템의 <span className="font-semibold">전국 신생아 출생신고 기준</span>입니다.
+                순위가 낮을수록(1위에 가까울수록) 많은 분들이 선택한 인기 이름이에요.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* 결과 리스트 */}
         <div className="space-y-4 mb-6">
           {names.map((name, index) => (
@@ -145,7 +163,9 @@ function ResultPage({ names, onBack, onNavigate }) {
                   <h2 className="text-2xl font-bold text-neutral-800 mb-1">
                     {name.name}
                   </h2>
-                  <p className="text-sm text-neutral-600 mb-2">{name.hanja}</p>
+                  {name.hanja && name.hanja !== '-' && (
+                    <p className="text-sm text-neutral-600 mb-2">{name.hanja}</p>
+                  )}
                   <p className="text-sm text-neutral-700">{name.meaning}</p>
                 </div>
               </div>
@@ -184,9 +204,18 @@ function ResultPage({ names, onBack, onNavigate }) {
                 </button>
                 <button
                   onClick={() => handleShare(name)}
-                  className="flex-1 py-2.5 bg-[#E8A87C] rounded-xl text-sm font-medium text-white hover:bg-[#D4956B] transition-colors active:scale-95"
+                  className="py-2.5 px-3 bg-[#E8A87C] rounded-xl text-sm font-medium text-white hover:bg-[#D4956B] transition-colors active:scale-95"
                 >
-                  공유
+                  📤
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedNameForShare(name)
+                    setShareCardModalOpen(true)
+                  }}
+                  className="py-2.5 px-3 bg-purple-500 rounded-xl text-sm font-medium text-white hover:bg-purple-600 transition-colors active:scale-95"
+                >
+                  🎨
                 </button>
               </div>
             </div>
@@ -228,6 +257,12 @@ function ResultPage({ names, onBack, onNavigate }) {
       <ShareModal
         isOpen={shareModalOpen}
         onClose={() => setShareModalOpen(false)}
+        nameData={selectedNameForShare}
+      />
+
+      <ShareCardModal
+        isOpen={shareCardModalOpen}
+        onClose={() => setShareCardModalOpen(false)}
         nameData={selectedNameForShare}
       />
     </div>

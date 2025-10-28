@@ -58,6 +58,13 @@ function StatisticsPage({ onBack }) {
                   {dataMetadata.source} (최종 업데이트: {dataMetadata.lastUpdated})<br/>
                   <span className="text-blue-600 font-semibold">※ {dataMetadata.notes[0]}</span>
                 </p>
+                <div className="bg-white rounded-lg p-2 mb-2">
+                  <p className="text-xs text-blue-800 font-semibold mb-1">📊 순위란?</p>
+                  <p className="text-xs text-blue-700">
+                    <span className="font-semibold">전국 신생아 출생신고 기준</span> 순위입니다.
+                    1위에 가까울수록 많은 분들이 선택한 인기 이름이에요.
+                  </p>
+                </div>
                 <div className="text-xs text-blue-600">
                   <p className="font-semibold mb-1">실제 데이터 출처:</p>
                   {dataMetadata.officialSources.map((source, idx) => (
@@ -157,7 +164,9 @@ function StatisticsPage({ onBack }) {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="text-lg font-bold text-neutral-800">{nameData.name}</h3>
-                        <span className="text-sm text-neutral-500">{nameData.hanja}</span>
+                        {nameData.hanja && nameData.hanja !== '-' && (
+                          <span className="text-sm text-neutral-500">{nameData.hanja}</span>
+                        )}
                         {selectedYear === 'all' && (
                           <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                             nameData.trend === 'rising' ? 'bg-green-100 text-green-700' :

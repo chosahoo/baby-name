@@ -1,13 +1,122 @@
 import { useState } from 'react'
 import { getRecommendedHanjaCombinations, hasAvailableHanja } from '../utils/hanjaUtils'
+import { hanjaByReading } from '../data/hanjaData'
 
 function HanjaRecommendPage({ onBack }) {
   const [koreanName, setKoreanName] = useState('')
   const [surname, setSurname] = useState('김')
   const [results, setResults] = useState(null)
   const [error, setError] = useState('')
+  const [expandedSyllable, setExpandedSyllable] = useState(null)
 
   const commonSurnames = ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임', '한', '오', '서', '신', '권', '황', '안', '송', '전', '홍']
+
+  // 자주 사용되는 한자 목록 (일반적으로 이름에 많이 쓰이는 한자)
+  const commonHanjaList = [
+    '民', '敏', '珉', '旻', '玟', // 민
+    '永', '英', '泳', '榮', '映', '瑛', // 영
+    '瑞', '書', '西', '徐', '緖', '序', // 서
+    '俊', '峻', '浚', '駿', // 준
+    '智', '志', '址', '知', '芝', // 지
+    '佳', '可', '嘉', '家', '歌', '加', // 가
+    '娜', '羅', '奈', // 나
+    '多', '茶', // 다
+    '蘭', '欄', // 란
+    '麗', '呂', // 려
+    '美', '微', '米', // 미
+    '善', '宣', '仙', '璿', '璇', // 선
+    '雪', // 설
+    '成', '星', '聖', '誠', '盛', '城', '姓', // 성
+    '世', '歲', '細', // 세
+    '素', '昭', '召', '小', '蘇', // 소
+    '秀', '壽', '洙', '秋', '守', '修', '受', // 수
+    '淑', '肅', // 숙
+    '順', '純', '淳', '舜', // 순
+    '承', '升', '勝', '丞', // 승
+    '詩', '施', '時', // 시
+    '信', '新', '申', '神', // 신
+    '實', // 실
+    '心', '深', '沈', // 심
+    '雅', '亞', // 아
+    '安', '眼', '岸', // 안
+    '愛', '哀', // 애
+    '陽', '良', '揚', '楊', '洋', '養', // 양
+    '彦', '言', // 언
+    '延', '妍', '姸', '娟', '蓮', '緣', '演', '燕', // 연
+    '烈', '悅', // 열
+    '英', '永', '泳', '榮', '映', '瑛', '影', '詠', // 영
+    '藝', '禮', '叡', '睿', // 예
+    '五', '午', '梧', '吳', // 오
+    '玉', '沃', // 옥
+    '完', '玩', '琬', // 완
+    '王', '旺', // 왕
+    '堯', '曜', '瑤', // 요
+    '龍', '容', '勇', '庸', // 용
+    '宇', '雨', '佑', '又', '友', '牛', '優', // 우
+    '旭', '昱', '煜', // 욱
+    '雲', '運', '芸', // 운
+    '元', '院', '源', '園', '遠', '媛', '苑', // 원
+    '月', '越', // 월
+    '有', '柔', '裕', '維', '儒', '油', '諭', // 유
+    '尹', '允', '潤', '胤', '倫', // 윤
+    '律', '栗', // 율
+    '銀', '恩', '隱', '殷', // 은
+    '音', '陰', // 음
+    '義', '意', '依', '宜', '儀', // 의
+    '利', '李', '理', '伊', '怡', '二', '爾', '夷', // 이
+    '益', '翼', // 익
+    '仁', '寅', '認', '忍', '印', '麟', // 인
+    '一', '日', '逸', // 일
+    '林', '任', '壬', '姙', // 임
+    '子', '慈', '姿', '紫', '資', // 자
+    '在', '才', '材', '財', '栽', // 재
+    '全', '田', '前', '典', '展', // 전
+    '正', '貞', '靜', '晶', '淨', '鼎', '庭', '亭', '禎', '定', // 정
+    '趙', '造', '兆', '助', '朝', // 조
+    '鍾', '終', '從', '宗', // 종
+    '主', '朱', '珠', '周', '柱', '晝', // 주
+    '俊', '峻', '浚', '駿', '遵', // 준
+    '中', '重', '衆', // 중
+    '智', '志', '址', '池', '知', '紙', '枝', '芝', '旨', // 지
+    '珍', '眞', '真', '震', '辰', '鎭', '津', '陳', // 진
+    '質', // 질
+    '昌', '倉', '窓', '暢', // 창
+    '采', '彩', '菜', // 채
+    '天', '千', '泉', '川', '淺', // 천
+    '哲', '鐵', '徹', // 철
+    '草', '初', '招', '超', // 초
+    '崔', '最', // 최
+    '秋', '秀', '推', // 추
+    '忠', '沖', // 충
+    '春', '椿', // 춘
+    '泰', '太', '胎', '兌', // 태
+    '宅', '澤', // 택
+    '平', '評', // 평
+    '表', '標', // 표
+    '豐', '風', // 풍
+    '必', '弼', // 필
+    '夏', '河', '荷', '霞', '下', '賀', // 하
+    '學', '鶴', // 학
+    '韓', '漢', '寒', '閑', '翰', '恨', // 한
+    '海', '解', '害', '亥', // 해
+    '香', '鄕', '享', // 향
+    '許', '虛', // 허
+    '獻', '憲', '軒', // 헌
+    '賢', '炫', '鉉', '絃', '玄', '顯', '縣', '懸', '泫', '眩', '玹', // 현
+    '革', '赫', '奕', // 혁
+    '亨', '兄', '衡', // 형
+    '惠', '慧', '蕙', // 혜
+    '浩', '湖', '好', '虎', '豪', '鎬', '昊', '皓', // 호
+    '洪', '紅', '弘', '泓', // 홍
+    '和', '花', '華', '火', '化', '禍', // 화
+    '歡', '煥', '桓', '丸', // 환
+    '會', '回', '懷', // 회
+    '孝', '曉', '效', // 효
+    '厚', '候', '後', // 후
+    '勳', '勛', '薰', // 훈
+    '輝', '徽', '暉', // 휘
+    '姬', '熙', '喜', '稀', '禧', '曦' // 희
+  ]
 
   const findHanjaCombinations = () => {
     setError('')
@@ -279,6 +388,132 @@ function HanjaRecommendPage({ onBack }) {
                 </div>
               </div>
             ))}
+
+            {/* 음절별 사용 가능한 모든 한자 보기 */}
+            <div className="card bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200">
+              <h3 className="font-bold text-neutral-800 mb-3 flex items-center gap-2">
+                <span className="text-xl">📚</span>
+                <span>'{koreanName}' 음절별 사용 가능한 모든 한자</span>
+              </h3>
+              <p className="text-xs text-neutral-600 mb-4">
+                각 음절을 클릭하면 사용 가능한 모든 인명용 한자를 볼 수 있어요
+              </p>
+
+              <div className="space-y-3">
+                {koreanName.split('').map((syllable, index) => {
+                  const availableHanja = hanjaByReading[syllable] || []
+                  const isExpanded = expandedSyllable === index
+
+                  // 자주 사용되는 한자와 그 외 한자 분리
+                  const commonHanja = availableHanja.filter(h => commonHanjaList.includes(h.hanja))
+                  const otherHanja = availableHanja.filter(h => !commonHanjaList.includes(h.hanja))
+
+                  return (
+                    <div key={index} className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+                      <button
+                        onClick={() => setExpandedSyllable(isExpanded ? null : index)}
+                        className="w-full px-4 py-3 flex items-center justify-between hover:bg-neutral-50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <span className="text-xl font-bold text-purple-600">{syllable}</span>
+                          </div>
+                          <div className="text-left">
+                            <div className="font-semibold text-neutral-800">
+                              '{syllable}' 한자 {availableHanja.length}개
+                            </div>
+                            <div className="text-xs text-neutral-500">
+                              자주 사용 {commonHanja.length}개 • 기타 {otherHanja.length}개
+                            </div>
+                          </div>
+                        </div>
+                        <svg
+                          className={`w-5 h-5 text-neutral-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+
+                      {isExpanded && (
+                        <div className="px-4 pb-4 space-y-4 fade-in">
+                          {/* 자주 사용되는 한자 */}
+                          {commonHanja.length > 0 && (
+                            <div>
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">
+                                  자주 사용
+                                </span>
+                                <span className="text-xs text-neutral-500">
+                                  {commonHanja.length}개
+                                </span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2">
+                                {commonHanja.map((hanja, idx) => (
+                                  <div key={idx} className="bg-purple-50 border border-purple-200 rounded-lg p-2">
+                                    <div className="flex items-start gap-2">
+                                      <span className="text-2xl font-bold text-purple-700">{hanja.hanja}</span>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-xs font-medium text-neutral-700 truncate">
+                                          {hanja.meaning}
+                                        </div>
+                                        <div className="text-xs text-neutral-500 mt-0.5">
+                                          {hanja.strokes}획 • {hanja.element}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 기타 한자 */}
+                          {otherHanja.length > 0 && (
+                            <div>
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-semibold text-neutral-600 bg-neutral-100 px-2 py-1 rounded">
+                                  기타
+                                </span>
+                                <span className="text-xs text-neutral-500">
+                                  {otherHanja.length}개
+                                </span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto">
+                                {otherHanja.map((hanja, idx) => (
+                                  <div key={idx} className="bg-neutral-50 border border-neutral-200 rounded-lg p-2">
+                                    <div className="flex items-start gap-2">
+                                      <span className="text-2xl font-bold text-neutral-700">{hanja.hanja}</span>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-xs font-medium text-neutral-700 truncate">
+                                          {hanja.meaning}
+                                        </div>
+                                        <div className="text-xs text-neutral-500 mt-0.5">
+                                          {hanja.strokes}획 • {hanja.element}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  💡 <strong>자주 사용</strong>으로 표시된 한자는 일반적으로 이름에 많이 쓰이는 한자입니다.
+                  의미와 획수를 고려하여 선택하세요.
+                </p>
+              </div>
+            </div>
 
             <div className="flex gap-3">
               <button
