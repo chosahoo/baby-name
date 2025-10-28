@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { hanjaDatabase, strokeFortune, nameStatistics } from '../data/namesData'
 import { hanjaByReading } from '../data/hanjaData'
 import ShareModal from '../components/ShareModal'
+import { getStrokeCount } from '../utils/getStrokeCount'
 
 // 전체 한자 데이터 캐시
 let fullHanjaCache = null
@@ -229,10 +230,11 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
             detailMeaning: basicMatch.meaning,
             strokes: basicMatch.strokes,
             element: basicMatch.element,
-            radicals: ''
+            radicals: '',
+            needStrokeUpdate: false
           }
         }
-        // 1-2. 전체 DB에서 찾기 (획수는 없지만 의미는 있음)
+        // 1-2. 전체 DB에서 찾기 (획수는 동적으로 가져와야 함)
         else if (fullHanjaData[actualHanja]) {
           const data = fullHanjaData[actualHanja]
           selectedChar = {
@@ -240,9 +242,10 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
             reading: data.reading || syllable,
             meaning: data.meaning || '좋은 의미',
             detailMeaning: data.detailMeaning || data.meaning || '좋은 의미의 한자입니다',
-            strokes: 10, // 정부 데이터에는 획수 정보 없음
+            strokes: 10, // 임시값, 나중에 업데이트
             element: '목(木)',
-            radicals: ''
+            radicals: '',
+            needStrokeUpdate: true
           }
         }
       }
@@ -256,11 +259,12 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           detailMeaning: firstHanja.meaning,
           strokes: firstHanja.strokes,
           element: firstHanja.element,
-          radicals: ''
+          radicals: '',
+          needStrokeUpdate: false
         }
       }
       // 3. 전체 DB에서 음절로 검색
-      else {
+      else if (!selectedChar) {
         const fullHanjaEntry = Object.entries(fullHanjaData).find(([char, data]) =>
           data.reading === syllable
         )
@@ -272,9 +276,10 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
             reading: data.reading,
             meaning: data.meaning,
             detailMeaning: data.detailMeaning,
-            strokes: data.strokes,
-            element: data.element,
-            radicals: ''
+            strokes: 10, // 임시값
+            element: data.element || '목(木)',
+            radicals: '',
+            needStrokeUpdate: true
           }
         }
         // 4. 완전히 없는 경우
@@ -286,13 +291,26 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
             detailMeaning: '해당 한자의 상세 정보가 데이터베이스에 없습니다.',
             strokes: 10,
             element: '목(木)',
-            radicals: ''
+            radicals: '',
+            needStrokeUpdate: false
           }
         }
       }
 
       return selectedChar
     })
+
+    // 획수를 동적으로 업데이트 (hanzi-writer-data 사용)
+    await Promise.all(hanjaChars.map(async (char) => {
+      if (char.needStrokeUpdate) {
+        try {
+          const actualStrokes = await getStrokeCount(char.char)
+          char.strokes = actualStrokes
+        } catch (error) {
+          console.warn(`Could not get stroke count for ${char.char}`)
+        }
+      }
+    }))
 
     // 통계 데이터가 있으면 해당 한자 사용, 없으면 찾은 한자 사용
     const hanjaString = statsData?.hanja && statsData.hanja !== '-'
