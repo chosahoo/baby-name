@@ -209,14 +209,51 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       actualHanjaChars = statsData.hanja.split('')
     }
 
+    // 각 음절의 대안 한자들을 모두 찾는 함수
+    const getAlternativeHanjas = (syllable, currentHanja) => {
+      const alternatives = []
+
+      // 기본 한자 DB에서 찾기
+      if (hanjaDatabase[syllable] && Array.isArray(hanjaDatabase[syllable])) {
+        hanjaDatabase[syllable].forEach(h => {
+          if (h.hanja !== currentHanja) {
+            alternatives.push({
+              char: h.hanja,
+              meaning: h.meaning,
+              strokes: h.strokes,
+              element: h.element
+            })
+          }
+        })
+      }
+
+      // 전체 DB에서 같은 읽기를 가진 한자들 찾기 (최대 20개)
+      Object.entries(fullHanjaData).forEach(([char, data]) => {
+        if (data.reading === syllable && char !== currentHanja) {
+          // 이미 추가되지 않은 한자만 추가
+          if (!alternatives.find(alt => alt.char === char)) {
+            alternatives.push({
+              char: char,
+              meaning: data.meaning,
+              strokes: data.strokes,
+              element: data.element
+            })
+          }
+        }
+      })
+
+      return alternatives.slice(0, 20) // 최대 20개까지만
+    }
+
     // 한자 데이터베이스에서 각 음절의 한자 찾기 (4-tier lookup)
     const hanjaChars = syllables.map((syllable, index) => {
       const actualHanja = actualHanjaChars[index]
+      let selectedChar = null
 
       // 1. 통계 데이터에 실제 한자가 있으면 그 한자로 전체 DB 검색
       if (actualHanja && fullHanjaData[actualHanja]) {
         const data = fullHanjaData[actualHanja]
-        return {
+        selectedChar = {
           char: actualHanja,
           reading: data.reading || syllable,
           meaning: data.meaning || '좋은 의미',
@@ -226,16 +263,10 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           radicals: ''
         }
       }
-
       // 2. 기본 한자 DB에서 검색 (자주 쓰는 552개)
-      const hanjaEntry = Object.entries(hanjaDatabase).find(([reading, hanjaArray]) =>
-        reading === syllable && Array.isArray(hanjaArray) && hanjaArray.length > 0
-      )
-
-      if (hanjaEntry) {
-        const [, hanjaArray] = hanjaEntry
-        const firstHanja = hanjaArray[0]
-        return {
+      else if (hanjaDatabase[syllable] && Array.isArray(hanjaDatabase[syllable]) && hanjaDatabase[syllable].length > 0) {
+        const firstHanja = hanjaDatabase[syllable][0]
+        selectedChar = {
           char: firstHanja.hanja,
           reading: syllable,
           meaning: firstHanja.meaning,
@@ -245,35 +276,43 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           radicals: ''
         }
       }
-
       // 3. 전체 DB에서 음절로 검색
-      const fullHanjaEntry = Object.entries(fullHanjaData).find(([char, data]) =>
-        data.reading === syllable
-      )
+      else {
+        const fullHanjaEntry = Object.entries(fullHanjaData).find(([char, data]) =>
+          data.reading === syllable
+        )
 
-      if (fullHanjaEntry) {
-        const [char, data] = fullHanjaEntry
-        return {
-          char,
-          reading: data.reading,
-          meaning: data.meaning,
-          detailMeaning: data.detailMeaning,
-          strokes: data.strokes,
-          element: data.element,
-          radicals: ''
+        if (fullHanjaEntry) {
+          const [char, data] = fullHanjaEntry
+          selectedChar = {
+            char,
+            reading: data.reading,
+            meaning: data.meaning,
+            detailMeaning: data.detailMeaning,
+            strokes: data.strokes,
+            element: data.element,
+            radicals: ''
+          }
+        }
+        // 4. 완전히 없는 경우
+        else {
+          selectedChar = {
+            char: syllable,
+            reading: syllable,
+            meaning: '한자 정보 없음',
+            detailMeaning: '해당 한자의 상세 정보가 데이터베이스에 없습니다.',
+            strokes: 10,
+            element: '목(木)',
+            radicals: ''
+          }
         }
       }
 
-      // 4. 완전히 없는 경우
-      return {
-        char: syllable,
-        reading: syllable,
-        meaning: '한자 정보 없음',
-        detailMeaning: '해당 한자의 상세 정보가 데이터베이스에 없습니다.',
-        strokes: 10,
-        element: '목(木)',
-        radicals: ''
-      }
+      // 대안 한자들 찾기
+      const alternatives = getAlternativeHanjas(syllable, selectedChar.char)
+      selectedChar.alternatives = alternatives
+
+      return selectedChar
     })
 
     // 통계 데이터가 있으면 해당 한자 사용, 없으면 찾은 한자 사용
@@ -592,6 +631,39 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                         </p>
                       </div>
                     </div>
+
+                    {/* 대안 한자들 */}
+                    {char.alternatives && char.alternatives.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-neutral-200">
+                        <p className="text-xs text-neutral-600 mb-2">
+                          💡 '{char.reading}' 음의 다른 한자 ({char.alternatives.length}개)
+                        </p>
+                        <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
+                          {char.alternatives.slice(0, 15).map((alt, altIdx) => (
+                            <div
+                              key={altIdx}
+                              className="bg-white rounded-lg p-2 text-center border border-neutral-200 hover:border-primary-300 hover:bg-primary-50 transition-all cursor-pointer"
+                              title={`${alt.meaning} (${alt.strokes}획)`}
+                            >
+                              <div className="text-2xl font-bold text-neutral-800 mb-1">
+                                {alt.char}
+                              </div>
+                              <div className="text-xs text-neutral-600 truncate">
+                                {alt.meaning}
+                              </div>
+                              <div className="text-xs text-neutral-500">
+                                {alt.strokes}획
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        {char.alternatives.length > 15 && (
+                          <p className="text-xs text-neutral-500 mt-2 text-center">
+                            +{char.alternatives.length - 15}개 더 있음
+                          </p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
