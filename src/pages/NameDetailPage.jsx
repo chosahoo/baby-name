@@ -6,7 +6,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
   const [searchName, setSearchName] = useState(initialNameData?.name || '')
   const [result, setResult] = useState(null)
   const [shareModalOpen, setShareModalOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
 
   // initialNameData가 있으면 자동으로 분석
   useEffect(() => {
@@ -147,55 +146,16 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
   const analyzeName = (nameToAnalyze = searchName) => {
     if (!nameToAnalyze || nameToAnalyze.length === 0) return
 
-    setIsLoading(true)
-    setResult(null)
-
-    // 1.5초 후에 분석 결과 표시 (분석하는 애니메이션 효과)
-    setTimeout(() => {
-      // 통계에서 실제 데이터 찾기
-      const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
-      const statsData = allNames.find(n => n.name === nameToAnalyze)
+    // 통계에서 실제 데이터 찾기
+    const allNames = [...nameStatistics.girl, ...nameStatistics.boy]
+    const statsData = allNames.find(n => n.name === nameToAnalyze)
 
     // 이름을 음절로 분리
     const syllables = nameToAnalyze.split('')
 
-    // 통계 데이터에서 한자 가져오기
-    let actualHanjaChars = []
-    if (statsData && statsData.hanja && statsData.hanja !== '-') {
-      actualHanjaChars = statsData.hanja.split('')
-    }
-
     // 한자 데이터베이스에서 각 음절의 한자 찾기
-    const hanjaChars = syllables.map((syllable, index) => {
-      const actualHanja = actualHanjaChars[index]
-
-      // 1. 통계 데이터에 실제 한자가 있으면 그 한자로 데이터베이스 검색
-      if (actualHanja) {
-        const hanjaEntry = hanjaDatabase[actualHanja]
-        if (hanjaEntry) {
-          return {
-            char: actualHanja,
-            reading: hanjaEntry.reading || syllable,
-            meaning: hanjaEntry.meaning || '좋은 의미',
-            detailMeaning: hanjaEntry.detailMeaning || hanjaEntry.meaning || '좋은 의미의 한자입니다',
-            strokes: hanjaEntry.strokes || 10,
-            element: hanjaEntry.element || '목(木)',
-            radicals: hanjaEntry.radicals || ''
-          }
-        }
-        // 데이터베이스에 없어도 실제 한자는 표시
-        return {
-          char: actualHanja,
-          reading: syllable,
-          meaning: '좋은 의미',
-          detailMeaning: '한자 상세 정보는 데이터베이스에 없지만, 인명용 한자로 사용 가능한 글자입니다.',
-          strokes: 10,
-          element: '목(木)',
-          radicals: ''
-        }
-      }
-
-      // 2. 통계 데이터에 한자가 없으면 음절(reading)로 검색
+    const hanjaChars = syllables.map(syllable => {
+      // 한자 데이터베이스에서 해당 음절(reading)을 가진 한자 찾기
       const hanjaEntry = Object.entries(hanjaDatabase).find(([char, data]) =>
         data.reading === syllable
       )
@@ -213,22 +173,20 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
         }
       }
 
-      // 3. 완전히 없는 경우 기본값 반환
+      // 데이터베이스에 없는 경우 기본값 반환
       return {
-        char: syllable,
+        char: '未',
         reading: syllable,
-        meaning: '순우리말',
-        detailMeaning: '한글 이름으로 사용되는 순우리말입니다.',
-        strokes: 8,
+        meaning: '정보 없음',
+        detailMeaning: '해당 한자 정보가 데이터베이스에 없습니다.',
+        strokes: 5,
         element: '목(木)',
-        radicals: ''
+        radicals: '木(나무 목)'
       }
     })
 
     // 통계 데이터가 있으면 해당 한자 사용, 없으면 찾은 한자 사용
-    const hanjaString = statsData?.hanja && statsData.hanja !== '-'
-      ? statsData.hanja
-      : hanjaChars.map(h => h.char).join('')
+    const hanjaString = statsData ? statsData.hanja : hanjaChars.map(h => h.char).join('')
 
     // 총 획수 계산
     const totalStrokes = hanjaChars.reduce((sum, h) => sum + h.strokes, 0)
@@ -409,9 +367,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       },
       celebrities: [] // 실제 API 연동 필요
     })
-
-      setIsLoading(false)
-    }, 1500)
   }
 
   const getElementColor = (element) => {
@@ -446,7 +401,7 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           </div>
         </div>
 
-        {!result && !isLoading ? (
+        {!result ? (
           <div className="space-y-4">
             <div className="card">
               <h2 className="font-semibold text-neutral-800 mb-3">
@@ -467,9 +422,9 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 한자 의미 및 유래</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 성명학 (획수, 오행)</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 최근 5년 통계</div>
+                <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 유명인 동명이인</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 발음 분석</div>
                 <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 조화로운 성씨</div>
-                <div className="bg-primary-50 rounded-lg p-3 text-neutral-700">✓ 외국어 표기</div>
               </div>
             </div>
 
@@ -481,38 +436,7 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
               상세 분석하기 🔎
             </button>
           </div>
-        ) : null}
-
-        {/* 로딩 애니메이션 */}
-        {isLoading && (
-          <div className="card bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 text-center py-12">
-            <div className="mb-6">
-              <div className="inline-block animate-bounce">
-                <div className="text-6xl mb-4">🔍</div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <p className="text-lg font-bold text-neutral-800 animate-pulse">
-                분석 중...
-              </p>
-              <p className="text-sm text-neutral-600">
-                '{searchName}' 이름의<br/>
-                한자, 성명학, 통계를 분석하고 있어요
-              </p>
-            </div>
-
-            {/* 점 애니메이션 */}
-            <div className="flex justify-center gap-2 mt-6">
-              <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-              <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-            </div>
-          </div>
-        )}
-
-        {/* 결과 */}
-        {result && (
+        ) : (
           <div className="space-y-4">
             {/* 기본 정보 */}
             <div className="card bg-gradient-to-br from-primary-50 to-purple-50">
@@ -638,20 +562,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                 <h3 className="font-semibold text-neutral-800 mb-4">
                   📊 인기도 통계 (2024)
                 </h3>
-
-                {/* 순위 설명 */}
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-4">
-                  <div className="flex items-start gap-2">
-                    <svg className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p className="text-xs text-blue-700">
-                      대법원 전자가족관계등록시스템의 <span className="font-semibold">전국 신생아 출생신고 기준</span> 순위입니다.
-                      숫자가 낮을수록 많이 사용되는 인기 이름이에요.
-                    </p>
-                  </div>
-                </div>
-
                 <div className="grid grid-cols-3 gap-3 mb-4">
                   <div className="bg-primary-50 rounded-xl p-3 text-center">
                     <p className="text-xs text-neutral-600 mb-1">2024년 순위</p>
