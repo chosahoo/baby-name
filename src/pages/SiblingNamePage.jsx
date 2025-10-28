@@ -5,6 +5,7 @@ function SiblingNamePage({ onBack }) {
   const [siblings, setSiblings] = useState([{ id: 1, name: '' }])
   const [newBabyGender, setNewBabyGender] = useState('')
   const [results, setResults] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const addSibling = () => {
     setSiblings([...siblings, { id: Date.now(), name: '' }])
@@ -21,101 +22,108 @@ function SiblingNamePage({ onBack }) {
   }
 
   const findSiblingNames = () => {
-    // 성별에 따라 데이터 선택
-    const gender = newBabyGender === 'girl' ? 'girl' :
-                   newBabyGender === 'boy' ? 'boy' : 'girl'
+    setIsLoading(true)
+    setResults(null)
 
-    let candidates = [...nameStatistics[gender]]
+    // 2초 후에 결과 표시 (고민하는 애니메이션 효과)
+    setTimeout(() => {
+      // 성별에 따라 데이터 선택
+      const gender = newBabyGender === 'girl' ? 'girl' :
+                     newBabyGender === 'boy' ? 'boy' : 'girl'
 
-    // 형제자매 이름들 분석
-    const siblingNames = siblings.map(s => s.name)
+      let candidates = [...nameStatistics[gender]]
 
-    // 각 후보 이름에 대해 조화도 계산
-    const scoredCandidates = candidates.map(candidate => {
-      let harmonyScore = 80 // 기본 점수
-      let pattern = ''
-      let reason = ''
+      // 형제자매 이름들 분석
+      const siblingNames = siblings.map(s => s.name)
 
-      // 1. 같은 음절 공유 체크 (가장 중요)
-      const sharedSyllables = []
-      for (const sibName of siblingNames) {
-        for (let i = 0; i < sibName.length; i++) {
-          if (candidate.name.includes(sibName[i])) {
-            sharedSyllables.push(sibName[i])
-            harmonyScore += 10
-            break
+      // 각 후보 이름에 대해 조화도 계산
+      const scoredCandidates = candidates.map(candidate => {
+        let harmonyScore = 80 // 기본 점수
+        let pattern = ''
+        let reason = ''
+
+        // 1. 같은 음절 공유 체크 (가장 중요)
+        const sharedSyllables = []
+        for (const sibName of siblingNames) {
+          for (let i = 0; i < sibName.length; i++) {
+            if (candidate.name.includes(sibName[i])) {
+              sharedSyllables.push(sibName[i])
+              harmonyScore += 10
+              break
+            }
           }
         }
-      }
 
-      if (sharedSyllables.length > 0) {
-        pattern = `같은 음절 공유 (${sharedSyllables.join(', ')})`
-        reason = '형제자매와 음절을 공유하여 가족의 연결감 표현'
-      }
-
-      // 2. 같은 음절로 시작하는지 체크
-      const firstSyllables = siblingNames.map(n => n[0])
-      if (firstSyllables.includes(candidate.name[0])) {
-        harmonyScore += 8
-        pattern = `같은 음절로 시작 (${candidate.name[0]})`
-        reason = '첫 음절을 공유하여 형제자매임을 알리는 효과'
-      }
-
-      // 3. 이름 길이 유사성
-      const sibLengths = siblingNames.map(n => n.length)
-      const avgLength = sibLengths.reduce((a, b) => a + b, 0) / sibLengths.length
-      if (Math.abs(candidate.name.length - avgLength) < 0.5) {
-        harmonyScore += 5
-        if (!pattern) {
-          pattern = '비슷한 이름 길이'
-          reason = '형제자매 이름과 같은 길이로 조화로움'
+        if (sharedSyllables.length > 0) {
+          pattern = `같은 음절 공유 (${sharedSyllables.join(', ')})`
+          reason = '형제자매와 음절을 공유하여 가족의 연결감 표현'
         }
-      }
 
-      // 4. 발음 패턴 유사성 (부드러운 발음 vs 강한 발음)
-      const softSounds = ['ㅇ', 'ㄴ', 'ㅁ', '연', '윤', '은', '아']
-      const strongSounds = ['ㅈ', 'ㅊ', 'ㅎ', '준', '진', '현']
-
-      const sibHasSoft = siblingNames.some(n => softSounds.some(s => n.includes(s)))
-      const sibHasStrong = siblingNames.some(n => strongSounds.some(s => n.includes(s)))
-      const candHasSoft = softSounds.some(s => candidate.name.includes(s))
-      const candHasStrong = strongSounds.some(s => candidate.name.includes(s))
-
-      if ((sibHasSoft && candHasSoft) || (sibHasStrong && candHasStrong)) {
-        harmonyScore += 5
-        if (!pattern) {
-          pattern = '유사한 발음 느낌'
-          reason = '형제자매와 발음 스타일이 조화롭게 어울림'
+        // 2. 같은 음절로 시작하는지 체크
+        const firstSyllables = siblingNames.map(n => n[0])
+        if (firstSyllables.includes(candidate.name[0])) {
+          harmonyScore += 8
+          pattern = `같은 음절로 시작 (${candidate.name[0]})`
+          reason = '첫 음절을 공유하여 형제자매임을 알리는 효과'
         }
-      }
 
-      // 5. 기본 패턴이 없으면 설정
-      if (!pattern) {
-        pattern = '전체적인 조화'
-        reason = '형제자매 이름과 전반적으로 잘 어울리는 이름'
-      }
+        // 3. 이름 길이 유사성
+        const sibLengths = siblingNames.map(n => n.length)
+        const avgLength = sibLengths.reduce((a, b) => a + b, 0) / sibLengths.length
+        if (Math.abs(candidate.name.length - avgLength) < 0.5) {
+          harmonyScore += 5
+          if (!pattern) {
+            pattern = '비슷한 이름 길이'
+            reason = '형제자매 이름과 같은 길이로 조화로움'
+          }
+        }
 
-      // 6. 인기도에 따른 추가 점수 (TOP 10 이름 우대)
-      if (candidate.ranks[2024] && candidate.ranks[2024] <= 10) {
-        harmonyScore += 3
-      }
+        // 4. 발음 패턴 유사성 (부드러운 발음 vs 강한 발음)
+        const softSounds = ['ㅇ', 'ㄴ', 'ㅁ', '연', '윤', '은', '아']
+        const strongSounds = ['ㅈ', 'ㅊ', 'ㅎ', '준', '진', '현']
 
-      return {
-        name: candidate.name,
-        hanja: candidate.hanja,
-        meaning: candidate.meaning,
-        harmony: Math.min(98, harmonyScore),
-        pattern,
-        reason
-      }
-    })
+        const sibHasSoft = siblingNames.some(n => softSounds.some(s => n.includes(s)))
+        const sibHasStrong = siblingNames.some(n => strongSounds.some(s => n.includes(s)))
+        const candHasSoft = softSounds.some(s => candidate.name.includes(s))
+        const candHasStrong = strongSounds.some(s => candidate.name.includes(s))
 
-    // 조화도 순으로 정렬하고 상위 5개 선택
-    const topResults = scoredCandidates
-      .sort((a, b) => b.harmony - a.harmony)
-      .slice(0, 5)
+        if ((sibHasSoft && candHasSoft) || (sibHasStrong && candHasStrong)) {
+          harmonyScore += 5
+          if (!pattern) {
+            pattern = '유사한 발음 느낌'
+            reason = '형제자매와 발음 스타일이 조화롭게 어울림'
+          }
+        }
 
-    setResults(topResults)
+        // 5. 기본 패턴이 없으면 설정
+        if (!pattern) {
+          pattern = '전체적인 조화'
+          reason = '형제자매 이름과 전반적으로 잘 어울리는 이름'
+        }
+
+        // 6. 인기도에 따른 추가 점수 (TOP 10 이름 우대)
+        if (candidate.ranks[2024] && candidate.ranks[2024] <= 10) {
+          harmonyScore += 3
+        }
+
+        return {
+          name: candidate.name,
+          hanja: candidate.hanja,
+          meaning: candidate.meaning,
+          harmony: Math.min(98, harmonyScore),
+          pattern,
+          reason
+        }
+      })
+
+      // 조화도 순으로 정렬하고 상위 5개 선택
+      const topResults = scoredCandidates
+        .sort((a, b) => b.harmony - a.harmony)
+        .slice(0, 5)
+
+      setIsLoading(false)
+      setResults(topResults)
+    }, 2000)
   }
 
   return (
@@ -141,7 +149,7 @@ function SiblingNamePage({ onBack }) {
           </div>
         </div>
 
-        {!results ? (
+        {!results && !isLoading ? (
           <div className="space-y-4">
             <div className="card">
               <h2 className="font-semibold text-neutral-800 mb-3">
@@ -218,7 +226,38 @@ function SiblingNamePage({ onBack }) {
               형제자매 이름 추천받기 🎯
             </button>
           </div>
-        ) : (
+        ) : null}
+
+        {/* 로딩 애니메이션 */}
+        {isLoading && (
+          <div className="card bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 text-center py-12">
+            <div className="mb-6">
+              <div className="inline-block animate-bounce">
+                <div className="text-6xl mb-4">🤔</div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-lg font-bold text-neutral-800 animate-pulse">
+                고민 중...
+              </p>
+              <p className="text-sm text-neutral-600">
+                {siblings.map(s => s.name).join(', ')}와(과)<br/>
+                잘 어울리는 이름을 찾고 있어요
+              </p>
+            </div>
+
+            {/* 점 애니메이션 */}
+            <div className="flex justify-center gap-2 mt-6">
+              <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+            </div>
+          </div>
+        )}
+
+        {/* 결과 */}
+        {results && (
           <div className="space-y-4">
             <div className="card bg-primary-50">
               <p className="text-center text-neutral-700">
@@ -243,7 +282,9 @@ function SiblingNamePage({ onBack }) {
                       <h3 className="text-xl font-bold text-neutral-800">
                         {result.name}
                       </h3>
-                      <p className="text-sm text-neutral-600">{result.hanja}</p>
+                      {result.hanja && result.hanja !== '-' && (
+                        <p className="text-sm text-neutral-600">{result.hanja}</p>
+                      )}
                     </div>
                   </div>
                   <div className="text-right">

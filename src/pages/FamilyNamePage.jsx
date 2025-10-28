@@ -6,6 +6,7 @@ function FamilyNamePage({ onBack, onNavigate }) {
   const [motherName, setMotherName] = useState('')
   const [selectedGender, setSelectedGender] = useState('girl')
   const [showResults, setShowResults] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   // 주요 성씨 (획수 포함)
   const majorSurnames = [
@@ -106,7 +107,14 @@ function FamilyNamePage({ onBack, onNavigate }) {
 
   const handleGenerate = () => {
     if (fatherName.trim() && motherName.trim()) {
-      setShowResults(true)
+      setIsLoading(true)
+      setShowResults(false)
+
+      // 2초 후에 결과 표시 (고민하는 애니메이션 효과)
+      setTimeout(() => {
+        setIsLoading(false)
+        setShowResults(true)
+      }, 2000)
     }
   }
 
@@ -233,6 +241,34 @@ function FamilyNamePage({ onBack, onNavigate }) {
             ✨ 이름 추천 받기
           </button>
         </div>
+
+        {/* 로딩 애니메이션 */}
+        {isLoading && (
+          <div className="card bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 text-center py-12">
+            <div className="mb-6">
+              <div className="inline-block animate-bounce">
+                <div className="text-6xl mb-4">🤔</div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-lg font-bold text-neutral-800 animate-pulse">
+                고민 중...
+              </p>
+              <p className="text-sm text-neutral-600">
+                {fatherName}님과 {motherName}님의 사랑이 담긴<br/>
+                특별한 이름을 찾고 있어요
+              </p>
+            </div>
+
+            {/* 점 애니메이션 */}
+            <div className="flex justify-center gap-2 mt-6">
+              <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+              <div className="w-3 h-3 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+            </div>
+          </div>
+        )}
 
         {/* 결과 */}
         {showResults && recommendedNames.length > 0 && (
