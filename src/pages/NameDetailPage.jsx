@@ -597,11 +597,14 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
               </div>
 
               {/* 다른 한자 보기 안내 */}
-              <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+              <button
+                onClick={() => onNavigate('hanja')}
+                className="mt-4 w-full p-3 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 hover:border-blue-300 transition-all active:scale-[0.98]"
+              >
                 <p className="text-sm text-blue-800 text-center">
                   💡 다른 한문을 보려면 <span className="font-bold">한자 이름 추천</span>을 이용하세요
                 </p>
-              </div>
+              </button>
             </div>
 
             {/* 성명학 */}
