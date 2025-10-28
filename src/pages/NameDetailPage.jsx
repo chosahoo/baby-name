@@ -210,42 +210,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
       actualHanjaChars = statsData.hanja.split('')
     }
 
-    // 각 음절의 대안 한자들을 모두 찾는 함수
-    const getAlternativeHanjas = (syllable, currentHanja) => {
-      const alternatives = []
-
-      // 기본 한자 DB에서 찾기
-      if (hanjaByReading[syllable] && Array.isArray(hanjaByReading[syllable])) {
-        hanjaByReading[syllable].forEach(h => {
-          if (h.hanja !== currentHanja) {
-            alternatives.push({
-              char: h.hanja,
-              meaning: h.meaning,
-              strokes: h.strokes,
-              element: h.element
-            })
-          }
-        })
-      }
-
-      // 전체 DB에서 같은 읽기를 가진 한자들 찾기 (최대 20개)
-      Object.entries(fullHanjaData).forEach(([char, data]) => {
-        if (data.reading === syllable && char !== currentHanja) {
-          // 이미 추가되지 않은 한자만 추가
-          if (!alternatives.find(alt => alt.char === char)) {
-            alternatives.push({
-              char: char,
-              meaning: data.meaning,
-              strokes: data.strokes,
-              element: data.element
-            })
-          }
-        }
-      })
-
-      return alternatives.slice(0, 20) // 최대 20개까지만
-    }
-
     // 한자 데이터베이스에서 각 음절의 한자 찾기 (4-tier lookup)
     const hanjaChars = syllables.map((syllable, index) => {
       const actualHanja = actualHanjaChars[index]
@@ -308,10 +272,6 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
           }
         }
       }
-
-      // 대안 한자들 찾기
-      const alternatives = getAlternativeHanjas(syllable, selectedChar.char)
-      selectedChar.alternatives = alternatives
 
       return selectedChar
     })
@@ -632,41 +592,15 @@ function NameDetailPage({ onBack, initialNameData = null, onNavigate }) {
                         </p>
                       </div>
                     </div>
-
-                    {/* 대안 한자들 */}
-                    {char.alternatives && char.alternatives.length > 0 && (
-                      <div className="mt-4 pt-4 border-t border-neutral-200">
-                        <p className="text-xs text-neutral-600 mb-2">
-                          💡 '{char.reading}' 음의 다른 한자 ({char.alternatives.length}개)
-                        </p>
-                        <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                          {char.alternatives.slice(0, 15).map((alt, altIdx) => (
-                            <div
-                              key={altIdx}
-                              className="bg-white rounded-lg p-2 text-center border border-neutral-200 hover:border-primary-300 hover:bg-primary-50 transition-all cursor-pointer"
-                              title={`${alt.meaning} (${alt.strokes}획)`}
-                            >
-                              <div className="text-2xl font-bold text-neutral-800 mb-1">
-                                {alt.char}
-                              </div>
-                              <div className="text-xs text-neutral-600 truncate">
-                                {alt.meaning}
-                              </div>
-                              <div className="text-xs text-neutral-500">
-                                {alt.strokes}획
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                        {char.alternatives.length > 15 && (
-                          <p className="text-xs text-neutral-500 mt-2 text-center">
-                            +{char.alternatives.length - 15}개 더 있음
-                          </p>
-                        )}
-                      </div>
-                    )}
                   </div>
                 ))}
+              </div>
+
+              {/* 다른 한자 보기 안내 */}
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                <p className="text-sm text-blue-800 text-center">
+                  💡 다른 한문을 보려면 <span className="font-bold">한자 이름 추천</span>을 이용하세요
+                </p>
               </div>
             </div>
 
